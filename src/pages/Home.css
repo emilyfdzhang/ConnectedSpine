@@ -2,7 +2,20 @@
     background-image: url("../../public/Homepage.png");
     /* background-color: green; */
     background-repeat:no-repeat;
-    background-size: contain;
+    background-size: cover;
     width: 100vw;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title-text{
+    margin-left: 5vw;
+    margin-top: 20vh;
+}
+
+.instructions{
+    margin-left: 5vw;
+    margin-top: 20vh;
 }
