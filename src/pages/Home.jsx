@@ -1,7 +1,11 @@
+import './Home.css';
+
 const Home = () => {
-  return <main>
-    <h1>We connect you to the care you need.</h1>
-    </main>;
+  return (
+    <div class="homepage">
+      <h1>We connect you to the care you need.</h1>
+    </div>
+  );
 };
 
 export default Home;
