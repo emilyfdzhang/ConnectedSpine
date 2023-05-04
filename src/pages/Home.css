@@ -9,7 +9,7 @@
   flex-direction: column;
   justify-content: center;
 }
-
+/* 
 .menue {
   display: flex;
   padding: 0 65px;
@@ -22,7 +22,7 @@
 
 .menue span {
   padding-left: 10px;
-}
+} */
 
 .title-text {
   margin-left: 5vw;

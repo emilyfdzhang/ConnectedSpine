@@ -1,12 +1,14 @@
 import './Home.css';
+import Header from '../components/Header';
 
 const Home = () => {
   return (
     <div className="homepage">
-      <button className="menue">
+      {/* <button className="menue">
         <i className="fa fa-bars"></i>
         <span>ConnectedSpine</span>
-      </button>
+      </button> */}
+      <Header />
       <div className="title-text">
         <h1>We connect you to the care you need.</h1>
         <p className="subtitle">
