@@ -1,21 +1,62 @@
 .homepage {
-    background-image: url("../../public/Homepage.png");
-    /* background-color: green; */
-    background-repeat:no-repeat;
-    background-size: cover;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  /* background-image: url("../../public/Homepage.png"); */
+  background-image: url('../../public/HomepageSlim.JPG');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.title-text{
-    margin-left: 5vw;
-    margin-top: 20vh;
+.menue {
+  display: flex;
+  padding: 0 65px;
+  border: none;
+  background: none;
+  font-size: 20px;
+  letter-spacing: 1px;
 }
 
-.instructions{
-    margin-left: 5vw;
-    margin-top: 20vh;
+.menue span {
+  padding-left: 10px;
+}
+
+.title-text {
+  margin-left: 5vw;
+  margin-top: 20vh;
+  max-width: 600px;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 55px;
+  font-weight: 400;
+  line-height: 49px;
+  letter-spacing: 0px;
+  padding-bottom: 10px;
+}
+
+.subtitle {
+  line-height: 22px;
+  max-width: 500px;
+}
+
+.instructions {
+  margin-left: 5vw;
+  margin-top: 20vh;
+}
+
+.bold {
+  font-weight: 900;
+}
+
+.assessment {
+  margin-top: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 900;
+  width: 235px;
+  height: 48px;
 }

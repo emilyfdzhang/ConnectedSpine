@@ -3,16 +3,23 @@ import './Home.css';
 const Home = () => {
   return (
     <div className="homepage">
+      <button className="menue">
+        <i className="fa fa-bars"></i>
+        <span>ConnectedSpine</span>
+      </button>
       <div className="title-text">
         <h1>We connect you to the care you need.</h1>
-        <p>
+        <p className="subtitle">
           ConnectedSpine uses the knowledge of spine care specialists to guide
           you to the right providers.
         </p>
       </div>
       <div className="instructions">
         <p>Experiencing pain or discomfort in your back or neck?</p>
-        <p>Take our 5 min assessment.</p>
+        <p className="bold">
+          <strong>Take our 5 min assessment.</strong>
+        </p>
+        <button className="assessment">Start Assessment</button>
       </div>
     </div>
   );
