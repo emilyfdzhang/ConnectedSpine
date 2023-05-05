@@ -16,10 +16,10 @@ const BasicInfo = () => {
   // const myCheckbox = document.getElementById("myCheckbox");
   // const myNextButton = document.getElementById("myButton");
   let navigate = useNavigate();
-  const [checked, setChecked] = useState(false);
+  const [isValid, setIsValid] = useState(false);
 
   function handleCheckboxClick() {
-    setChecked(!checked);
+    setIsValid(!isValid);
   }
 
   const handleBackClick = () => {
@@ -66,7 +66,7 @@ const BasicInfo = () => {
             <label>
               <input
                 type="checkbox"
-                checked={checked}
+                checked={isValid}
                 onClick={handleCheckboxClick}
               />
               <span>
@@ -83,7 +83,7 @@ const BasicInfo = () => {
             </label>
             <br />
             <BackButton onClick={handleBackClick}>Back</BackButton>
-            <NextButton isValid={checked} onClick={handleNextClick}>
+            <NextButton isValid={isValid} onClick={handleNextClick}>
               Next
             </NextButton>
           </RightContent>
