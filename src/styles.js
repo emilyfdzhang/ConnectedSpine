@@ -52,6 +52,7 @@ export const BackButton = styled.button`
   border-radius: 4px;
   cursor: pointer;
   text-transform: uppercase;
+  margin-right: 10px;
 `;
 
 export const Link = styled.a`

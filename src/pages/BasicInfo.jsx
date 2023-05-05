@@ -10,10 +10,12 @@ import {
 import Header from '../components/Header';
 import './BasicInfo.css';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const BasicInfo = () => {
   // const myCheckbox = document.getElementById("myCheckbox");
   // const myNextButton = document.getElementById("myButton");
+  let navigate = useNavigate();
   const [checked, setChecked] = useState(false);
 
   function handleCheckboxClick() {
@@ -62,7 +64,8 @@ const BasicInfo = () => {
             </label>
             <br />
             <BackButton>Back</BackButton>
-            <NextButton isValid={checked}>Next</NextButton>
+            <NextButton isValid={checked} onClick={() => navigate('/IntroQ2')}>
+              Next</NextButton>
           </RightContent>
         </ContentContainer>
       </Content>
