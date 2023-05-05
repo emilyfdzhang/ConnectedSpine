@@ -36,7 +36,7 @@ const Instructions = styled.div`
 const Home = () => {
   let navigate = useNavigate();
   return (
-    <Background image="../../public/HomepageSlim.JPG">
+    <Background image="../../public/HomepageSlim.jpg">
       <Header />
       <Content>
         <Title>

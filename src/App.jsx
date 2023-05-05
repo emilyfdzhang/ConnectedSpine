@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
 import Home from './pages/Home';
 import ZipCode from './pages/ZipCode';
+import BasicInfo from './pages/BasicInfo';
 
 const App = () => {
   return (
@@ -9,6 +9,7 @@ const App = () => {
       <Routes>
         <Route index element={<Home />}></Route>
         <Route path="zipcode" element={<ZipCode />}></Route>
+        <Route path="basicinfo" element={<BasicInfo />}></Route>
       </Routes>
     </BrowserRouter>
   );
