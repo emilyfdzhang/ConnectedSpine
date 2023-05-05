@@ -22,6 +22,16 @@ const BasicInfo = () => {
     setChecked(!checked);
   }
 
+  const handleBackClick = () => {
+    navigate('/zipcode');
+  };
+  const handleNextClick = () => {
+    if (isValid) {
+      navigate('/IntroQ2');
+    } else {
+    }
+  };
+
   // myCheckbox.addEventListener("click", function() {
   //   myButton.disabled = !myCheckbox.checked;
   // });
@@ -33,7 +43,8 @@ const BasicInfo = () => {
         <ContentContainer>
           <LeftContent>
             <h3>Section 1</h3>
-            <h2>Basic Info</h2>
+            {/* Fix line below maybe */}
+            <h2 style={{ 'font-weight': 'lighter' }}>Basic Info</h2>
             <h1>Terms of Service</h1>
           </LeftContent>
           <RightContent>
@@ -59,13 +70,22 @@ const BasicInfo = () => {
                 onClick={handleCheckboxClick}
               />
               <span>
-                I have read and accept the Terms of Service and Privacy Policy.
+                I have read and accept the{' '}
+                <b>
+                  <u>Terms of Service</u>
+                </b>{' '}
+                and{' '}
+                <b>
+                  <u>Privacy Policy</u>
+                </b>
+                .
               </span>
             </label>
             <br />
-            <BackButton>Back</BackButton>
-            <NextButton isValid={checked} onClick={() => navigate('/IntroQ2')}>
-              Next</NextButton>
+            <BackButton onClick={handleBackClick}>Back</BackButton>
+            <NextButton isValid={checked} onClick={handleNextClick}>
+              Next
+            </NextButton>
           </RightContent>
         </ContentContainer>
       </Content>
