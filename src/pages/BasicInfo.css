@@ -1,8 +1,14 @@
 label {
-    display: flex;
-    align-items: center;
-  }
-  
-  input[type="checkbox"] {
-    margin-right: 10px;
-  }
+  display: flex;
+  align-items: center;
+}
+
+input[type='checkbox'] {
+  margin-right: 10px;
+}
+.direction_button {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 20px;
+}

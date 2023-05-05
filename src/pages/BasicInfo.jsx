@@ -6,6 +6,7 @@ import {
   ContentContainer,
   RightContent,
   LeftContent,
+  BackNextButtonContainer
 } from '../styles';
 import Header from '../components/Header';
 import './BasicInfo.css';
@@ -82,14 +83,16 @@ const BasicInfo = () => {
               </span>
             </label>
             <br />
-            <BackButton onClick={handleBackClick}>Back</BackButton>
-            <NextButton isValid={isValid} onClick={handleNextClick}>
-              Next
-            </NextButton>
+            <BackNextButtonContainer>
+              <BackButton onClick={handleBackClick}>Back</BackButton>
+              <NextButton isValid={isValid} onClick={handleNextClick}>
+                Next
+              </NextButton>
+            </BackNextButtonContainer>
           </RightContent>
         </ContentContainer>
       </Content>
-    </Background>
+    </Background >
   );
 };
 export default BasicInfo;
