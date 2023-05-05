@@ -11,7 +11,6 @@ import {
 import Header from '../components/Header';
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useNavigate } from 'react-router-dom';
 // import "bootstrap-icons/font/bootstrap-icons.css";
 
 const Card = () => {
@@ -36,20 +35,7 @@ const Card = () => {
     </div>
   );
 };
-const IntroQ2 = () => {
-  let navigate = useNavigate();
-
-  const [isValid, setIsValid] = useState(true);
-
-  const handleBackClick = () => {
-    navigate('/basicinfo');
-  };
-  const handleNextClick = () => {
-    if (isValid) {
-      navigate('/IntroQ3');
-    } else {
-    }
-  };
+const IntroQ3 = () => {
   return (
     <Background image="../../public/Pages.jpg">
       <Header />
@@ -63,10 +49,8 @@ const IntroQ2 = () => {
           <RightContent>
             <Card></Card>
             <BackNextButtonContainer>
-              <BackButton onClick={handleBackClick}>Back</BackButton>
-              <NextButton isValid={isValid} onClick={handleNextClick}>
-                Next
-              </NextButton>
+              <BackButton>Back</BackButton>
+              <NextButton>Next</NextButton>
             </BackNextButtonContainer>
           </RightContent>
         </ContentContainer>
@@ -74,4 +58,4 @@ const IntroQ2 = () => {
     </Background>
   );
 };
-export default IntroQ2;
+export default IntroQ3;
