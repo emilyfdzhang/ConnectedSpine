@@ -25,11 +25,11 @@ export const ContentContainer = styled.span`
 `;
 
 export const RightContent = styled.span`
-  width: 52%;
+  width: 53%;
 `;
 
 export const LeftContent = styled.span`
-  width: 48%;
+  width: 47%;
 `;
 export const BackNextButtonContainer = styled.span`
   position: fixed;

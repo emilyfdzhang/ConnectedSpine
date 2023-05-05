@@ -9,11 +9,11 @@ import {
   BackNextButtonContainer
 } from '../styles';
 import Header from '../components/Header';
-import './BasicInfo.css';
+import './TermsAgreement.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const BasicInfo = () => {
+const TermsAgreement = () => {
   // const myCheckbox = document.getElementById("myCheckbox");
   // const myNextButton = document.getElementById("myButton");
   let navigate = useNavigate();
@@ -95,4 +95,4 @@ const BasicInfo = () => {
     </Background >
   );
 };
-export default BasicInfo;
+export default TermsAgreement;

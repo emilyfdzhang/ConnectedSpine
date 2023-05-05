@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
-import { Background, Content, NextButton, Link} from '../styles';
+import { Background, Content, NextButton, Link } from '../styles';
 import styled from 'styled-components';
 
 const Title = styled.h1`
@@ -86,7 +86,7 @@ const ZipCode = () => {
 
   const handleNextClick = () => {
     if (isValid) {
-      navigate('/basicinfo');
+      navigate('/termsagreement');
     } else {
     }
   };

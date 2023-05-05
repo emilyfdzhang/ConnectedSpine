@@ -14,21 +14,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 // import "bootstrap-icons/font/bootstrap-icons.css";
 
-const Card = () => {
+const Card = ({ buttonclick }) => {
   return (
     <div class="container">
       <div class="row">
         <div class="col-md-6">
           <div class="card card-square">
             <div class="card-body text-center">
-              <button class="btn btn-light btn-large"> Myself</button>
+              <button class="btn btn-light btn-large" onClick={buttonclick}> Myself</button>
             </div>
           </div>
         </div>
         <div class="col-md-6">
           <div class="card card-square">
             <div class="card-body text-center">
-              <button class="btn btn-light btn-large"> Someone Else</button>
+              <button class="btn btn-light btn-large" onClick={buttonclick}> Someone Else</button>
             </div>
           </div>
         </div>
@@ -39,10 +39,13 @@ const Card = () => {
 const IntroQ2 = () => {
   let navigate = useNavigate();
 
-  const [isValid, setIsValid] = useState(true);
 
+  const [isValid, setIsValid] = useState(false);
+  function handleButtonClick() {
+    setIsValid(!isValid);
+  }
   const handleBackClick = () => {
-    navigate('/basicinfo');
+    navigate('/termsagreement');
   };
   const handleNextClick = () => {
     if (isValid) {
@@ -61,7 +64,7 @@ const IntroQ2 = () => {
             <h1>Who are you answering this questionnaire for?</h1>
           </LeftContent>
           <RightContent>
-            <Card></Card>
+            <Card buttonclick={handleButtonClick} />
             <BackNextButtonContainer>
               <BackButton onClick={handleBackClick}>Back</BackButton>
               <NextButton isValid={isValid} onClick={handleNextClick}>
@@ -71,7 +74,7 @@ const IntroQ2 = () => {
           </RightContent>
         </ContentContainer>
       </Content>
-    </Background>
+    </Background >
   );
 };
 export default IntroQ2;
