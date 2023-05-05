@@ -19,6 +19,19 @@ export const Content = styled.span`
   height: 80%;
 `;
 
+export const ContentContainer = styled.span`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const RightContent = styled.span`
+  width: 50%;
+`;
+
+export const LeftContent = styled.span`
+  width: 50%;
+`;
+
 export const NextButton = styled.button`
   width: 80px;
   height: 40px;
