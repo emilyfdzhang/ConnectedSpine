@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
+import Header from './Header';
 import { Background, Content, NextButton, Link } from '../styles';
 import styled from 'styled-components';
+import AssessmentContext from '../helpers/Contexts';
+import { useContext } from 'react';
+
 
 const Title = styled.h1`
   font-size: 32px;
@@ -73,7 +75,7 @@ function isValidUSZip(zip) {
 }
 
 const ZipCode = () => {
-  let navigate = useNavigate();
+  const { AssessmentState, setAssessmentState } = useContext(AssessmentContext)
   const [zipCode, setZipCode] = useState('');
   const [isValid, setIsValid] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -86,7 +88,7 @@ const ZipCode = () => {
 
   const handleNextClick = () => {
     if (isValid) {
-      navigate('/termsagreement');
+      setAssessmentState("basicinfo");
     } else {
     }
   };

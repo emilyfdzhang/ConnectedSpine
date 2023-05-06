@@ -1,5 +1,5 @@
 import AssessmentContext from '../helpers/Contexts';
-import Header from '../components/Header';
+import Header from './Header';
 import { Background, Content } from '../styles';
 import styled from "styled-components";
 import { useContext } from 'react';
@@ -54,7 +54,7 @@ const Home = () => {
           <p>
             <strong>Take our 5 min assessment.</strong>
           </p>
-          <button onClick={() => { setAssessmentState("basicinfo") }}>
+          <button onClick={() => { setAssessmentState("zipcode") }}>
             Start Assessment
           </button>
         </Instructions>

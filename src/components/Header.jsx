@@ -91,14 +91,14 @@ const Header = () => {
         <button onClick={toggleSidebar}>
           <FontAwesomeIcon icon={faX} />
         </button>
-        {/* <NavLink to="" onClick={isOpen ? toggleSidebar : undefined}>
+        <a onClick={isOpen ? toggleSidebar : undefined}>
           Profile
-        </NavLink>
-        <NavLink to="/" onClick={isOpen ? toggleSidebar : undefined}>
+        </a>
+        <a onClick={isOpen ? toggleSidebar : undefined}>
           Assessment
-        </NavLink> */}
+        </a>
       </Bar>
-    </Heading>
+    </Heading >
   );
 };
 
