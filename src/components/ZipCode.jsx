@@ -88,7 +88,7 @@ const ZipCode = () => {
 
   const handleNextClick = () => {
     if (isValid) {
-      setAssessmentState("basicinfo");
+      setAssessmentState("questions");
     } else {
     }
   };

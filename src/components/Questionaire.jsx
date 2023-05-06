@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AssessmentContext from '../../helpers/Contexts';
+import AssessmentContext from '../helpers/Contexts';
 import { useContext } from 'react';
 import {
     BackButton,
@@ -10,14 +10,14 @@ import {
     RightContent,
     LeftContent,
     BackNextButtonContainer,
-} from '../../styles';
-import Header from '../Header';
+} from '../styles';
+import Header from './Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import BasicInfoQuestions from "../../helpers/BasicInfoQuestions"
-import TermsAgreement from "./TermsAgreement";
-import './TermsAgreement.css';
-import Q2 from "./Q2";
-const BasicInfo = () => {
+import Questions from "../helpers/Questions"
+import TermsAgreement from "./BasicInfo/TermsAgreement";
+import "./BasicInfo/TermsAgreement.css";
+import Q2 from "./BasicInfo/Q2";
+const Questionaire = () => {
     const [currQuestion, setCurrQuestion] = useState(0)
     const { AssessmentState, setAssessmentState } = useContext(AssessmentContext)
     const handleBackClick = () => {
@@ -32,8 +32,8 @@ const BasicInfo = () => {
     }
     const handleNextClick = () => {
 
-        if (currQuestion === 5) {
-            setAssessmentState("symptoms")
+        if (currQuestion === 15) {
+            setAssessmentState("questions")
 
         }
         else {
@@ -45,9 +45,9 @@ const BasicInfo = () => {
         <Content>
             <ContentContainer>
                 <LeftContent>
-                    <h3>Section 1</h3>
-                    <h2>Basic Info</h2>
-                    <h1>{BasicInfoQuestions[currQuestion].prompt}</h1>
+                    <h3>Section {Questions[currQuestion].section}</h3>
+                    <h2>{Questions[currQuestion].section_name}</h2>
+                    <h1>{Questions[currQuestion].prompt}</h1>
                 </LeftContent>
                 <RightContent>
                     {currQuestion === 0 && <TermsAgreement />}
@@ -67,4 +67,4 @@ const BasicInfo = () => {
 
 }
 
-export default BasicInfo;
+export default Questionaire;
