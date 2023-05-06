@@ -1,7 +1,10 @@
-import { useNavigate } from 'react-router-dom';
+import AssessmentContext from '../helpers/Contexts';
 import Header from '../components/Header';
 import { Background, Content } from '../styles';
 import styled from "styled-components";
+import { useContext } from 'react';
+
+
 
 const Title = styled.div`
   max-width: 600px;
@@ -34,7 +37,7 @@ const Instructions = styled.div`
 
 
 const Home = () => {
-  let navigate = useNavigate();
+  const { AssessmentState, setAssessmentState } = useContext(AssessmentContext)
   return (
     <Background image="../../public/HomepageSlim.jpg">
       <Header />
@@ -51,7 +54,7 @@ const Home = () => {
           <p>
             <strong>Take our 5 min assessment.</strong>
           </p>
-          <button onClick={() => navigate('/zipcode')}>
+          <button onClick={() => { setAssessmentState("basicinfo") }}>
             Start Assessment
           </button>
         </Instructions>

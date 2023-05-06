@@ -3,6 +3,9 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faRefresh, faX } from '@fortawesome/free-solid-svg-icons';
+import { useContext } from 'react';
+import AssessmentContext from '../helpers/Contexts';
+
 
 const Heading = styled.span`
   display: flex;
@@ -65,7 +68,7 @@ const Bar = styled.div`
 `;
 
 const Header = () => {
-  let navigate = useNavigate();
+  const { AssessmentState, setAssessmentState } = useContext(AssessmentContext)
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -81,19 +84,19 @@ const Header = () => {
         </Button>
         <p>ConnectedSpine</p>
       </Nav>
-      <Button onClick={() => navigate('/')}>
+      <Button onClick={() => { setAssessmentState("start") }}>
         <FontAwesomeIcon icon={faRefresh} />
       </Button>
       <Bar isOpen={isOpen}>
         <button onClick={toggleSidebar}>
           <FontAwesomeIcon icon={faX} />
         </button>
-        <NavLink to="" onClick={isOpen ? toggleSidebar : undefined}>
+        {/* <NavLink to="" onClick={isOpen ? toggleSidebar : undefined}>
           Profile
         </NavLink>
         <NavLink to="/" onClick={isOpen ? toggleSidebar : undefined}>
           Assessment
-        </NavLink>
+        </NavLink> */}
       </Bar>
     </Heading>
   );
