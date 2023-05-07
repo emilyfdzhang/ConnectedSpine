@@ -68,7 +68,7 @@ const Bar = styled.div`
 `;
 
 const Header = () => {
-  const { AssessmentState, setAssessmentState } = useContext(AssessmentContext)
+  const { setAssessmentState } = useContext(AssessmentContext)
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -84,7 +84,7 @@ const Header = () => {
         </Button>
         <p>ConnectedSpine</p>
       </Nav>
-      <Button onClick={() => { setAssessmentState("start") }}>
+      <Button onClick={() => { setAssessmentState("home") }}>
         <FontAwesomeIcon icon={faRefresh} />
       </Button>
       <Bar isOpen={isOpen}>
@@ -94,7 +94,7 @@ const Header = () => {
         <a onClick={isOpen ? toggleSidebar : undefined}>
           Profile
         </a>
-        <a onClick={isOpen ? toggleSidebar : undefined}>
+        <a onClick={() => { setAssessmentState("home") }}>
           Assessment
         </a>
       </Bar>

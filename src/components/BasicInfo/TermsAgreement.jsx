@@ -1,10 +1,12 @@
 
 import './TermsAgreement.css';
 import { useState } from 'react';
+import AssessmentContext from '../../helpers/Contexts';
+import { useContext } from 'react';
 
 
 const TermsAgreement = () => {
-    const [isValid, setIsValid] = useState(false);
+    const { isValid, setIsValid } = useContext(AssessmentContext)
 
     function handleCheckboxClick() {
         setIsValid(!isValid);
