@@ -71,8 +71,7 @@ const Q3 = () => {
             alignItems: 'flex-end',
           }}
         >
-          <div style={{ marginRight: '165px' }}>Height</div>
-          <div>Weight</div>
+          <div style={{ marginRight: '165px' }}>Height and Weight</div>
         </Label>
         <div class="container d-flex justify-content-center">
           <TextInput type="text" placeholder="  ft in" />
