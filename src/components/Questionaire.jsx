@@ -17,6 +17,7 @@ import Questions from "../helpers/Questions"
 import TermsAgreement from "./BasicInfo/TermsAgreement";
 import "./BasicInfo/TermsAgreement.css";
 import Q2 from "./BasicInfo/Q2";
+import Options from "./Options";
 const Questionaire = () => {
     const [currQuestion, setCurrQuestion] = useState(0)
     const { AssessmentState, setAssessmentState, isValid, setIsValid } = useContext(AssessmentContext)
@@ -37,7 +38,7 @@ const Questionaire = () => {
 
         }
         else if (isValid) {
-            if (currQuestion < 1) {
+            if (currQuestion < 1 || currQuestion > 5) {
                 setIsValid(false)
             }
             setCurrQuestion(currQuestion + 1)
@@ -55,6 +56,7 @@ const Questionaire = () => {
                 <RightContent>
                     {currQuestion === 0 && <TermsAgreement />}
                     {currQuestion === 1 && <Q2 />}
+                    <Options options={Questions[currQuestion].options} />
                     <BackNextButtonContainer>
                         <BackButton onClick={handleBackClick}>Back</BackButton>
                         <NextButton isValid={isValid} onClick={handleNextClick} >
