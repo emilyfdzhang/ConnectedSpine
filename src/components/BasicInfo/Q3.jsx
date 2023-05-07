@@ -5,30 +5,12 @@ import { IconContext } from 'react-icons';
 import AssessmentContext from '../../helpers/Contexts';
 import { useContext } from 'react';
 import styled from 'styled-components';
+import { SelectButton } from '../../styles';
 
 const Label = styled.div`
   display: flex;
   align-items: center;
   font-weight: bold;
-`;
-
-const SpecialButton = styled.button`
-  font-size: 20px;
-  font-weight: 600;
-  margin-right: 10px;
-  padding: 10px 30px;
-  border-radius: 8px;
-  background-color: #ffffff;
-  color: #000000;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: 200px;
-  height: 60px;
-
-  &:hover {
-    background-color: rgba(128, 0, 128, 0.8);
-    color: #ffffff;
-  }
 `;
 
 const TextInput = styled.input`
@@ -58,9 +40,9 @@ const Q3 = () => {
       <Label style={{ paddingLeft: '20%', marginBottom: '15px' }}>
         Sex (Assigned at birth)
       </Label>
-      <div class="container d-flex justify-content-center">
-        <SpecialButton>Male</SpecialButton>
-        <SpecialButton>Female</SpecialButton>
+      <div className="container d-flex justify-content-center">
+        <SelectButton>Male</SelectButton>
+        <SelectButton>Female</SelectButton>
       </div>
       <br />
       <div>
@@ -73,7 +55,7 @@ const Q3 = () => {
         >
           <div style={{ marginRight: '165px' }}>Height and Weight</div>
         </Label>
-        <div class="container d-flex justify-content-center">
+        <div className="container d-flex justify-content-center">
           <TextInput type="text" placeholder="  ft in" />
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <TextInput type="text" placeholder="  lbs" />
@@ -91,7 +73,7 @@ const Q3 = () => {
           >
             <div style={{ marginRight: '165px' }}>Age</div>
           </Label>
-          <div class="container d-flex justify-content-center">
+          <div className="container d-flex justify-content-center">
             <TextInput type="text" placeholder="  years" />
           </div>
         </div>

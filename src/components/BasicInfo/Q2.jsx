@@ -30,40 +30,71 @@ const Q2 = () => {
     }, [myselfButton, someoneElseButton]);
 
     return (
-        <div class="container d-flex justify-content-center">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card card-square" style={{ height: '200px', backgroundColor: myselfButton ? '#CBC3E3' : null }}>
-                        <div class="card-body d-flex flex-column justify-content-end">
-                            <IconContext.Provider value={{ size: '2em', color: myselfButton ? '#000' : '#888' }}>
-                                <div>
-                                    <button class="btn btn-light btn-large" onClick={myselfButtonClick}>
-                                        <span><FaUser /></span> Myself
-                                    </button>
-                                </div>
-                            </IconContext.Provider>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card card-square" style={{ height: '200px', backgroundColor: someoneElseButton ? '#CBC3E3' : null }}>
-                        <div class="card-body d-flex flex-column justify-content-end">
-                            <IconContext.Provider value={{ size: '2em', color: someoneElseButton ? '#000' : '#888' }}>
-                                <div>
-                                    <button class="btn btn-light btn-large" onClick={someoneElseButtonClick}>
-                                        <span><FaUsers /></span> Someone Else
-                                    </button>
-                                </div>
-                            </IconContext.Provider>
-                            {/* <button class="btn btn-light btn-large" onClick={someoneElseButtonClick}>
+      <div className="container d-flex justify-content-center">
+        <div className="row">
+          <div className="col-md-6">
+            <div
+              className="card card-square"
+              style={{
+                height: '200px',
+                backgroundColor: myselfButton ? '#CBC3E3' : null,
+              }}
+            >
+              <div className="card-body d-flex flex-column justify-content-end">
+                <IconContext.Provider
+                  value={{ size: '2em', color: myselfButton ? '#000' : '#888' }}
+                >
+                  <div>
+                    <button
+                      className="btn btn-light btn-large"
+                      onClick={myselfButtonClick}
+                    >
+                      <span>
+                        <FaUser />
+                      </span>{' '}
+                      Myself
+                    </button>
+                  </div>
+                </IconContext.Provider>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div
+              className="card card-square"
+              style={{
+                height: '200px',
+                backgroundColor: someoneElseButton ? '#CBC3E3' : null,
+              }}
+            >
+              <div className="card-body d-flex flex-column justify-content-end">
+                <IconContext.Provider
+                  value={{
+                    size: '2em',
+                    color: someoneElseButton ? '#000' : '#888',
+                  }}
+                >
+                  <div>
+                    <button
+                      className="btn btn-light btn-large"
+                      onClick={someoneElseButtonClick}
+                    >
+                      <span>
+                        <FaUsers />
+                      </span>{' '}
+                      Someone Else
+                    </button>
+                  </div>
+                </IconContext.Provider>
+                {/* <button class="btn btn-light btn-large" onClick={someoneElseButtonClick}>
                 {' '}
                 Someone Else
               </button> */}
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     );
 };
 
