@@ -32,7 +32,7 @@ const Questionaire = () => {
     }
     const handleNextClick = () => {
 
-        if (currQuestion === 15) {
+        if (currQuestion === Questions.length - 1) {
             setAssessmentState("questions")
 
         }
