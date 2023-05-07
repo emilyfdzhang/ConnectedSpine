@@ -1,10 +1,8 @@
 import AssessmentContext from '../helpers/Contexts';
 import Header from './Header';
 import { Background, Content } from '../styles';
-import styled from "styled-components";
+import styled from 'styled-components';
 import { useContext } from 'react';
-
-
 
 const Title = styled.div`
   max-width: 600px;
@@ -35,11 +33,10 @@ const Instructions = styled.div`
   }
 `;
 
-
 const Home = () => {
-  const { AssessmentState, setAssessmentState } = useContext(AssessmentContext)
+  const { AssessmentState, setAssessmentState } = useContext(AssessmentContext);
   return (
-    <Background image="../../public/HomepageSlim.jpg">
+    <Background image="../../dist/HomepageSlim.jpg">
       <Header />
       <Content>
         <Title>
@@ -54,7 +51,11 @@ const Home = () => {
           <p>
             <strong>Take our 5 min assessment.</strong>
           </p>
-          <button onClick={() => { setAssessmentState("zipcode") }}>
+          <button
+            onClick={() => {
+              setAssessmentState('zipcode');
+            }}
+          >
             Start Assessment
           </button>
         </Instructions>

@@ -50,7 +50,7 @@ const Questionaire = () => {
   };
 
   return (
-    <Background image="../../public/Pages.jpg">
+    <Background image="../../dist/Pages.jpg">
       <Header />
       <Content>
         <ContentContainer>
