@@ -3,7 +3,7 @@ import AssessmentContext from '../../helpers/Contexts';
 import { useContext, useState, useEffect } from 'react';
 import { SelectButton } from '../../styles';
 
-const MultiButton = ({ options, selectedButton, HandleOnclick }) => {
+const SingleButton = ({ options, selectedButton, HandleOnclick }) => {
   const [selectedOptions, setSelectedOptions] = useState([]);
   const { isValid, setIsValid } = useContext(AssessmentContext);
 
@@ -29,22 +29,21 @@ const MultiButton = ({ options, selectedButton, HandleOnclick }) => {
   return (
     <div>
       {options.map((option) => (
-        <div>
-          <SelectButton
-            key={option}
-            onClick={() => handleOptionClick(option)}
-            style={{
-              marginBottom: '20px',
-              backgroundColor: selectedOptions.includes(option)
-                ? 'rgba(128, 0, 128, 0.8)'
-                : null,
-            }}
-          >
-            {option}
-          </SelectButton>
-        </div>
+        <SelectButton
+          onClick={() => handleOptionClick(option)}
+          style={{
+            marginBottom: '20px',
+            padding: '10px 20px',
+            display: 'inline-block',
+            backgroundColor: selectedOptions.includes(option)
+              ? 'rgba(128, 0, 128, 0.8)'
+              : null,
+            marginRight: '5px', // add margin-right to create space
+          }}
+        >
+          {option}
+        </SelectButton>
       ))}
-      {/* <p>Selected options: {selectedOptions.join(', ')}</p> */}
     </div>
   );
 
@@ -70,4 +69,4 @@ const MultiButton = ({ options, selectedButton, HandleOnclick }) => {
   // );
 };
 
-export default MultiButton;
+export default SingleButton;

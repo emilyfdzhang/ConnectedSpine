@@ -5,11 +5,11 @@ import Questions from '../helpers/Questions';
 import Select from './QuestionTypes/Select';
 import MultiSelect from './QuestionTypes/MultiSelect';
 import MultiButton from './QuestionTypes/MultiButton';
-import SelectButton from './QuestionTypes/SelectButton';
+import SingleButton from './QuestionTypes/SingleButton';
 import { ButtonGroup, Button } from 'react-bootstrap';
 
 const Options = ({ options, currQuestionType }) => {
-  const { isValid, setIsValid } = useContext(AssessmentContext);
+  // const { isValid, setIsValid } = useContext(AssessmentContext);
   const { selectedButton, setSelectedButton } = useContext(AssessmentContext);
   const HandleOnclick = (event) => {
     const selected_value = event.target.value;
@@ -49,7 +49,7 @@ const Options = ({ options, currQuestionType }) => {
         );
       case 'Selectbutton':
         return (
-          <SelectButton
+          <SingleButton
             options={options}
             selectedButton={selectedButton}
             HandleOnclick={HandleOnclick}
