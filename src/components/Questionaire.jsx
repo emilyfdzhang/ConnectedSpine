@@ -37,13 +37,17 @@ const Questionaire = () => {
             setAssessmentState("questions")
 
         }
-        else if (isValid) {
-            if (currQuestion < 1 || currQuestion > 5) {
-                setIsValid(false)
-            }
+        if (currQuestion === 2) {
+
             setCurrQuestion(currQuestion + 1)
         }
+        else if (isValid) {
+            setIsValid(false)
+            setCurrQuestion(currQuestion + 1)
+        }
+
     }
+
     return (<Background image="../../public/Pages.jpg">
         <Header />
         <Content>

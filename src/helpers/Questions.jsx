@@ -19,17 +19,20 @@ const Questions =
         {
             section: 1,
             section_name: "Basic Info",
-            prompt: "What brings you here today?"
+            prompt: "What brings you here today?",
+            options: ["A new pain or sensation in the back and/or neck", "Back and/or neck pain that has been chronic or occuring for some time", "A potential emergency or urgent care visit"]
         },
         {
             section: 1,
             section_name: "Basic Info",
-            prompt: "Do any of the following apply?"
+            prompt: "Do any of the following apply?",
+            options: ["I have fallen recently", "I lifted something heavy (moving, picking up children, weightligting, etc.", "I was injured or hurt myself (in a sports-related activity or otherwise)", "I was involved in motor vehicle accident", "None of the above"]
         },
         {
             section: 1,
             section_name: "Basic Info",
-            prompt: "Did your symptoms start after the incident?"
+            prompt: "Did your symptoms start after the incident?",
+            options: ["Yes", "No", "Not sure"]
         },
         {
             section: 2,
@@ -61,7 +64,7 @@ const Questions =
             section: 2,
             section_name: "Symptoms",
             prompt: "How does the dull, aching pain change?",
-            sub_question: ["Choose all that apply. The sensation gets worse when I...", "Choose all that apply.I get some relief from the sensation when I..."],
+            sub_questions: ["Choose all that apply. The sensation gets worse when I...", "Choose all that apply.I get some relief from the sensation when I..."],
             options: ["STAND UP", "SIT DOWN", "LEAN FORWARD", "LEAN BACK", "AM MOVING", "AM AT REST", "NONE OF THE ABOVE"]
         },
         {
@@ -74,7 +77,7 @@ const Questions =
             section: 2,
             section_name: "Symptoms",
             prompt: "Regarding the tightness",
-            subquestion: ["Does it feel like a pulled muscle?", "Does it get better with anti-inflammatory pain medication, such as Tylenol or Advil"],
+            subquestions: ["Does it feel like a pulled muscle?", "Does it get better with anti-inflammatory pain medication, such as Tylenol or Advil"],
             options: ["YES", "NO", "NOT SURE"]
         },
         {
