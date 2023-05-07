@@ -8,8 +8,9 @@ import ZipCode from './components/ZipCode';
 const App = () => {
   const [AssessmentState, setAssessmentState] = useState("home")
   const [isValid, setIsValid] = useState(false)
+  const [selectedButton, setSelectedButton] = useState(null)
   return (
-    <AssessmentContext.Provider value={{ AssessmentState, setAssessmentState, isValid, setIsValid }}>
+    <AssessmentContext.Provider value={{ AssessmentState, setAssessmentState, isValid, setIsValid, selectedButton, setSelectedButton }}>
       {AssessmentState === "home" && <Home />}
       {AssessmentState === "zipcode" && <ZipCode />}
       {AssessmentState === "questions" && <Questionaire />}
