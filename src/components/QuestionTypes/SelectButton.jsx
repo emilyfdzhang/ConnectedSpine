@@ -1,6 +1,6 @@
 import { ButtonGroup, Button } from 'react-bootstrap';
 
-const Select = ({ options, selectedButton, HandleOnclick }) => {
+const SelectButton = ({ options, selectedButton, HandleOnclick }) => {
   return (
     <ButtonGroup
       className="btn-group-vertical d-flex justify-content-center"
@@ -23,4 +23,4 @@ const Select = ({ options, selectedButton, HandleOnclick }) => {
   );
 };
 
-export default Select;
+export default SelectButton;

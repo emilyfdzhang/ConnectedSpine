@@ -2,6 +2,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import AssessmentContext from '../helpers/Contexts';
 import { useContext, useState } from 'react';
 import Questions from '../helpers/Questions';
+import Select from './QuestionTypes/Select';
+import MultiSelect from './QuestionTypes/MultiSelect';
+import MultiButton from './QuestionTypes/MultiButton';
+import SelectButton from './QuestionTypes/SelectButton';
 import { ButtonGroup, Button } from 'react-bootstrap';
 
 const Options = ({ options, currQuestionType }) => {
@@ -21,31 +25,36 @@ const Options = ({ options, currQuestionType }) => {
     switch (currQuestionType) {
       case 'Select':
         return (
-          <ButtonGroup
-            className="btn-group-vertical d-flex justify-content-center"
-            role="group"
-            aria-label="Button group"
-          >
-            {options.map((option, index) => (
-              <Button
-                key={index}
-                id={index}
-                value={option}
-                type="button"
-                className={selectedButton === index ? 'active' : 'btn-light'}
-                onClick={HandleOnclick}
-              >
-                {option}
-              </Button>
-            ))}
-          </ButtonGroup>
+          <Select
+            options={options}
+            selectedButton={selectedButton}
+            HandleOnclick={HandleOnclick}
+          />
         );
       case 'Multiselect':
-        return <h1>Multiselect</h1>;
+        return (
+          <MultiSelect
+            options={options}
+            selectedButton={selectedButton}
+            HandleOnclick={HandleOnclick}
+          />
+        );
       case 'Multibutton':
-        return <h1>Multibutton</h1>;
+        return (
+          <MultiButton
+            options={options}
+            selectedButton={selectedButton}
+            HandleOnclick={HandleOnclick}
+          />
+        );
       case 'Selectbutton':
-        return <h1>Selectbutton</h1>;
+        return (
+          <SelectButton
+            options={options}
+            selectedButton={selectedButton}
+            HandleOnclick={HandleOnclick}
+          />
+        );
       default:
         return <></>;
     }
