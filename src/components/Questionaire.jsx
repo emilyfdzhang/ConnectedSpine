@@ -13,12 +13,32 @@ import {
 } from '../styles';
 import Header from './Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import styled from "styled-components";
 import Questions from '../helpers/Questions';
 import TermsAgreement from './BasicInfo/TermsAgreement';
-import './BasicInfo/TermsAgreement.css';
 import Q2 from './BasicInfo/Q2';
 import Q3 from './BasicInfo/Q3';
 import Options from './Options';
+
+const Section = styled.h3`
+  font-size: 16px;
+  line-height: 24px;
+  text-transform: uppercase;
+`;
+
+const Name = styled.h2`
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+`;
+
+const Prompt = styled.h1`
+  margin-top: 20px;
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: 0px;
+`;
+
 const Questionaire = () => {
   const [currQuestion, setCurrQuestion] = useState(0);
   const [currSubQuestion, setCurrSubQuestion] = useState(0);
@@ -55,7 +75,6 @@ const Questionaire = () => {
     }
 
     else if (isValid) {
-      //setSelectedButton(null);
       setIsValid(false);
       console.log(currQuestion)
       console.log(currSubQuestion)
@@ -78,9 +97,9 @@ const Questionaire = () => {
       <Content>
         <ContentContainer>
           <LeftContent>
-            <h3>Section {Questions[currQuestion].section}</h3>
-            <h2>{Questions[currQuestion].section_name}</h2>
-            <h1>{Questions[currQuestion].prompt}</h1>
+            <Section>Section {Questions[currQuestion].section}</Section>
+            <Name>{Questions[currQuestion].section_name}</Name>
+            <Prompt>{Questions[currQuestion].prompt}</Prompt>
           </LeftContent>
           <RightContent>
 

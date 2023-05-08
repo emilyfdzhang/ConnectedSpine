@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import Header from './Header';
+import Modal from './Modal';
 import { Background, Content, NextButton, Link } from '../styles';
 import styled from 'styled-components';
 import AssessmentContext from '../helpers/Contexts';
 import { useContext } from 'react';
 
+const borderGrey = '#979797';
 
 const Title = styled.h1`
   font-size: 32px;
@@ -24,7 +26,7 @@ const Input = styled.div`
     height: 45px;
     margin-right: 20px;
     padding-left: 10px;
-    border: 1px solid #979797;
+    border: 1px solid ${borderGrey};
     border-radius: 4px;
 
     ::placeholder {
@@ -39,45 +41,16 @@ const Input = styled.div`
   }
 `;
 
-const Modal = styled.div`
-  display: ${(props) => (props.showModal ? 'block' : 'none')};
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-
-  .show {
-    display: block;
-  }
-
-  div {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 0 20px 20px 20px;
-    border: 1px solid #888;
-    width: 80%;
-  }
-`;
-
-const Exit = styled.span`
-  top: 0;
-  margin-left: 98%;
-  font-size: 25px;
-  cursor: pointer;
-`;
+const text = 'this is why we do this';
 
 function isValidUSZip(zip) {
   return /^\d{5}(-\d{4})?$/.test(zip);
 }
 
 const ZipCode = () => {
-  const { AssessmentState, setAssessmentState } = useContext(AssessmentContext)
+  const { setAssessmentState } = useContext(AssessmentContext);
+  const { isValid, setIsValid } = useContext(AssessmentContext);
   const [zipCode, setZipCode] = useState('');
-  const [isValid, setIsValid] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   const handleZipCodeChange = (event) => {
@@ -88,7 +61,8 @@ const ZipCode = () => {
 
   const handleNextClick = () => {
     if (isValid) {
-      setAssessmentState("questions");
+      setAssessmentState('questions');
+      setIsValid(false);
     } else {
     }
   };
@@ -119,17 +93,7 @@ const ZipCode = () => {
           </Input>
         </Form>
         <Link onClick={() => setShowModal(true)}>Why do we ask this?</Link>
-        <Modal showModal={showModal}>
-          <div>
-            <Exit onClick={() => setShowModal(false)}>&times;</Exit>
-            <p>
-              Some text in the Modal...ome text in the Modal...ome text in the
-              Modal... ome text in the Modal... ome text in the Modal... ome
-              text in the Modal... ome text in the Modal...ome text in the
-              Modal...ome text in the Modal...
-            </p>
-          </div>
-        </Modal>
+        <Modal showModal={showModal} setShowModal={setShowModal} text={text} />
       </Content>
     </Background>
   );
