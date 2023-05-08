@@ -6,7 +6,6 @@ import { faBars, faRefresh, faX } from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
 import AssessmentContext from '../helpers/Contexts';
 
-
 const Heading = styled.span`
   display: flex;
   justify-content: space-between;
@@ -21,6 +20,7 @@ const Nav = styled.span`
   align-items: center;
   p {
     padding-left: 10px;
+    margin-bottom: 0;
   }
 `;
 
@@ -55,6 +55,7 @@ const Bar = styled.div`
   }
 
   a {
+    cursor: pointer;
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
@@ -68,12 +69,19 @@ const Bar = styled.div`
 `;
 
 const Header = () => {
-  const { setAssessmentState } = useContext(AssessmentContext)
+  const { setAssessmentState } = useContext(AssessmentContext);
 
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleSidebar() {
     setIsOpen(!isOpen);
+  }
+
+  function handleButtonClicks(page) {
+    if (isOpen) {
+      toggleSidebar();
+    }
+    setAssessmentState(page);
   }
 
   return (
@@ -84,21 +92,21 @@ const Header = () => {
         </Button>
         <p>ConnectedSpine</p>
       </Nav>
-      <Button onClick={() => { setAssessmentState("home") }}>
+      <Button
+        onClick={() => {
+          setAssessmentState('home');
+        }}
+      >
         <FontAwesomeIcon icon={faRefresh} />
       </Button>
       <Bar isOpen={isOpen}>
         <button onClick={toggleSidebar}>
           <FontAwesomeIcon icon={faX} />
         </button>
-        <a onClick={isOpen ? toggleSidebar : undefined}>
-          Profile
-        </a>
-        <a onClick={() => { setAssessmentState("home") }}>
-          Assessment
-        </a>
+        <a onClick={handleButtonClicks.bind(null, 'home')}>Profile</a>
+        <a onClick={handleButtonClicks.bind(null, 'home')}>Assessment</a>
       </Bar>
-    </Heading >
+    </Heading>
   );
 };
 
