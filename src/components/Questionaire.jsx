@@ -59,13 +59,16 @@ const Questionaire = () => {
             <h1>{Questions[currQuestion].prompt}</h1>
           </LeftContent>
           <RightContent>
+
             {currQuestion === 0 && <TermsAgreement />}
             {currQuestion === 1 && <Q2 />}
             {currQuestion === 2 && <Q3 />}
-            <Options
-              options={Questions[currQuestion].options}
-              currQuestionType={Questions[currQuestion].type}
-            />
+            <div className='d-flex justify-content-center'>
+              <Options
+                options={Questions[currQuestion].options}
+                currQuestionType={Questions[currQuestion].type}
+              />
+            </div>
             <BackNextButtonContainer>
               <BackButton onClick={handleBackClick}>Back</BackButton>
               <NextButton isValid={isValid} onClick={handleNextClick}>
@@ -75,7 +78,7 @@ const Questionaire = () => {
           </RightContent>
         </ContentContainer>
       </Content>
-    </Background>
+    </Background >
   );
 };
 

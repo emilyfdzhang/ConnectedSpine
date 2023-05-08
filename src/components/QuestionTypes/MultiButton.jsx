@@ -2,6 +2,7 @@ import { ButtonGroup, Button } from 'react-bootstrap';
 import AssessmentContext from '../../helpers/Contexts';
 import { useContext, useState, useEffect } from 'react';
 import { SelectButton } from '../../styles';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const MultiButton = ({ options, selectedButton, HandleOnclick }) => {
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -27,25 +28,30 @@ const MultiButton = ({ options, selectedButton, HandleOnclick }) => {
   }, [selectedOptions]);
 
   return (
-    <div>
+    <div
+      className="btn-group-vertical d-flex justify-content-center"
+      role="group"
+      aria-label="Button group">
       {options.map((option) => (
-        <div>
-          <SelectButton
-            key={option}
-            onClick={() => handleOptionClick(option)}
-            style={{
-              marginBottom: '20px',
-              backgroundColor: selectedOptions.includes(option)
-                ? 'rgba(128, 0, 128, 0.8)'
-                : null,
-            }}
-          >
-            {option}
-          </SelectButton>
-        </div>
-      ))}
+
+        <SelectButton
+          key={option}
+          onClick={() => handleOptionClick(option)}
+          style={{
+            marginBottom: '20px',
+            backgroundColor: selectedOptions.includes(option)
+              ? 'rgba(128, 0, 128, 0.8)'
+              : null,
+          }}>
+
+          {option}
+        </SelectButton>
+
+
+      ))
+      }
       {/* <p>Selected options: {selectedOptions.join(', ')}</p> */}
-    </div>
+    </div >
   );
 
   // return (
