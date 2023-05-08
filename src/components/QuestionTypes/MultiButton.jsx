@@ -5,6 +5,7 @@ import { SelectButton } from '../../styles';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const MultiButton = ({ options, HandleOnclick, selectedOptions }) => {
+  console.log("Hey bestie")
   console.log(selectedOptions)
   return (
     <div
@@ -17,13 +18,16 @@ const MultiButton = ({ options, HandleOnclick, selectedOptions }) => {
           value={index}
           key={index}
           id={index}
-          onClick={() => HandleOnclick}
+          onClick={HandleOnclick}
           style={{
             marginBottom: '20px',
-            backgroundColor: selectedOptions.includes(index)
-              ? 'rgba(128, 0, 128, 0.8)'
-              : null,
-          }}>
+            backgroundColor:
+              selectedOptions.includes(index)
+
+                ? 'rgba(128, 0, 128, 0.8)'
+                : null,
+          }
+          } >
 
           {option}
         </SelectButton>

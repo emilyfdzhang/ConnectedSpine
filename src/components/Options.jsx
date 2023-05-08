@@ -13,12 +13,21 @@ const Options = ({ options, currQuestionType, currQuestion }) => {
   const { selectedOptions, setSelectedOptions } = useContext(AssessmentContext);
   const HandleOnclick = (event) => {
     const selected_value = parseInt(event.target.id);
+    console.log(event.target.id)
+
+
     //const buttonId = event.target.id[0];
     if (selectedOptions.includes(selected_value)) {
       setSelectedOptions(selectedOptions.filter(option => option != selected_value))
     }
     else {
-      setSelectedOptions(selectedOptions.concat(selected_value));
+      if (currQuestionType == "Select" || currQuestionType == "Selectbutton") {
+        setSelectedOptions([selected_value])
+
+      }
+      else {
+        setSelectedOptions(selectedOptions.concat(selected_value));
+      }
       setIsValid(true);
     }
 

@@ -23,7 +23,7 @@ const Questions = [
       'Back and/or neck pain that has been chronic or occuring for some time',
       'A potential emergency or urgent care visit',
     ],
-    type: 'Select',
+    type: 'Multiselect',
   },
   {
     section: 1,
@@ -36,21 +36,21 @@ const Questions = [
       'I was involved in motor vehicle accident',
       'None of the above',
     ],
-    type: 'Multiselect',
+    type: 'Select',
   },
   {
     section: 1,
     section_name: 'Basic Info',
     prompt: 'Did your symptoms start after the incident?',
     options: ['Yes', 'No', 'Not sure'],
-    type: 'Multiselect',
+    type: 'Select',
   },
   {
     section: 2,
     section_name: 'Symptoms',
     prompt: 'How long have you been experiencing these symptoms?',
     options: ['A few minutes', 'A few hours', 'A few days', 'Weeks', 'Month +'],
-    type: 'Multiselect',
+    type: 'Select',
   },
   {
     section: 2,
@@ -107,7 +107,7 @@ const Questions = [
       'Very difficult',
       'Extremely difficult',
     ],
-    type: 'Selectbutton',
+    type: 'Select',
   },
   {
     section: 2,
@@ -129,7 +129,7 @@ const Questions = [
       'No',
       'Not sure',
     ],
-    type: 'Selectbutton',
+    type: 'Select',
   },
   {
     section: 2,
@@ -148,7 +148,7 @@ const Questions = [
       'No',
       'Not sure',
     ],
-    type: 'Selectbutton',
+    type: 'Select',
   },
 
   {

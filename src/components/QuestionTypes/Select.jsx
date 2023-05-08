@@ -4,14 +4,14 @@ import { useContext, useState, useEffect } from 'react';
 
 const Select = ({ options, selectedOptions, HandleOnclick }) => {
 
+
   return (
     <div>
       {options.map((option, index) => (
         <div
           key={index}
-          id={index}
           value={index}
-          onClick={() => HandleOnclick}
+
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -20,6 +20,8 @@ const Select = ({ options, selectedOptions, HandleOnclick }) => {
           }}
         >
           <div
+            id={index}
+            onClick={HandleOnclick}
             style={{
 
               width: 20,
