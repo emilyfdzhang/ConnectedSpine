@@ -3,6 +3,10 @@ import AssessmentContext from '../../helpers/Contexts';
 import Modal from '../Modal';
 import styled from 'styled-components';
 
+const Container = styled.div`
+  padding: 0 30px;
+`;
+
 const Remember = styled.p`
   padding: 25px 0;
   line-height: 1.1em;
@@ -54,7 +58,7 @@ const TermsAgreement = () => {
   };
 
   return (
-    <div>
+    <Container>
       <p>
         Before answering our questionnaire, please read the Terms of Service.
       </p>
@@ -101,7 +105,7 @@ const TermsAgreement = () => {
         </span>
       </Checkbox>
       <br />
-    </div>
+    </Container>
   );
 };
 export default TermsAgreement;
