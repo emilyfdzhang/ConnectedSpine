@@ -9,8 +9,10 @@ const TermsAgreement = () => {
     const { isValid, setIsValid } = useContext(AssessmentContext)
 
     function handleCheckboxClick() {
+
         setIsValid(!isValid);
     }
+
 
     return (
         <div><p>

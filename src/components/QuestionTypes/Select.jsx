@@ -2,32 +2,16 @@ import { ButtonGroup, Button } from 'react-bootstrap';
 import AssessmentContext from '../../helpers/Contexts';
 import { useContext, useState, useEffect } from 'react';
 
-const Select = ({ options, selectedButton, HandleOnclick }) => {
-  const [selectedOption, setSelectedOption] = useState('');
-  const { isValid, setIsValid } = useContext(AssessmentContext);
-
-  const handleOptionSelect = (option) => {
-    if (selectedOption === option) {
-      setSelectedOption('');
-    } else {
-      setSelectedOption(option);
-    }
-  };
-
-  useEffect(() => {
-    if (selectedOption) {
-      setIsValid(true);
-    } else {
-      setIsValid(false);
-    }
-  }, [selectedOption]);
+const Select = ({ options, selectedOptions, HandleOnclick }) => {
 
   return (
     <div>
-      {options.map((option) => (
+      {options.map((option, index) => (
         <div
-          key={option}
-          onClick={() => handleOptionSelect(option)}
+          key={index}
+          id={index}
+          value={index}
+          onClick={() => HandleOnclick}
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -37,6 +21,7 @@ const Select = ({ options, selectedButton, HandleOnclick }) => {
         >
           <div
             style={{
+
               width: 20,
               height: 20,
               borderRadius: '50%',
@@ -46,10 +31,10 @@ const Select = ({ options, selectedButton, HandleOnclick }) => {
               alignItems: 'center',
               justifyContent: 'center',
               backgroundColor:
-                selectedOption === option ? 'purple' : 'transparent',
+                selectedOptions.includes(index) ? 'purple' : 'transparent',
             }}
           >
-            {selectedOption === option && (
+            {selectedOptions.includes(index) && (
               <div
                 style={{
                   width: 10,
@@ -61,9 +46,11 @@ const Select = ({ options, selectedButton, HandleOnclick }) => {
             )}
           </div>
           <div>{option}</div>
-        </div>
-      ))}
-    </div>
+
+        </div>))
+      } </div >
+
+
   );
 
   // return (

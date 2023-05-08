@@ -3,34 +3,14 @@ import AssessmentContext from '../../helpers/Contexts';
 import { useContext, useState, useEffect } from 'react';
 import { SelectButton } from '../../styles';
 
-const SingleButton = ({ options, selectedButton, HandleOnclick }) => {
-  const [selectedOptions, setSelectedOptions] = useState([]);
-  const { isValid, setIsValid } = useContext(AssessmentContext);
-
-  const handleOptionClick = (option) => {
-    const index = selectedOptions.indexOf(option);
-    if (index > -1) {
-      // remove option if already selected
-      setSelectedOptions(selectedOptions.filter((item) => item !== option));
-    } else {
-      // add option if not already selected
-      setSelectedOptions([...selectedOptions, option]);
-    }
-  };
-
-  useEffect(() => {
-    if (selectedOptions.length > 0) {
-      setIsValid(true);
-    } else {
-      setIsValid(false);
-    }
-  }, [selectedOptions]);
-
+const SingleButton = ({ options, selectedOptions, HandleOnclick }) => {
   return (
     <div>
-      {options.map((option) => (
+      {options.map((option, index) => (
         <SelectButton
-          onClick={() => handleOptionClick(option)}
+          value={index}
+          id={index}
+          onClick={() => HandleOnclick}
           style={{
             marginBottom: '20px',
             padding: '10px 20px',
