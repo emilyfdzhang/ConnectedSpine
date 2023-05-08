@@ -40,9 +40,8 @@ const Questionaire = () => {
     if (currQuestion === Questions.length - 1) {
       setAssessmentState('questions');
     }
-    if (currQuestion === 2) {
-      setCurrQuestion(currQuestion + 1);
-    } else if (isValid) {
+
+    else if (isValid) {
       setIsValid(false);
       setSelectedButton(null);
       setCurrQuestion(currQuestion + 1);
