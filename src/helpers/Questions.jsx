@@ -83,10 +83,7 @@ const Questions = [
     section: 2,
     section_name: 'Symptoms',
     prompt: 'How does the dull, aching pain change?',
-    sub_questions: [
-      'Choose all that apply. The sensation gets worse when I...',
-      'Choose all that apply.I get some relief from the sensation when I...',
-    ],
+    sub_questions: ['Choose all that apply. The sensation gets worse when I...', 'Choose all that apply.I get some relief from the sensation when I...'],
     options: [
       'STAND UP',
       'SIT DOWN',
@@ -98,6 +95,7 @@ const Questions = [
     ],
     type: 'Multibutton',
   },
+
   {
     section: 2,
     section_name: 'Symptoms',
@@ -115,10 +113,8 @@ const Questions = [
     section: 2,
     section_name: 'Symptoms',
     prompt: 'Regarding the tightness',
-    subquestions: [
-      'Does it feel like a pulled muscle?',
-      'Does it get better with anti-inflammatory pain medication, such as Tylenol or Advil',
-    ],
+    sub_questions: ['Does it feel like a pulled muscle?', 'Does it get better with anti - inflammatory pain medication, such as Tylenol or Advil'],
+
     options: ['YES', 'NO', 'NOT SURE'],
     type: 'Selectbutton',
   },
@@ -190,17 +186,10 @@ const Questions = [
     section: 3,
     section_name: 'Safety Check',
     prompt: 'Regarding your history...',
-    sub_questions: ["Have you ever been diagnosed with cancer?", "Has any direct family member of your family been diagnosed with cancer", "Have you had your bone health checked recently?"],
+    sub_questions: ["Have you ever been diagnosed with cancer?", "Has any direct family member of your family been diagnosed with cancer", "Have you had your bone health checked recently?", "Are you currently sexually active?", "Do you currently smoke?", "Have you smoked in the past?"],
     options: ["Yes", "No", "Not Sure"],
     type: 'Selectbutton'
-  },
-  {
-    section: 3,
-    section_name: 'Safety Check',
-    prompt: 'Regarding your history...',
-    sub_questions: ["Are you currently sexually active?", "Do you currently smoke?", "Have you smoked in the past?"],
-    options: ["Yes", "No", "Not Sure"],
-    type: 'Selectbutton'
-  },
+  }
+
 ];
 export default Questions;

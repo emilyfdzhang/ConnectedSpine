@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Questionaire from './components/Questionaire';
 import AssessmentContext from './helpers/Contexts';
 import ZipCode from './components/ZipCode';
+import Result from './components/result';
 
 const App = () => {
   const [AssessmentState, setAssessmentState] = useState("home")
@@ -14,6 +15,7 @@ const App = () => {
       {AssessmentState === "home" && <Home />}
       {AssessmentState === "zipcode" && <ZipCode />}
       {AssessmentState === "questions" && <Questionaire />}
+      {AssessmentState === "result" && <Result />}
     </AssessmentContext.Provider >
 
   );

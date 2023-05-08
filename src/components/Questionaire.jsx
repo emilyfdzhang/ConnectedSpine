@@ -21,6 +21,7 @@ import Q3 from './BasicInfo/Q3';
 import Options from './Options';
 const Questionaire = () => {
   const [currQuestion, setCurrQuestion] = useState(0);
+  const [currSubQuestion, setCurrSubQuestion] = useState(0);
   const {
     AssessmentState,
     setAssessmentState,
@@ -33,19 +34,42 @@ const Questionaire = () => {
     if (currQuestion === 0) {
       setAssessmentState('zipcode');
     } else {
-      setCurrQuestion(currQuestion - 1);
+      if (!Questions[currQuestion].sub_questions || currSubQuestion == 0) {
+        setCurrQuestion(currQuestion - 1);
+        if (Questions[currQuestion].sub_questions) {
+          setCurrSubQuestion(Questions[currQuestion].sub_questions.length - 1)
+        }
+        else {
+          setCurrSubQuestion(0)
+
+        }
+      }
+      else {
+        setCurrSubQuestion(currSubQuestion - 1);
+      }
     }
   };
   const handleNextClick = () => {
-    if (currQuestion === Questions.length - 1) {
-      setAssessmentState('questions');
+    if (currQuestion === Questions.length - 1 && currSubQuestion === Questions[currQuestion].sub_questions.length - 1) {
+      setAssessmentState('result');
     }
 
     else if (isValid) {
+      //setSelectedButton(null);
       setIsValid(false);
-      setSelectedButton(null);
-      setCurrQuestion(currQuestion + 1);
+      console.log(currQuestion)
+      console.log(currSubQuestion)
+      if (!Questions[currQuestion].sub_questions || currSubQuestion === Questions[currQuestion].sub_questions.length - 1) {
+        setCurrQuestion(currQuestion + 1);
+        setCurrSubQuestion(0);
+
+      }
+      else {
+        setCurrSubQuestion(currSubQuestion + 1);
+      }
+
     }
+
   };
 
   return (
@@ -63,6 +87,7 @@ const Questionaire = () => {
             {currQuestion === 0 && <TermsAgreement />}
             {currQuestion === 1 && <Q2 />}
             {currQuestion === 2 && <Q3 />}
+            {Questions[currQuestion].sub_questions && <p><b>{Questions[currQuestion].sub_questions[currSubQuestion]}</b></p>}
             <div className='d-flex justify-content-center'>
               <Options
                 options={Questions[currQuestion].options}
