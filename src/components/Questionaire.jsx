@@ -47,8 +47,7 @@ const Questionaire = () => {
     setAssessmentState,
     isValid,
     setIsValid,
-    selectedButton,
-    setSelectedButton,
+    selectedOptions, setSelectedOptions
   } = useContext(AssessmentContext);
   const handleBackClick = () => {
     if (currQuestion === 0) {
@@ -81,10 +80,12 @@ const Questionaire = () => {
       if (!Questions[currQuestion].sub_questions || currSubQuestion === Questions[currQuestion].sub_questions.length - 1) {
         setCurrQuestion(currQuestion + 1);
         setCurrSubQuestion(0);
+        setSelectedOptions([])
 
       }
       else {
         setCurrSubQuestion(currSubQuestion + 1);
+        setSelectedOptions([])
       }
 
     }
@@ -109,6 +110,7 @@ const Questionaire = () => {
             {Questions[currQuestion].sub_questions && <p><b>{Questions[currQuestion].sub_questions[currSubQuestion]}</b></p>}
             <div className='d-flex justify-content-center'>
               <Options
+                currQuestion={currQuestion}
                 options={Questions[currQuestion].options}
                 currQuestionType={Questions[currQuestion].type}
               />

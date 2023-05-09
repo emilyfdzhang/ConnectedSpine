@@ -37,25 +37,25 @@ const terms = 'this is the terms of service';
 const privacy = 'this is the privacy';
 
 const TermsAgreement = () => {
-  const { isValid, setIsValid } = useContext(AssessmentContext);
-  const [agreement, setAgreement] = useState(false);
-  const [showTerms, setShowTerms] = useState(false);
-  const [showPrivacy, setShowPrivacy] = useState(false);
+    const { isValid, setIsValid } = useContext(AssessmentContext);
+    const [agreement, setAgreement] = useState(false);
+    const [showTerms, setShowTerms] = useState(false);
+    const [showPrivacy, setShowPrivacy] = useState(false);
 
-  function handleCheckboxClick() {
-    setIsValid(!isValid);
-    setAgreement(true);
-  }
+    function handleCheckboxClick() {
+        setIsValid(!isValid);
+        setAgreement(true);
+    }
 
-  const handleTermsClick = (event) => {
-    event.preventDefault();
-    setShowTerms(true);
-  };
+    const handleTermsClick = (event) => {
+        event.preventDefault();
+        setShowTerms(true);
+    };
 
-  const handlePrivacyClick = (event) => {
-    event.preventDefault();
-    setShowPrivacy(true);
-  };
+    const handlePrivacyClick = (event) => {
+        event.preventDefault();
+        setShowPrivacy(true);
+    };
 
   return (
     <Container>

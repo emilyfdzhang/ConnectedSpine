@@ -1,8 +1,14 @@
+import { useContext } from 'react';
 import AssessmentContext from '../helpers/Contexts';
 import Header from './Header';
-import { Background, Content } from '../styles';
 import styled from 'styled-components';
-import { useContext } from 'react';
+import {
+  boxShadow,
+  boxBackground,
+  boxBorder,
+  Background,
+  Content,
+} from '../styles';
 
 const Title = styled.div`
   max-width: 600px;
@@ -30,6 +36,11 @@ const Instructions = styled.div`
     text-transform: uppercase;
     width: 235px;
     height: 48px;
+    background: ${boxBackground};
+    border: ${boxBorder};
+    box-shadow: ${boxShadow};
+    border-radius: 4px;
+    color: #1d2556;
   }
 `;
 

@@ -3,11 +3,10 @@ import AssessmentContext from '../../helpers/Contexts';
 import { IconContext } from 'react-icons';
 import { FaUser, FaUsers } from 'react-icons/fa';
 import styled from 'styled-components';
+import {selected, selectedBackground} from "../../styles";
 
 const textBlue = '#1d2556';
 const iconPurple = '#8992CD';
-const selected = '#3a49ac';
-const selectedBackground = 'rgba(58, 73, 172, 0.2)';
 
 const Container = styled.div`
   display: flex;
@@ -16,10 +15,13 @@ const Container = styled.div`
 `;
 
 const Button = styled.button`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 60%;
+  }
   margin: 0 10px;
   width: 167px;
   height: 184px;
@@ -30,7 +32,6 @@ const Button = styled.button`
   line-height: 16px;
   color: ${textBlue};
   border: none;
-
   ${(props) =>
     props.selected &&
     `
@@ -38,15 +39,11 @@ const Button = styled.button`
     `}
   background-color: ${(props) =>
     props.selected ? selectedBackground : 'white'};
-
-  & svg {
-    margin-bottom: 30px;
-  }
 `;
 
 const Q2 = () => {
-  const [usage, setUsage] = useState('');
   const { isValid, setIsValid } = useContext(AssessmentContext);
+  const [usage, setUsage] = useState('');
 
   const handleButtonClick = (choice) => {
     setUsage(choice);
@@ -67,8 +64,10 @@ const Q2 = () => {
           selected={usage === 'myself'}
           onClick={() => handleButtonClick('myself')}
         >
-          <FaUser />
-          Myself
+          <div>
+            <FaUser />
+            Myself
+          </div>
         </Button>
       </IconContext.Provider>
       <IconContext.Provider value={{ color: `${iconPurple}`, size: '70px' }}>
@@ -76,8 +75,10 @@ const Q2 = () => {
           selected={usage === 'others'}
           onClick={() => handleButtonClick('others')}
         >
-          <FaUsers />
-          Someone Else
+          <div>
+            <FaUsers />
+            Someone Else
+          </div>
         </Button>
       </IconContext.Provider>
     </Container>

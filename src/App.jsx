@@ -9,9 +9,9 @@ import Result from './components/result';
 const App = () => {
   const [AssessmentState, setAssessmentState] = useState("home")
   const [isValid, setIsValid] = useState(false)
-  const [selectedButton, setSelectedButton] = useState(null)
+  const [selectedOptions, setSelectedOptions] = useState([])
   return (
-    <AssessmentContext.Provider value={{ AssessmentState, setAssessmentState, isValid, setIsValid, selectedButton, setSelectedButton }}>
+    <AssessmentContext.Provider value={{ AssessmentState, setAssessmentState, isValid, setIsValid, selectedOptions, setSelectedOptions }}>
       {AssessmentState === "home" && <Home />}
       {AssessmentState === "zipcode" && <ZipCode />}
       {AssessmentState === "questions" && <Questionaire />}

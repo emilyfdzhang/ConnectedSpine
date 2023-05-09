@@ -8,26 +8,44 @@ import MultiButton from './QuestionTypes/MultiButton';
 import SingleButton from './QuestionTypes/SingleButton';
 import { ButtonGroup, Button } from 'react-bootstrap';
 
-const Options = ({ options, currQuestionType }) => {
-  // const { isValid, setIsValid } = useContext(AssessmentContext);
-  const { selectedButton, setSelectedButton } = useContext(AssessmentContext);
+const Options = ({ options, currQuestionType, currQuestion }) => {
+  const { isValid, setIsValid } = useContext(AssessmentContext);
+  const { selectedOptions, setSelectedOptions } = useContext(AssessmentContext);
   const HandleOnclick = (event) => {
-    const selected_value = event.target.value;
-    const buttonId = event.target.id;
-    setSelectedButton(parseInt(buttonId));
+    const selected_value = parseInt(event.target.id);
+    console.log(event.target.id)
 
-    if (!isValid) {
-      setIsValid(true);
-      console.log('Select Value:', selected_value);
+
+    //const buttonId = event.target.id[0];
+    if (selectedOptions.includes(selected_value)) {
+      setSelectedOptions(selectedOptions.filter(option => option != selected_value))
     }
-  };
+    else {
+      if (currQuestionType == "Select" || currQuestionType == "Selectbutton") {
+        setSelectedOptions([selected_value])
+
+      }
+      else {
+        setSelectedOptions(selectedOptions.concat(selected_value));
+      }
+      setIsValid(true);
+    }
+
+    //console.log(selectedOptions)
+  }
+  if (selectedOptions.length === 0 && currQuestion > 2) {
+    setIsValid(false)
+  }
+
+
+
   if (options) {
     switch (currQuestionType) {
       case 'Select':
         return (
           <Select
             options={options}
-            selectedButton={selectedButton}
+            selectedOptions={selectedOptions}
             HandleOnclick={HandleOnclick}
           />
         );
@@ -35,7 +53,7 @@ const Options = ({ options, currQuestionType }) => {
         return (
           <MultiSelect
             options={options}
-            selectedButton={selectedButton}
+            selectedOptions={selectedOptions}
             HandleOnclick={HandleOnclick}
           />
         );
@@ -43,7 +61,7 @@ const Options = ({ options, currQuestionType }) => {
         return (
           <MultiButton
             options={options}
-            selectedButton={selectedButton}
+            selectedOptions={selectedOptions}
             HandleOnclick={HandleOnclick}
           />
         );
@@ -51,7 +69,7 @@ const Options = ({ options, currQuestionType }) => {
         return (
           <SingleButton
             options={options}
-            selectedButton={selectedButton}
+            selectedOptions={selectedOptions}
             HandleOnclick={HandleOnclick}
           />
         );

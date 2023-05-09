@@ -1,153 +1,122 @@
-import { useState, useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { FaUser, FaUsers } from 'react-icons/fa';
-import { IconContext } from 'react-icons';
+import { useState, useEffect, useContext } from 'react';
 import AssessmentContext from '../../helpers/Contexts';
-import { useContext } from 'react';
 import styled from 'styled-components';
-import { SelectButton } from '../../styles';
+import { SelectButton, TextInput, Link, Warning } from '../../styles';
+
+const Container = styled.div`
+  width: 70%;
+  margin: 0 auto;
+`;
+
+const Sex = styled.div`
+  margin-bottom: 15px;
+`;
+
+const Body = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-top: 35px;
+  margin-bottom: 20px;
+`;
 
 const Label = styled.div`
   display: flex;
   align-items: center;
-  font-weight: bold;
-`;
-
-const TextInput = styled.input`
-  font-size: 20px;
-  font-weight: 600;
-  border-radius: 8px;
-  margin-right: 10px;
-  border: 2px solid #000000;
-  background-color: #ffffff;
-  color: #000000;
-  transition: all 0.3s ease;
-  width: 200px;
-  height: 60px;
-
-  &:hover,
-  &:focus {
-    background-color: rgba(128, 0, 128, 0.1);
-    outline: none;
-  }
+  margin-bottom: 10px;
 `;
 
 const Q3 = () => {
   const { isValid, setIsValid } = useContext(AssessmentContext);
+  const [sex, setSex] = useState('');
+  const [height, setHeight] = useState('');
+  const [weight, setWeight] = useState('');
+  const [age, setAge] = useState('');
 
-  const [maleButton, setMaleButton] = useState(false);
-  const [femaleButton, setFemaleButton] = useState(false);
-
-  const [heightInput, setHeightInput] = useState('');
-  const handleHeightInputChange = (event) => {
-    setHeightInput(event.target.value);
-  };
-
-  const [weightInput, setWeightInput] = useState('');
-  const handleWeightInputChange = (event) => {
-    setWeightInput(event.target.value);
-  };
-
-  const [ageInput, setAgeInput] = useState('');
-  const handleAgeInputChange = (event) => {
-    setAgeInput(event.target.value);
-  };
-
-  const maleButtonClick = () => {
-    setMaleButton((prevMaleButton) => !prevMaleButton);
-    setFemaleButton(false); // reset the other button state
-  };
-  const femaleButtonClick = () => {
-    setFemaleButton((prevFemaleButton) => !prevFemaleButton);
-    setMaleButton(false); // reset the other button state
+  const handleButtonClick = (choice) => {
+    setSex(choice);
   };
 
   useEffect(() => {
-    if (
-      ((maleButton && !femaleButton) || (!maleButton && femaleButton)) &&
-      heightInput &&
-      weightInput &&
-      ageInput
-    ) {
+    if (sex && height && weight && age) {
       setIsValid(true);
     } else {
       setIsValid(false);
     }
-  }, [maleButton, femaleButton, heightInput, weightInput, ageInput]);
+  }, [sex, height, weight, age, setIsValid]);
+
+  function formatHeight(height) {
+    const feet = Math.floor(height / 12);
+    const inches = height % 12;
+    return `${feet} ft ${inches} in`;
+  }
+
+  const handleHeight(event) => {
+    setHeight(event.target.value)
+  };
 
   return (
-    <div>
-      <Label style={{ paddingLeft: '20%', marginBottom: '15px' }}>
-        Sex (Assigned at birth)
-      </Label>
-      <div className="container d-flex justify-content-center">
-        <SelectButton
-          onClick={maleButtonClick}
-          style={{
-            backgroundColor: maleButton ? 'rgba(128, 0, 128, 0.8)' : null,
-          }}
-        >
-          Male
-        </SelectButton>
-        <SelectButton
-          onClick={femaleButtonClick}
-          style={{
-            backgroundColor: femaleButton ? 'rgba(128, 0, 128, 0.8)' : null,
-          }}
-        >
-          Female
-        </SelectButton>
-      </div>
-      <br />
-      <div>
-        <Label
-          style={{
-            paddingLeft: '20%',
-            marginBottom: '15px',
-            alignItems: 'flex-end',
-          }}
-        >
-          <div style={{ marginRight: '165px' }}>Height and Weight</div>
-        </Label>
-        <div className="container d-flex justify-content-center">
+    <Container>
+      <Sex>
+        <Label>Sex (Assigned at birth)</Label>
+        <div>
+          <SelectButton
+            selected={sex === 'male'}
+            onClick={() => handleButtonClick('male')}
+          >
+            Male
+          </SelectButton>
+          <SelectButton
+            selected={sex === 'female'}
+            onClick={() => handleButtonClick('female')}
+          >
+            Female
+          </SelectButton>
+        </div>
+      </Sex>
+      <Link>Why do we ask this?</Link>
+      <Body>
+        <div>
+          <Label>Height</Label>
           <TextInput
             type="text"
-            placeholder="  ft in"
-            value={heightInput}
-            onChange={handleHeightInputChange}
+            placeholder="ft in"
+            value={height}
+            onChange={(event) => setHeight(event.target.value)}
           />
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <TextInput
-              type="text"
-              placeholder="  lbs"
-              value={weightInput}
-              onChange={handleWeightInputChange}
-            />
-            <div style={{ marginTop: '-20px', paddingLeft: '5px' }}></div>
-          </div>
-        </div>{' '}
-        <br />
+          {isValid ? <></> : <Warning>* Please enter a valid height</Warning>}
+        </div>
         <div>
-          <Label
-            style={{
-              paddingLeft: '20%',
-              marginBottom: '15px',
-              alignItems: 'flex-end',
-            }}
-          >
-            <div style={{ marginRight: '165px' }}>Age</div>
-          </Label>
-          <div className="container d-flex justify-content-center">
-            <TextInput
-              type="text"
-              placeholder="  years"
-              value={ageInput}
-              onChange={handleAgeInputChange}
-            />
-          </div>
+          <Label>Weight</Label>
+          <TextInput
+            type="text"
+            placeholder="lbs"
+            value={weight}
+            onChange={(event) => setWeight(event.target.value)}
+          />
+          {Number.isInteger(parseInt(weight)) && parseInt(weight) > 0 ? (
+            <></>
+          ) : (
+            <Warning>* Please enter a valid weight</Warning>
+          )}
+        </div>
+      </Body>
+      <div>
+        <Label>Age</Label>
+        <div>
+          <TextInput
+            type="text"
+            placeholder="years"
+            value={age}
+            onChange={(event) => setAge(event.target.value)}
+          />
+          {Number.isInteger(parseInt(age)) && parseInt(age) > 0 ? (
+            <></>
+          ) : (
+            <Warning>* Please enter a valid age</Warning>
+          )}
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

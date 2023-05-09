@@ -1,10 +1,9 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import AssessmentContext from '../helpers/Contexts';
 import Header from './Header';
 import Modal from './Modal';
-import { Background, Content, NextButton, Link } from '../styles';
 import styled from 'styled-components';
-import AssessmentContext from '../helpers/Contexts';
-import { useContext } from 'react';
+import { Background, Content, NextButton, Link, Warning } from '../styles';
 
 const borderGrey = '#979797';
 
@@ -33,12 +32,6 @@ const Input = styled.div`
       font-style: italic;
     }
   }
-
-  p {
-    color: red;
-    font-size: 10px;
-    padding: 2px 10px;
-  }
 `;
 
 const text = 'this is why we do this';
@@ -63,7 +56,6 @@ const ZipCode = () => {
     if (isValid) {
       setAssessmentState('questions');
       setIsValid(false);
-    } else {
     }
   };
 
@@ -89,7 +81,7 @@ const ZipCode = () => {
             >
               Next
             </NextButton>
-            {isValid ? <></> : <p>* Please enter a valid zip code</p>}
+            {isValid ? <></> : <Warning>* Please enter a valid zip code</Warning>}
           </Input>
         </Form>
         <Link onClick={() => setShowModal(true)}>Why do we ask this?</Link>
