@@ -50,10 +50,6 @@ const Q3 = () => {
     return `${feet} ft ${inches} in`;
   }
 
-  const handleHeight(event) => {
-    setHeight(event.target.value)
-  };
-
   return (
     <Container>
       <Sex>
