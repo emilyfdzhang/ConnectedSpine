@@ -63,7 +63,6 @@ const ZipCode = () => {
     if (isValid) {
       setAssessmentState('questions');
       setIsValid(false);
-    } else {
     }
   };
 
