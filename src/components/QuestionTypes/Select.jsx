@@ -1,17 +1,11 @@
-import { ButtonGroup, Button } from 'react-bootstrap';
-import AssessmentContext from '../../helpers/Contexts';
-import { useContext, useState, useEffect } from 'react';
 
 const Select = ({ options, selectedOptions, HandleOnclick }) => {
-
-
   return (
     <div>
       {options.map((option, index) => (
         <div
           key={index}
           value={index}
-
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -23,7 +17,6 @@ const Select = ({ options, selectedOptions, HandleOnclick }) => {
             id={index}
             onClick={HandleOnclick}
             style={{
-
               width: 20,
               height: 20,
               borderRadius: '50%',
@@ -55,26 +48,6 @@ const Select = ({ options, selectedOptions, HandleOnclick }) => {
 
   );
 
-  // return (
-  //   <ButtonGroup
-  //     className="btn-group-vertical d-flex justify-content-center"
-  //     role="group"
-  //     aria-label="Button group"
-  //   >
-  //     {options.map((option, index) => (
-  //       <Button
-  //         key={index}
-  //         id={index}
-  //         value={option}
-  //         type="button"
-  //         className={selectedButton === index ? 'active' : 'btn-light'}
-  //         onClick={HandleOnclick}
-  //       >
-  //         {option}
-  //       </Button>
-  //     ))}
-  //   </ButtonGroup>
-  // );
 };
 
 export default Select;

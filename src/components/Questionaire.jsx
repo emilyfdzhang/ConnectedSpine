@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import AssessmentContext from '../helpers/Contexts';
-import { useContext } from 'react';
 import {
   BackButton,
   Background,
@@ -49,6 +48,7 @@ const Questionaire = () => {
     setIsValid,
     selectedOptions, setSelectedOptions
   } = useContext(AssessmentContext);
+
   const handleBackClick = () => {
     if (currQuestion === 0) {
       setAssessmentState('zipcode');
@@ -68,6 +68,7 @@ const Questionaire = () => {
       }
     }
   };
+
   const handleNextClick = () => {
     if (currQuestion === Questions.length - 1 && currSubQuestion === Questions[currQuestion].sub_questions.length - 1) {
       setAssessmentState('result');
@@ -75,8 +76,6 @@ const Questionaire = () => {
 
     else if (isValid) {
       setIsValid(false);
-      console.log(currQuestion)
-      console.log(currSubQuestion)
       if (!Questions[currQuestion].sub_questions || currSubQuestion === Questions[currQuestion].sub_questions.length - 1) {
         setCurrQuestion(currQuestion + 1);
         setCurrSubQuestion(0);

@@ -1,6 +1,3 @@
-import { ButtonGroup, Button } from 'react-bootstrap';
-import AssessmentContext from '../../helpers/Contexts';
-import { useContext, useState, useEffect } from 'react';
 import { SelectButton } from '../../styles';
 
 const SingleButton = ({ options, selectedOptions, HandleOnclick }) => {
@@ -8,6 +5,7 @@ const SingleButton = ({ options, selectedOptions, HandleOnclick }) => {
     <div>
       {options.map((option, index) => (
         <SelectButton
+          key={index}
           value={index}
           id={index}
           onClick={HandleOnclick}
@@ -23,30 +21,10 @@ const SingleButton = ({ options, selectedOptions, HandleOnclick }) => {
         >
           {option}
         </SelectButton>
-      ))}
-    </div>
+      ))
+      }
+    </div >
   );
-
-  // return (
-  //   <ButtonGroup
-  //     className="btn-group-vertical d-flex justify-content-center"
-  //     role="group"
-  //     aria-label="Button group"
-  //   >
-  //     {options.map((option, index) => (
-  //       <Button
-  //         key={index}
-  //         id={index}
-  //         value={option}
-  //         type="button"
-  //         className={selectedButton === index ? 'active' : 'btn-light'}
-  //         onClick={HandleOnclick}
-  //       >
-  //         {option}
-  //       </Button>
-  //     ))}
-  //   </ButtonGroup>
-  // );
 };
 
 export default SingleButton;
