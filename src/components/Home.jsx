@@ -59,7 +59,7 @@ const Text = styled.p`
 const Home = () => {
   const { AssessmentState, setAssessmentState } = useContext(AssessmentContext);
   return (
-    <Background image="../../dist/HomepageSlim.jpg">
+    <Background image="../../homepage.jpg">
       <Header />
       <Content>
         <Title>

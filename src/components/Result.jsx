@@ -1,11 +1,11 @@
 
 import Header from './Header';
-import { Background, Content } from '../styles';
 import PhysicalTherapist from './result/PhysicalTherapist';
+import { Background, Content } from '../styles';
 
 const Result = () => {
     return (
-        <Background image="../../dist/Questions.png">
+        <Background image="../../questions.png">
             <Header />
             <Content>
                 <PhysicalTherapist />

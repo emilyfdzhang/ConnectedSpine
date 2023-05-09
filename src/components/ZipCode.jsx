@@ -63,7 +63,7 @@ const ZipCode = () => {
   };
 
   return (
-    <Background image="../../public/Questions.png">
+    <Background image="../../questions.png">
       <Header />
       <Content>
         <Title>Hi there! Before we begin, please enter your zipcode.</Title>

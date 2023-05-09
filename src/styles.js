@@ -33,7 +33,7 @@ export const selected = '#3a49ac';
 export const selectedBackground = 'rgba(58, 73, 172, 0.2)';
 
 export const Background = styled.div`
-  background-image: url(${(props) => props.image});
+  background-image: ${(props) => `url(${props.image})`};
   background-repeat: no-repeat;
   background-size: cover;
   width: 100vw;
