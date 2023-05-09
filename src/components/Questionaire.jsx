@@ -100,7 +100,7 @@ const Questionaire = () => {
   };
 
   return (
-    <Background image="../../pages.jpg">
+    <Background image="../../Pages.jpg">
       <Header />
       <Content>
         <ContentContainer>

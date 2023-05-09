@@ -16,7 +16,7 @@ const Title = styled.h1`
 
 const Form = styled.form`
   margin-top: 30px;
-  label{
+  label {
     font-weight: 400;
   }
 `;
@@ -63,7 +63,7 @@ const ZipCode = () => {
   };
 
   return (
-    <Background image="../../questions.png">
+    <Background image="../../Questions.png">
       <Header />
       <Content>
         <Title>Hi there! Before we begin, please enter your zipcode.</Title>
@@ -84,7 +84,11 @@ const ZipCode = () => {
             >
               Next
             </NextButton>
-            {isValid ? <></> : <Warning>* Please enter a valid zip code</Warning>}
+            {isValid ? (
+              <></>
+            ) : (
+              <Warning>* Please enter a valid zip code</Warning>
+            )}
           </Input>
         </Form>
         <Link onClick={() => setShowModal(true)}>Why do we ask this?</Link>
