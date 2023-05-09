@@ -1,11 +1,12 @@
 import { useState, useEffect, useContext } from 'react';
 import AssessmentContext from '../../helpers/Contexts';
+import Modal from '../Modal';
 import styled from 'styled-components';
 import { SelectButton, TextInput, Link, Warning } from '../../styles';
 
 const Container = styled.div`
   width: 70%;
-  margin: 0 auto;
+  margin: -50px auto 0;
 `;
 
 const Sex = styled.div`
@@ -23,10 +24,14 @@ const Label = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  font-weight: 500;
 `;
+
+const text = "this is why we do this";
 
 const Q3 = () => {
   const { isValid, setIsValid } = useContext(AssessmentContext);
+  const [showModal, setShowModal] = useState(false);
   const [sex, setSex] = useState('');
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
@@ -69,7 +74,12 @@ const Q3 = () => {
           </SelectButton>
         </div>
       </Sex>
-      <Link>Why do we ask this?</Link>
+      <Link onClick={() => setShowModal(true)}>Why do we ask this?</Link>
+      <Modal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        text={text}
+      ></Modal>
       <Body>
         <div>
           <Label>Height</Label>

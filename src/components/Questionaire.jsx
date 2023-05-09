@@ -1,5 +1,12 @@
 import React, { useState, useContext } from 'react';
 import AssessmentContext from '../helpers/Contexts';
+import Header from './Header';
+import TermsAgreement from './BasicInfo/TermsAgreement';
+import Q2 from './BasicInfo/Q2';
+import Q3 from './BasicInfo/Q3';
+import Questions from '../helpers/Questions';
+import Options from './Options';
+import styled from "styled-components";
 import {
   BackButton,
   Background,
@@ -10,30 +17,27 @@ import {
   LeftContent,
   BackNextButtonContainer,
 } from '../styles';
-import Header from './Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import styled from "styled-components";
-import Questions from '../helpers/Questions';
-import TermsAgreement from './BasicInfo/TermsAgreement';
-import Q2 from './BasicInfo/Q2';
-import Q3 from './BasicInfo/Q3';
-import Options from './Options';
 
 const Section = styled.h3`
   font-size: 16px;
+  font-weight: 300;
   line-height: 24px;
   text-transform: uppercase;
 `;
 
 const Name = styled.h2`
   font-size: 20px;
+  font-weight: 100;
   line-height: 24px;
   text-transform: uppercase;
 `;
 
 const Prompt = styled.h1`
   margin-top: 20px;
+  max-width: 80%;
   font-size: 32px;
+  font-weight: 300;
   line-height: 40px;
   letter-spacing: 0px;
 `;

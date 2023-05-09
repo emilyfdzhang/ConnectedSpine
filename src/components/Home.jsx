@@ -6,6 +6,8 @@ import {
   boxShadow,
   boxBackground,
   boxBorder,
+  borderBlue,
+  Bold,
   Background,
   Content,
 } from '../styles';
@@ -14,7 +16,8 @@ const Title = styled.div`
   max-width: 600px;
 
   h1 {
-    font-weight: 400;
+    font-style: normal;
+    font-weight: 300;
     font-size: 55px;
     line-height: 49px;
     letter-spacing: 0px;
@@ -22,6 +25,7 @@ const Title = styled.div`
   }
 
   p {
+    font-weight: 200;
     line-height: 22px;
     max-width: 500px;
   }
@@ -40,8 +44,16 @@ const Instructions = styled.div`
     border: ${boxBorder};
     box-shadow: ${boxShadow};
     border-radius: 4px;
-    color: #1d2556;
+    color: ${borderBlue};
   }
+
+  p {
+    margin-bottom: 0;
+  }
+`;
+
+const Text = styled.p`
+  font-weight: 100;
 `;
 
 const Home = () => {
@@ -58,9 +70,9 @@ const Home = () => {
           </p>
         </Title>
         <Instructions>
-          <p>Experiencing pain or discomfort in your back or neck?</p>
+          <Text>Experiencing pain or discomfort in your back or neck?</Text>
           <p>
-            <strong>Take our 5 min assessment.</strong>
+            <Bold>Take our 5 min assessment.</Bold>
           </p>
           <button
             onClick={() => {

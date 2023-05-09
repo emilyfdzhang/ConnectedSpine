@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 
 const Select = ({ options, selectedOptions, HandleOnclick }) => {
   return (
@@ -25,8 +26,9 @@ const Select = ({ options, selectedOptions, HandleOnclick }) => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              backgroundColor:
-                selectedOptions.includes(index) ? 'purple' : 'transparent',
+              backgroundColor: selectedOptions.includes(index)
+                ? 'purple'
+                : 'transparent',
             }}
           >
             {selectedOptions.includes(index) && (
@@ -41,13 +43,10 @@ const Select = ({ options, selectedOptions, HandleOnclick }) => {
             )}
           </div>
           <div>{option}</div>
-
-        </div>))
-      } </div >
-
-
+        </div>
+      ))}{' '}
+    </div>
   );
-
 };
 
 export default Select;

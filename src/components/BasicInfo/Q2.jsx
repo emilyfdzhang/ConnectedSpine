@@ -21,6 +21,7 @@ const Button = styled.button`
     align-items: center;
     justify-content: space-evenly;
     height: 60%;
+    font-weight: 300;
   }
   margin: 0 10px;
   width: 167px;

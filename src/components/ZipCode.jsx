@@ -9,13 +9,16 @@ const borderGrey = '#979797';
 
 const Title = styled.h1`
   font-size: 32px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 40px;
   max-width: 50%;
 `;
 
 const Form = styled.form`
   margin-top: 30px;
+  label{
+    font-weight: 400;
+  }
 `;
 
 const Input = styled.div`
