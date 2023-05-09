@@ -9,13 +9,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Options = ({ options, currQuestionType, currQuestion }) => {
   const { isValid, setIsValid } = useContext(AssessmentContext);
   const { selectedOptions, setSelectedOptions } = useContext(AssessmentContext);
+  console.log(`currQuestionType: ${currQuestionType}`);
 
   const HandleOnclick = (event) => {
-    const selected_value = parseInt(event.target.id);
+    // const selected_value = parseInt(event.currentTarget.id);
+    const selected_value = event.currentTarget.getAttribute('value');
 
     if (selectedOptions.includes(selected_value)) {
       setSelectedOptions(
-        selectedOptions.filter((option) => option != selected_value)
+        selectedOptions.filter((option) => option !== selected_value)
       );
     } else {
       if (currQuestionType == 'Select' || currQuestionType == 'Selectbutton') {

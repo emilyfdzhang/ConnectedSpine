@@ -25,11 +25,11 @@ const MultiButton = ({ options, HandleOnclick, selectedOptions }) => {
       {options.map((option, index) => (
         <div>
           <SelectButton
-            value={index}
+            value={option}
             key={`button-${index}`}
             id={index}
             onClick={HandleOnclick}
-            selected={selectedOptions.includes(index)}
+            selected={selectedOptions.includes(option)}
             height={'auto'}
           >
             <Text>{option}</Text>

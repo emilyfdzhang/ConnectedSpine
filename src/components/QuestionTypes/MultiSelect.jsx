@@ -30,8 +30,8 @@ const MultiSelect = ({ options, selectedOptions, HandleOnclick }) => {
           <input
             type="checkbox"
             id={index}
-            value={index}
-            checked={selectedOptions.includes(index)}
+            value={option}
+            checked={selectedOptions.includes(option)}
             onChange={HandleOnclick}
           />
           <Text>{option}</Text>
