@@ -6,6 +6,10 @@ export const Bold = styled.span`
   font-weight: 400;
 `;
 
+// Question Types
+export const underline = "#ccc6c4";
+
+
 // All Button
 export const boxShadow = '0px 2px 4px rgba(0, 0, 0, 0.2)';
 export const boxBackground = 'rgba(255, 255, 255, 0.8)';
@@ -98,8 +102,8 @@ export const SelectButton = styled.button`
   font-weight: 300;
   text-transform: uppercase;
   color: ${borderBlue};
+  height: ${(props) => props.height || '60px'};
   width: 200px;
-  height: 60px;
   padding: 10px 30px;
   margin-right: 10px;
   border: ${boxBorder};

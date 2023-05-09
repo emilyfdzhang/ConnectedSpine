@@ -8,7 +8,7 @@ const Container = styled.div`
   padding: 0 30px;
 `;
 
-const Remember = styled.p`
+const Remember = styled.div`
   padding: 25px 0;
   line-height: 1.1em;
 

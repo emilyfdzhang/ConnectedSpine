@@ -5,7 +5,7 @@ const SingleButton = ({ options, selectedOptions, HandleOnclick }) => {
     <div>
       {options.map((option, index) => (
         <SelectButton
-          key={index}
+          key={`button-${index}`}
           value={index}
           id={index}
           onClick={HandleOnclick}
@@ -21,9 +21,8 @@ const SingleButton = ({ options, selectedOptions, HandleOnclick }) => {
         >
           {option}
         </SelectButton>
-      ))
-      }
-    </div >
+      ))}
+    </div>
   );
 };
 

@@ -1,33 +1,42 @@
+import styled from 'styled-components';
 import { SelectButton } from '../../styles';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  ${(props) => props.options.length > 3 && `margin-top: -50px;`};
+
+  div {
+    margin: 1em 0;
+  }
+`;
+
+const Text = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  white-space: nowrap;
+`;
 
 const MultiButton = ({ options, HandleOnclick, selectedOptions }) => {
   return (
-    <div
-      className="btn-group-vertical d-flex justify-content-center"
-      role="group"
-      aria-label="Button group">
+    <Container role="group" aria-label="Button group" options={options}>
       {options.map((option, index) => (
-        <SelectButton
-          value={index}
-          key={index}
-          id={index}
-          onClick={HandleOnclick}
-          style={{
-            marginBottom: '20px',
-            backgroundColor:
-              selectedOptions.includes(index)
-
-                ? 'rgba(128, 0, 128, 0.8)'
-                : null,
-          }
-          } >
-          {option}
-        </SelectButton>
-      ))
-      }
-
-    </div >
+        <div>
+          <SelectButton
+            value={index}
+            key={`button-${index}`}
+            id={index}
+            onClick={HandleOnclick}
+            selected={selectedOptions.includes(index)}
+            height={'auto'}
+          >
+            <Text>{option}</Text>
+          </SelectButton>
+        </div>
+      ))}
+    </Container>
   );
 };
 

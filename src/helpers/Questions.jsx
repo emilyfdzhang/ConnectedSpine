@@ -3,23 +3,26 @@ const Questions = [
     section: 1,
     section_name: 'Basic Info',
     prompt: 'Terms of Service',
+    type: null,
   },
   {
     section: 1,
     section_name: 'Basic Info',
     prompt: 'Who are you answering this questionaire for?',
+    type: null,
   },
   {
     section: 1,
     section_name: 'Basic Info',
     prompt: "Let's get some basic info about you first.",
+    type: null,
   },
   {
     section: 1,
     section_name: 'Basic Info',
     prompt: 'What brings you here today?',
     options: [
-      'A new pain or sensation in the back and/or neck',
+      `A new pain or sensation in the back and/or neck`,
       'Back and/or neck pain that has been chronic or occuring for some time',
       'A potential emergency or urgent care visit',
     ],
@@ -55,7 +58,7 @@ const Questions = [
   {
     section: 2,
     section_name: 'Symptoms',
-    prompt: 'Choose the area(s) where you are feeling pain and/or discomfort',
+    prompt: 'Choose the area(s) where you are feeling pain and/or discomfort.',
     options: ['Neck', 'Upper Back', 'Middle Back', 'Lower Back'],
     type: 'Multibutton',
   },
@@ -83,7 +86,10 @@ const Questions = [
     section: 2,
     section_name: 'Symptoms',
     prompt: 'How does the dull, aching pain change?',
-    sub_questions: ['Choose all that apply. The sensation gets worse when I...', 'Choose all that apply.I get some relief from the sensation when I...'],
+    sub_questions: [
+      'Choose all that apply. The sensation gets worse when I...',
+      'Choose all that apply.I get some relief from the sensation when I...',
+    ],
     options: [
       'STAND UP',
       'SIT DOWN',
@@ -113,7 +119,10 @@ const Questions = [
     section: 2,
     section_name: 'Symptoms',
     prompt: 'Regarding the tightness',
-    sub_questions: ['Does it feel like a pulled muscle?', 'Does it get better with anti - inflammatory pain medication, such as Tylenol or Advil'],
+    sub_questions: [
+      'Does it feel like a pulled muscle?',
+      'Does it get better with anti - inflammatory pain medication, such as Tylenol or Advil',
+    ],
 
     options: ['YES', 'NO', 'NOT SURE'],
     type: 'Selectbutton',
@@ -155,41 +164,60 @@ const Questions = [
     section: 3,
     section_name: 'Safety Check',
     prompt: 'Are you experiencing any of the following?',
-    options: ["Fever(temperatures higher than 101.5)", "Chills", "Shortness of breath", "Abdominal pain"],
-    type: 'Multibutton'
+    options: [
+      'Fever(temperatures higher than 101.5)',
+      'Chills',
+      'Shortness of breath',
+      'Abdominal pain',
+    ],
+    type: 'Multibutton',
   },
   {
     section: 3,
     section_name: 'Safety Check',
     prompt: 'Are you experiencing any of the following?',
-    options: ["Cannot control when I go to the bathroom", "Groin/scrotum pain", "Chest pain", "Nausea"],
-    type: 'Multibutton'
+    options: [
+      'Cannot control when I go to the bathroom',
+      'Groin/scrotum pain',
+      'Chest pain',
+      'Nausea',
+    ],
+    type: 'Multibutton',
   },
   {
     section: 3,
     section_name: 'Safety Check',
     prompt:
       'Are you experiencing any pain near your kidneys (deep within one or both sides, just under ribs)?',
-    options: ["Yes", "No", "Not Sure"],
-    type: 'Selectbutton'
-
+    options: ['Yes', 'No', 'Not Sure'],
+    type: 'Selectbutton',
   },
   {
     section: 3,
     section_name: 'Safety Check',
     prompt: 'Regarding your symptoms...',
-    sub_questions: ["Are you feeling light headed?", "Did you pass out?", "Have you noticed any blood in your urine?"],
-    options: ["Yes", "No", "Not Sure"],
-    type: 'Selectbutton'
+    sub_questions: [
+      'Are you feeling light headed?',
+      'Did you pass out?',
+      'Have you noticed any blood in your urine?',
+    ],
+    options: ['Yes', 'No', 'Not Sure'],
+    type: 'Selectbutton',
   },
   {
     section: 3,
     section_name: 'Safety Check',
     prompt: 'Regarding your history...',
-    sub_questions: ["Have you ever been diagnosed with cancer?", "Has any direct family member of your family been diagnosed with cancer", "Have you had your bone health checked recently?", "Are you currently sexually active?", "Do you currently smoke?", "Have you smoked in the past?"],
-    options: ["Yes", "No", "Not Sure"],
-    type: 'Selectbutton'
-  }
-
+    sub_questions: [
+      'Have you ever been diagnosed with cancer?',
+      'Has any direct family member of your family been diagnosed with cancer',
+      'Have you had your bone health checked recently?',
+      'Are you currently sexually active?',
+      'Do you currently smoke?',
+      'Have you smoked in the past?',
+    ],
+    options: ['Yes', 'No', 'Not Sure'],
+    type: 'Selectbutton',
+  },
 ];
 export default Questions;

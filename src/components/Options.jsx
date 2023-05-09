@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Options = ({ options, currQuestionType, currQuestion }) => {
   const { isValid, setIsValid } = useContext(AssessmentContext);
   const { selectedOptions, setSelectedOptions } = useContext(AssessmentContext);
+
   const HandleOnclick = (event) => {
     const selected_value = parseInt(event.target.id);
 
@@ -25,6 +26,7 @@ const Options = ({ options, currQuestionType, currQuestion }) => {
       setIsValid(true);
     }
   };
+
   if (selectedOptions.length === 0 && currQuestion > 2) {
     setIsValid(false);
   }

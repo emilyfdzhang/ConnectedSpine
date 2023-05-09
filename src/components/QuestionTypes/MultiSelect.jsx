@@ -1,26 +1,43 @@
+import styled from 'styled-components';
+import { underline } from '../../styles';
+
+const Container = styled.div`
+  width: 80%;
+`;
+
+const Label = styled.label`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid ${underline};
+
+  input[type='checkbox'] {
+    transform: scale(1.5);
+  }
+`;
+
+const Text = styled.div`
+  margin-left: 15px;
+`;
 
 const MultiSelect = ({ options, selectedOptions, HandleOnclick }) => {
-
   return (
-    <div
-      className="btn-group-vertical d-flex justify-content-center"
-      role="group"
-      aria-label="Button group"
-    >
+    <Container role="group" aria-label="Button group">
       {options.map((option, index) => (
-        <label style={{ display: 'block' }}>
+        <Label key={`select-${index}`}>
           <input
-            key={index}
             type="checkbox"
             id={index}
             value={index}
             checked={selectedOptions.includes(index)}
-            onClick={HandleOnclick}
+            onChange={HandleOnclick}
           />
-          {option}
-        </label>
+          <Text>{option}</Text>
+        </Label>
       ))}
-    </div>
+    </Container>
   );
 };
 
