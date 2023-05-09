@@ -6,7 +6,13 @@ import SingleButton from './QuestionTypes/SingleButton';
 import MultiButton from './QuestionTypes/MultiButton';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Options = ({ options, currQuestionType, currQuestion }) => {
+const Options = ({
+  currQuestion,
+  currSubQuestion,
+  subQuestion,
+  options,
+  currQuestionType,
+}) => {
   const { isValid, setIsValid } = useContext(AssessmentContext);
   const { selectedOptions, setSelectedOptions } = useContext(AssessmentContext);
   console.log(`currQuestionType: ${currQuestionType}`);

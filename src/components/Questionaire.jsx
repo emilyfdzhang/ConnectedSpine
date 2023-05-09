@@ -16,8 +16,8 @@ import {
   RightContent,
   LeftContent,
   BackNextButtonContainer,
+  Bold
 } from '../styles';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Section = styled.h3`
   font-size: 16px;
@@ -42,10 +42,11 @@ const Prompt = styled.h1`
   letter-spacing: 0px;
 `;
 
-const SubquestionContainer = styled.div`
+const SubQuestion = styled.p``;
+
+const OptionsContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
 `;
 
 const Questionaire = () => {
@@ -100,7 +101,7 @@ const Questionaire = () => {
   };
 
   return (
-    <Background image="../../Pages.jpg">
+    <Background image="../../pages.jpg">
       <Header />
       <Content>
         <ContentContainer>
@@ -114,17 +115,21 @@ const Questionaire = () => {
             {currQuestion === 1 && <Q2 />}
             {currQuestion === 2 && <Q3 />}
             {Questions[currQuestion].sub_questions && (
-              <p style={{ display: 'block', marginBottom: '50px' }}>
-                <b>{Questions[currQuestion].sub_questions[currSubQuestion]}</b>
-              </p>
+              <SubQuestion>
+                <Bold>
+                  {Questions[currQuestion].sub_questions[currSubQuestion]}
+                </Bold>
+              </SubQuestion>
             )}
-            <div className="d-flex justify-content-center">
+            <OptionsContainer>
               <Options
                 currQuestion={currQuestion}
+                currSubQuestion={currSubQuestion}
+                subQuestion={Questions[currQuestion].sub_questions}
                 options={Questions[currQuestion].options}
                 currQuestionType={Questions[currQuestion].type}
               />
-            </div>
+            </OptionsContainer>
             <BackNextButtonContainer>
               <BackButton onClick={handleBackClick}>Back</BackButton>
               <NextButton isValid={isValid} onClick={handleNextClick}>

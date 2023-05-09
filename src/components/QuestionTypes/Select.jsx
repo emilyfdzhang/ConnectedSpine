@@ -42,10 +42,9 @@ const Select = ({ options, selectedOptions, HandleOnclick }) => {
   return (
     <Container>
       {options.map((option, index) => (
-        <Option key={`select-${index}`} value={option}>
+        <Option key={`select-${index}`} value={option} onClick={HandleOnclick}>
           <Circle
             id={index}
-            onClick={HandleOnclick}
             selected={selectedOptions.includes(option)}
             value={option}
           >

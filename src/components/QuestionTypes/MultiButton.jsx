@@ -4,7 +4,14 @@ import { SelectButton } from '../../styles';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  ${(props) => props.options.length > 3 && `margin-top: -50px;`};
+  ${(props) => props.options.length > 3 && `margin-top: -20px;`};
+  ${(props) =>
+    props.options.length > 5 &&
+    `
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 10px;
+    `};
 
   div {
     margin: 1em 0;
@@ -17,7 +24,7 @@ const Text = styled.span`
   align-items: center;
   justify-content: center;
   height: 100%;
-  white-space: nowrap;
+  white-space: ${(props) => (props.length ? 'pre-line' : 'nowrap')};
 `;
 
 const MultiButton = ({ options, HandleOnclick, selectedOptions }) => {
@@ -32,9 +39,8 @@ const MultiButton = ({ options, HandleOnclick, selectedOptions }) => {
             onClick={HandleOnclick}
             selected={selectedOptions.includes(option)}
             height={'auto'}
-            width={'auto'}
           >
-            <Text>{option}</Text>
+            <Text length={option.length > 16}>{option}</Text>
           </SelectButton>
         </div>
       ))}

@@ -3,7 +3,7 @@ import AssessmentContext from '../../helpers/Contexts';
 import { IconContext } from 'react-icons';
 import { FaUser, FaUsers } from 'react-icons/fa';
 import styled from 'styled-components';
-import {selected, selectedBackground} from "../../styles";
+import { boxBackground, selected, selectedBackground } from '../../styles';
 
 const textBlue = '#1d2556';
 const iconPurple = '#8992CD';
@@ -15,7 +15,7 @@ const Container = styled.div`
 `;
 
 const Button = styled.button`
-  div{
+  div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,7 +39,7 @@ const Button = styled.button`
       border: 1px solid ${selected};
     `}
   background-color: ${(props) =>
-    props.selected ? selectedBackground : 'white'};
+    props.selected ? selectedBackground : boxBackground};
 `;
 
 const Q2 = () => {
