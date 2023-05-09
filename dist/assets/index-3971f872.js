@@ -1155,7 +1155,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   height: 10px;
   border-radius: 50%;
   background-color: ${Za};
-`,rw=({options:e,selectedOptions:t,HandleOnclick:n})=>W(J2,{children:[e.map((r,i)=>W(ew,{value:i,children:[x(tw,{id:i,onClick:n,selected:t.includes(i),children:t.includes(i)&&x(nw,{})}),x("div",{children:r})]},`select-${i}`))," "]}),iw=M.div`
+`,rw=({options:e,selectedOptions:t,HandleOnclick:n})=>W(J2,{children:[e.map((r,i)=>W(ew,{value:r,children:[x(tw,{id:i,onClick:n,selected:t.includes(r),value:r,children:t.includes(r)&&x(nw,{})}),x("div",{children:r})]},`select-${i}`))," "]}),iw=M.div`
   width: 80%;
 `,ow=M.label`
   display: flex;
@@ -1170,7 +1170,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   }
 `,aw=M.div`
   margin-left: 15px;
-`,lw=({options:e,selectedOptions:t,HandleOnclick:n})=>x(iw,{role:"group","aria-label":"Button group",children:e.map((r,i)=>W(ow,{children:[x("input",{type:"checkbox",id:i,value:i,checked:t.includes(i),onChange:n}),x(aw,{children:r})]},`select-${i}`))}),sw=({options:e,selectedOptions:t,HandleOnclick:n})=>x("div",{children:e.map((r,i)=>x(ha,{value:i,id:i,onClick:n,style:{marginBottom:"20px",padding:"10px 20px",display:"inline-block",backgroundColor:t.includes(i)?"rgba(128, 0, 128, 0.8)":null,marginRight:"5px"},children:r},`button-${i}`))}),uw=M.div`
+`,lw=({options:e,selectedOptions:t,HandleOnclick:n})=>x(iw,{role:"group","aria-label":"Button group",children:e.map((r,i)=>W(ow,{children:[x("input",{type:"checkbox",id:i,value:r,checked:t.includes(r),onChange:n}),x(aw,{children:r})]},`select-${i}`))}),sw=({options:e,selectedOptions:t,HandleOnclick:n})=>x("div",{children:e.map((r,i)=>x(ha,{value:r,id:i,onClick:n,style:{marginBottom:"20px",padding:"10px 20px",display:"inline-block",backgroundColor:t.includes(r)?"rgba(128, 0, 128, 0.8)":null,marginRight:"5px"},children:r},`button-${i}`))}),uw=M.div`
   display: flex;
   flex-direction: column;
   ${e=>e.options.length>3&&"margin-top: -50px;"};
@@ -1184,7 +1184,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   justify-content: center;
   height: 100%;
   white-space: nowrap;
-`,fw=({options:e,HandleOnclick:t,selectedOptions:n})=>x(uw,{role:"group","aria-label":"Button group",options:e,children:e.map((r,i)=>x("div",{children:x(ha,{value:i,id:i,onClick:t,selected:n.includes(i),height:"auto",children:x(cw,{children:r})},`button-${i}`)}))});const dw=({options:e,currQuestionType:t,currQuestion:n})=>{const{isValid:r,setIsValid:i}=Y.useContext(Et),{selectedOptions:o,setSelectedOptions:a}=Y.useContext(Et),l=s=>{const u=parseInt(s.target.id);o.includes(u)?a(o.filter(f=>f!=u)):(t=="Select"||t=="Selectbutton"?a([u]):a(o.concat(u)),i(!0))};if(o.length===0&&n>2&&i(!1),e)switch(t){case"Select":return x(rw,{options:e,selectedOptions:o,HandleOnclick:l});case"Multiselect":return x(lw,{options:e,selectedOptions:o,HandleOnclick:l});case"Multibutton":return x(fw,{options:e,selectedOptions:o,HandleOnclick:l});case"Selectbutton":return x(sw,{options:e,selectedOptions:o,HandleOnclick:l});default:return x(or,{})}else return x(or,{})},pw=M.h3`
+`,fw=({options:e,HandleOnclick:t,selectedOptions:n})=>x(uw,{role:"group","aria-label":"Button group",options:e,children:e.map((r,i)=>x("div",{children:x(ha,{value:r,id:i,onClick:t,selected:n.includes(r),height:"auto",children:x(cw,{children:r})},`button-${i}`)}))});const dw=({options:e,currQuestionType:t,currQuestion:n})=>{const{isValid:r,setIsValid:i}=Y.useContext(Et),{selectedOptions:o,setSelectedOptions:a}=Y.useContext(Et);console.log(`currQuestionType: ${t}`);const l=s=>{const u=s.currentTarget.getAttribute("value");o.includes(u)?a(o.filter(f=>f!==u)):(t=="Select"||t=="Selectbutton"?a([u]):a(o.concat(u)),i(!0))};if(o.length===0&&n>2&&i(!1),e)switch(t){case"Select":return x(rw,{options:e,selectedOptions:o,HandleOnclick:l});case"Multiselect":return x(lw,{options:e,selectedOptions:o,HandleOnclick:l});case"Multibutton":return x(fw,{options:e,selectedOptions:o,HandleOnclick:l});case"Selectbutton":return x(sw,{options:e,selectedOptions:o,HandleOnclick:l});default:return x(or,{})}else return x(or,{})},pw=M.h3`
   font-size: 16px;
   font-weight: 300;
   line-height: 24px;

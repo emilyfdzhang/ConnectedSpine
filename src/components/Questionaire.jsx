@@ -6,7 +6,7 @@ import Q2 from './BasicInfo/Q2';
 import Q3 from './BasicInfo/Q3';
 import Questions from '../helpers/Questions';
 import Options from './Options';
-import styled from "styled-components";
+import styled from 'styled-components';
 import {
   BackButton,
   Background,
@@ -42,6 +42,12 @@ const Prompt = styled.h1`
   letter-spacing: 0px;
 `;
 
+const SubquestionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const Questionaire = () => {
   const [currQuestion, setCurrQuestion] = useState(0);
   const [currSubQuestion, setCurrSubQuestion] = useState(0);
@@ -50,7 +56,8 @@ const Questionaire = () => {
     setAssessmentState,
     isValid,
     setIsValid,
-    selectedOptions, setSelectedOptions
+    selectedOptions,
+    setSelectedOptions,
   } = useContext(AssessmentContext);
 
   const handleBackClick = () => {
@@ -60,39 +67,36 @@ const Questionaire = () => {
       if (!Questions[currQuestion].sub_questions || currSubQuestion == 0) {
         setCurrQuestion(currQuestion - 1);
         if (Questions[currQuestion].sub_questions) {
-          setCurrSubQuestion(Questions[currQuestion].sub_questions.length - 1)
+          setCurrSubQuestion(Questions[currQuestion].sub_questions.length - 1);
+        } else {
+          setCurrSubQuestion(0);
         }
-        else {
-          setCurrSubQuestion(0)
-
-        }
-      }
-      else {
+      } else {
         setCurrSubQuestion(currSubQuestion - 1);
       }
     }
   };
 
   const handleNextClick = () => {
-    if (currQuestion === Questions.length - 1 && currSubQuestion === Questions[currQuestion].sub_questions.length - 1) {
+    if (
+      currQuestion === Questions.length - 1 &&
+      currSubQuestion === Questions[currQuestion].sub_questions.length - 1
+    ) {
       setAssessmentState('result');
-    }
-
-    else if (isValid) {
+    } else if (isValid) {
       setIsValid(false);
-      if (!Questions[currQuestion].sub_questions || currSubQuestion === Questions[currQuestion].sub_questions.length - 1) {
+      if (
+        !Questions[currQuestion].sub_questions ||
+        currSubQuestion === Questions[currQuestion].sub_questions.length - 1
+      ) {
         setCurrQuestion(currQuestion + 1);
         setCurrSubQuestion(0);
-        setSelectedOptions([])
-
-      }
-      else {
+        setSelectedOptions([]);
+      } else {
         setCurrSubQuestion(currSubQuestion + 1);
-        setSelectedOptions([])
+        setSelectedOptions([]);
       }
-
     }
-
   };
 
   return (
@@ -106,12 +110,15 @@ const Questionaire = () => {
             <Prompt>{Questions[currQuestion].prompt}</Prompt>
           </LeftContent>
           <RightContent>
-
             {currQuestion === 0 && <TermsAgreement />}
             {currQuestion === 1 && <Q2 />}
             {currQuestion === 2 && <Q3 />}
-            {Questions[currQuestion].sub_questions && <p><b>{Questions[currQuestion].sub_questions[currSubQuestion]}</b></p>}
-            <div className='d-flex justify-content-center'>
+            {Questions[currQuestion].sub_questions && (
+              <p style={{ display: 'block', marginBottom: '50px' }}>
+                <b>{Questions[currQuestion].sub_questions[currSubQuestion]}</b>
+              </p>
+            )}
+            <div className="d-flex justify-content-center">
               <Options
                 currQuestion={currQuestion}
                 options={Questions[currQuestion].options}
@@ -127,7 +134,7 @@ const Questionaire = () => {
           </RightContent>
         </ContentContainer>
       </Content>
-    </Background >
+    </Background>
   );
 };
 

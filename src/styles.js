@@ -103,8 +103,9 @@ export const SelectButton = styled.button`
   text-transform: uppercase;
   color: ${borderBlue};
   height: ${(props) => props.height || '60px'};
-  width: 200px;
+  width: ${(props) => props.width || '200px'};
   padding: 10px 30px;
+  margin: 0 auto;
   margin-right: 10px;
   border: ${boxBorder};
   box-shadow: ${boxShadow};

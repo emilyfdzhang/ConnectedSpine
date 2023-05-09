@@ -88,7 +88,7 @@ const Questions = [
     prompt: 'How does the dull, aching pain change?',
     sub_questions: [
       'Choose all that apply. The sensation gets worse when I...',
-      'Choose all that apply.I get some relief from the sensation when I...',
+      'Choose all that apply. I get some relief from the sensation when I...',
     ],
     options: [
       'STAND UP',

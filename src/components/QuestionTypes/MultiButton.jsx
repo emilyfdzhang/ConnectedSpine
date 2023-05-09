@@ -9,6 +9,7 @@ const Container = styled.div`
   div {
     margin: 1em 0;
   }
+  align-items: center;
 `;
 
 const Text = styled.span`
@@ -31,6 +32,7 @@ const MultiButton = ({ options, HandleOnclick, selectedOptions }) => {
             onClick={HandleOnclick}
             selected={selectedOptions.includes(option)}
             height={'auto'}
+            width={'auto'}
           >
             <Text>{option}</Text>
           </SelectButton>
