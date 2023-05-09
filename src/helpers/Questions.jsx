@@ -165,7 +165,7 @@ const Questions = [
     section_name: 'Safety Check',
     prompt: 'Are you experiencing any of the following?',
     options: [
-      'Fever(temperatures higher than 101.5)',
+      'Fever (temperatures higher than 101.5)',
       'Chills',
       'Shortness of breath',
       'Abdominal pain',

@@ -16,7 +16,7 @@ import {
   RightContent,
   LeftContent,
   BackNextButtonContainer,
-  Bold
+  Bold,
 } from '../styles';
 
 const Section = styled.h3`
@@ -42,11 +42,16 @@ const Prompt = styled.h1`
   letter-spacing: 0px;
 `;
 
-const SubQuestion = styled.p``;
+const SubQuestion = styled.p`
+  /* margin-top: -40px;
+  margin-bottom: 40px; */
+  max-width: 80%;
+`;
 
 const OptionsContainer = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Questionaire = () => {
@@ -114,14 +119,14 @@ const Questionaire = () => {
             {currQuestion === 0 && <TermsAgreement />}
             {currQuestion === 1 && <Q2 />}
             {currQuestion === 2 && <Q3 />}
-            {Questions[currQuestion].sub_questions && (
-              <SubQuestion>
-                <Bold>
-                  {Questions[currQuestion].sub_questions[currSubQuestion]}
-                </Bold>
-              </SubQuestion>
-            )}
             <OptionsContainer>
+              {Questions[currQuestion].sub_questions && (
+                <SubQuestion>
+                  <Bold>
+                    {Questions[currQuestion].sub_questions[currSubQuestion]}
+                  </Bold>
+                </SubQuestion>
+              )}
               <Options
                 currQuestion={currQuestion}
                 currSubQuestion={currSubQuestion}

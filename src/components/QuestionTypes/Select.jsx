@@ -22,6 +22,7 @@ const Circle = styled.div`
   margin-right: 10px;
   width: 20px;
   height: 20px;
+  min-width: 20px;
   border-radius: 50%;
   border: 2px solid black;
   ${(props) =>
