@@ -5,7 +5,7 @@ import { Background, Content } from '../styles';
 
 const Result = () => {
     return (
-        <Background image="../../results.png">
+        <Background image="../../results.jpg">
             <Header />
             <Content>
                 <PhysicalTherapist />
