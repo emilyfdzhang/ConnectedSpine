@@ -1,52 +1,70 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import styled from 'styled-components';
-
-const Container = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
-`;
+import { Bold, BackButton } from '../../styles';
+import {
+  Container,
+  Subtitle,
+  Title,
+  Recomendation,
+  Recomended,
+  Cards,
+  Card,
+  Logo,
+  Content,
+  Text,
+  Provider,
+  Button,
+  Save,
+} from './styles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPerson, faStethoscope } from '@fortawesome/free-solid-svg-icons';
 
 const PhysicalTherapist = () => {
   return (
-    <div className="container">
-      <h2 style={{ 'font-weight': 'lighter' }}>Results</h2> <br />
-      <h1>
-        Your answers suggests that your symptoms are related to a muscle strain
-      </h1>{' '}
-      <br />
-      <h3 style={{ 'font-weight': 'lighter' }}>Recommended providers</h3>
-      <Container>
-        <div class="card" style={{ 'margin-right': '15px', width: '45%' }}>
-          <div class="card-body">
-            <div style={{ height: '70%' }}>
-              <h5 class="card-title">Physical Therapist</h5>
-              <p class="card-text">
-                90% of people with your answers seek care from a physical
-                therapist
-              </p>
-            </div>
-            <a href="#" class="btn btn-primary">
-              More Info
-            </a>
-          </div>
-        </div>
-        <div class="card" style={{ 'margin-right': '15px', width: '45%' }}>
-          <div class="card-body">
-            <div style={{ height: '70%' }}>
-              <h5 class="card-title">Physiatrist (MD)</h5>
-              <p class="card-text">
-                35% of people with your answers seek care from a Physiatrist
-              </p>
-            </div>
-            <a href="#" class="btn btn-primary">
-              More Info
-            </a>
-          </div>
-        </div>
-      </Container>
-    </div>
+    <Container>
+      <Subtitle>Results</Subtitle>
+      <Title>
+        Your answers suggests that your symptoms are related to a muscle strain.
+      </Title>
+      <Recomendation>
+        <Recomended>Recommended providers</Recomended>
+        <Cards>
+          <Card>
+            <Logo>
+              <FontAwesomeIcon icon={faPerson} />
+            </Logo>
+            <Content>
+              <Provider>Physical Therapist</Provider>
+              <Text>
+                <Bold>90% of people</Bold> with your answers seek care from a
+                physical therapist
+              </Text>
+              <a>+ More details</a>
+              <Button>Search Providers</Button>
+            </Content>
+          </Card>
+
+          <Card>
+            <Logo>
+              <FontAwesomeIcon icon={faStethoscope} />
+            </Logo>
+            <Content>
+              <Provider>Physiatrist (MD)</Provider>
+              <Text>
+                <Bold>35% of people</Bold> with your answers seek care from a
+                Physiatrist
+              </Text>
+              <a>+ More details</a>
+              <Button>Search Providers</Button>
+            </Content>
+          </Card>
+        </Cards>
+      </Recomendation>
+      <Save>
+        <p>Save your answers to reference with your provider.</p>
+        <BackButton>Download</BackButton>
+        <BackButton>Email</BackButton>
+        <BackButton>Text</BackButton>
+      </Save>
+    </Container>
   );
 };
 

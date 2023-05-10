@@ -23,6 +23,7 @@ export const borderGrey = '#b3acaa';
 
 // Back Button
 export const backGrey = '#979797';
+export const backGreyLight = 'rgba(179, 172, 170, 0.5)';
 export const borderBlue = '#1d2556';
 
 // Link
@@ -79,9 +80,10 @@ export const NextButton = styled.button`
 `;
 
 export const BackButton = styled.button`
-  width: 80px;
+  min-width: 80px;
   height: 40px;
-  background-color: ${backGrey};
+  padding: 2px;
+  background-color: ${backGreyLight};
   color: ${borderBlue};
   border: 1px solid ${borderBlue};
   border-radius: 4px;
