@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import AssessmentContext from './helpers/Contexts';
+import LoginSignup from './components/LoginSignup';
 import Home from './components/Home';
 import ZipCode from './components/ZipCode';
 import Questionaire from './components/Questionaire';
@@ -8,7 +9,7 @@ import Result from './components/result';
 import { useDbData } from './utilities/firebase';
 
 const App = () => {
-  const [AssessmentState, setAssessmentState] = useState('home');
+  const [AssessmentState, setAssessmentState] = useState('login-signup');
   const [isValid, setIsValid] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState([]);
 
@@ -34,6 +35,7 @@ const App = () => {
         setSelectedOptions,
       }}
     >
+      {AssessmentState === 'login-signup' && <LoginSignup />}
       {AssessmentState === 'home' && <Home />}
       {AssessmentState === 'zipcode' && <ZipCode />}
       {AssessmentState === 'questions' && <Questionaire />}

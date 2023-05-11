@@ -11,6 +11,12 @@ import {
   Background,
   Content,
 } from '../styles';
+import { useAuthState } from '../utilities/firebase';
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
 
 const Title = styled.div`
   max-width: 600px;
@@ -58,6 +64,9 @@ const Text = styled.p`
 
 const Home = () => {
   const { AssessmentState, setAssessmentState } = useContext(AssessmentContext);
+  const user = getAuth().currentUser;
+  console.log(`user: ${JSON.stringify(user)}`);
+  console.log(`user email: ${user.email}`);
   return (
     <Background image="../../homepage.jpg">
       <Header />
