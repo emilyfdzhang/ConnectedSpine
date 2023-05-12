@@ -4,6 +4,12 @@ import Header from './Header';
 import Modal from './Modal';
 import styled from 'styled-components';
 import { Background, Content, NextButton, Link, Warning } from '../styles';
+import { useAuthState } from '../utilities/firebase';
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
 
 const borderGrey = '#979797';
 
@@ -48,6 +54,10 @@ const ZipCode = () => {
   const { isValid, setIsValid } = useContext(AssessmentContext);
   const [zipCode, setZipCode] = useState('');
   const [showModal, setShowModal] = useState(false);
+
+  const user = getAuth().currentUser;
+  console.log(`user: ${JSON.stringify(user)}`);
+  console.log(`user email: ${user.email}`);
 
   const handleZipCodeChange = (event) => {
     const zip = event.target.value;

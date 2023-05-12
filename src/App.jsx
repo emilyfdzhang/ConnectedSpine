@@ -9,7 +9,7 @@ import Result from './components/result';
 import { useDbData } from './utilities/firebase';
 
 const App = () => {
-  const [AssessmentState, setAssessmentState] = useState('login-signup');
+  const [AssessmentState, setAssessmentState] = useState('home');
   const [isValid, setIsValid] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState([]);
 
@@ -35,8 +35,8 @@ const App = () => {
         setSelectedOptions,
       }}
     >
-      {AssessmentState === 'login-signup' && <LoginSignup />}
       {AssessmentState === 'home' && <Home />}
+      {AssessmentState === 'login-signup' && <LoginSignup />}
       {AssessmentState === 'zipcode' && <ZipCode />}
       {AssessmentState === 'questions' && <Questionaire />}
       {AssessmentState === 'result' && <Result />}

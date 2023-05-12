@@ -87,6 +87,13 @@ const Button = styled.button`
   }
 `;
 
+const Form = styled.form`
+  margin-top: 30px;
+  label {
+    font-weight: 400;
+  }
+`;
+
 const SignUp = ({ setButton }) => {
   const { AssessmentState, setAssessmentState } = useContext(AssessmentContext);
 
@@ -109,11 +116,11 @@ const SignUp = ({ setButton }) => {
     } catch (error) {
       console.error(error);
     }
-    setAssessmentState('home');
+    setAssessmentState('zipcode');
   };
 
   return (
-    <Background image="../../homepage.jpg">
+    <Background>
       <Button onClick={() => setButton('')}>Go Back</Button>
       <h1
         style={{
@@ -177,11 +184,11 @@ const Login = ({ setButton }) => {
       alert('Username or password is incorrect');
       return;
     }
-    setAssessmentState('home');
+    setAssessmentState('zipcode');
   };
 
   return (
-    <Background image="../../homepage.jpg">
+    <Background>
       <Button onClick={() => setButton('')}>Go Back</Button>
       <h1
         style={{
@@ -225,14 +232,17 @@ const LoginSignup = () => {
 
   return (
     <Background image="../../homepage.jpg">
-      {button === '' ? (
-        <Button onClick={() => setButton('signup')}>Sign Up</Button>
-      ) : null}
-      {button === '' ? (
-        <Button onClick={() => setButton('login')}>Login</Button>
-      ) : null}
-      {button === 'signup' ? <SignUp setButton={setButton} /> : null}
-      {button === 'login' ? <Login setButton={setButton} /> : null}
+      <Header />
+      <Content>
+        {button === '' ? (
+          <Button onClick={() => setButton('signup')}>Sign Up</Button>
+        ) : null}
+        {button === '' ? (
+          <Button onClick={() => setButton('login')}>Login</Button>
+        ) : null}
+        {button === 'signup' ? <SignUp setButton={setButton} /> : null}
+        {button === 'login' ? <Login setButton={setButton} /> : null}
+      </Content>
     </Background>
   );
 };
