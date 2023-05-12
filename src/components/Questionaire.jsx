@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import AssessmentContext from '../helpers/Contexts';
 import Header from './Header';
 import TermsAgreement from './BasicInfo/TermsAgreement';
@@ -100,7 +100,7 @@ const Questionaire = () => {
       ) {
         var qid = Questions[currQuestion].qId;
         // var currentAnswer = selectedOptions;
-        const currentAnswer = { ...answers, 1: selectedOptions };
+        const currentAnswer = { ...answers, [qid]: selectedOptions };
         console.log('selected options', selectedOptions);
         console.log('qid', qid);
         setAnswers(currentAnswer);
@@ -114,7 +114,7 @@ const Questionaire = () => {
       } else {
         var qid = Questions[currQuestion].qId;
         // var currentAnswer = selectedOptions;
-        const currentAnswer = { ...answers, 1: selectedOptions };
+        const currentAnswer = { ...answers, [qid]: selectedOptions };
         console.log('selected options', selectedOptions);
         console.log('qid', qid);
         setAnswers(currentAnswer);
@@ -126,8 +126,11 @@ const Questionaire = () => {
         setSelectedOptions([]);
       }
     }
-    console.log('answers:', answers);
   };
+
+  useEffect(() => {
+    console.log('answers:', answers);
+  }, [answers]);
 
   return (
     <Background image="../../pages.jpg">

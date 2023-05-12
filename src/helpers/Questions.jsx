@@ -49,6 +49,7 @@ const Questions = [
     prompt: 'Did your symptoms start after the incident?',
     options: ['Yes', 'No', 'Not sure'],
     type: 'Select',
+    qId: '02',
   },
   {
     section: 2,
@@ -56,6 +57,7 @@ const Questions = [
     prompt: 'How long have you been experiencing these symptoms?',
     options: ['A few minutes', 'A few hours', 'A few days', 'Weeks', 'Month +'],
     type: 'Select',
+    qId: '03',
   },
   {
     section: 2,
@@ -63,6 +65,7 @@ const Questions = [
     prompt: 'Choose the area(s) where you are feeling pain and/or discomfort.',
     options: ['Neck', 'Upper Back', 'Middle Back', 'Lower Back'],
     type: 'Multibutton',
+    qId: '04',
   },
   {
     section: 2,
@@ -70,6 +73,7 @@ const Questions = [
     prompt: 'Where are you feeling pain/discomfort in your lower back?',
     options: ['ON THE LEFT', 'IN THE MIDDLE', 'ON THE RIGHT'],
     type: 'Multibutton',
+    qId: '05',
   },
   {
     section: 2,
@@ -83,6 +87,7 @@ const Questions = [
       'TIGHTNESS AND LIMITED MOVEMENT',
     ],
     type: 'Multibutton',
+    qId: '06',
   },
   {
     section: 2,
