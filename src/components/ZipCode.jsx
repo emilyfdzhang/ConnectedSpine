@@ -56,8 +56,8 @@ const ZipCode = () => {
   const [showModal, setShowModal] = useState(false);
 
   const user = getAuth().currentUser;
-  console.log(`user: ${JSON.stringify(user)}`);
-  console.log(`user email: ${user.email}`);
+  // console.log(`user: ${JSON.stringify(user)}`);
+  // console.log(`user email: ${user.email}`);
 
   const handleZipCodeChange = (event) => {
     const zip = event.target.value;

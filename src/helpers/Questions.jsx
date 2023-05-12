@@ -27,6 +27,7 @@ const Questions = [
       'A potential emergency or urgent care visit',
     ],
     type: 'Multiselect',
+    qId: '00',
   },
   {
     section: 1,
@@ -40,6 +41,7 @@ const Questions = [
       'None of the above',
     ],
     type: 'Select',
+    qId: '01',
   },
   {
     section: 1,

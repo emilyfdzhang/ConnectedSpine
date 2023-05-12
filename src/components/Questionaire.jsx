@@ -57,6 +57,7 @@ const OptionsContainer = styled.div`
 const Questionaire = () => {
   const [currQuestion, setCurrQuestion] = useState(0);
   const [currSubQuestion, setCurrSubQuestion] = useState(0);
+
   const {
     AssessmentState,
     setAssessmentState,
@@ -64,6 +65,8 @@ const Questionaire = () => {
     setIsValid,
     selectedOptions,
     setSelectedOptions,
+    answers,
+    setAnswers,
   } = useContext(AssessmentContext);
 
   const handleBackClick = () => {
@@ -95,14 +98,35 @@ const Questionaire = () => {
         !Questions[currQuestion].sub_questions ||
         currSubQuestion === Questions[currQuestion].sub_questions.length - 1
       ) {
+        var qid = Questions[currQuestion].qId;
+        // var currentAnswer = selectedOptions;
+        const currentAnswer = { ...answers, 1: selectedOptions };
+        console.log('selected options', selectedOptions);
+        console.log('qid', qid);
+        setAnswers(currentAnswer);
+        // setAnswers((prevAnswers) => ({
+        //   ...prevAnswers,
+        //   [id]: selectedOptions,
+        // }));
         setCurrQuestion(currQuestion + 1);
         setCurrSubQuestion(0);
         setSelectedOptions([]);
       } else {
+        var qid = Questions[currQuestion].qId;
+        // var currentAnswer = selectedOptions;
+        const currentAnswer = { ...answers, 1: selectedOptions };
+        console.log('selected options', selectedOptions);
+        console.log('qid', qid);
+        setAnswers(currentAnswer);
+        // setAnswers((prevAnswers) => ({
+        //   ...prevAnswers,
+        //   [id]: selectedOptions,
+        // }));
         setCurrSubQuestion(currSubQuestion + 1);
         setSelectedOptions([]);
       }
     }
+    console.log('answers:', answers);
   };
 
   return (
