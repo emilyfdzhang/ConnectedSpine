@@ -104,10 +104,6 @@ const Questionaire = () => {
         console.log('selected options', selectedOptions);
         console.log('qid', qid);
         setAnswers(currentAnswer);
-        // setAnswers((prevAnswers) => ({
-        //   ...prevAnswers,
-        //   [id]: selectedOptions,
-        // }));
         setCurrQuestion(currQuestion + 1);
         setCurrSubQuestion(0);
         setSelectedOptions([]);
@@ -118,10 +114,6 @@ const Questionaire = () => {
         console.log('selected options', selectedOptions);
         console.log('qid', qid);
         setAnswers(currentAnswer);
-        // setAnswers((prevAnswers) => ({
-        //   ...prevAnswers,
-        //   [id]: selectedOptions,
-        // }));
         setCurrSubQuestion(currSubQuestion + 1);
         setSelectedOptions([]);
       }

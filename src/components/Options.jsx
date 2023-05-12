@@ -42,7 +42,7 @@ const Options = ({
 
   useEffect(() => {
     // Previous answers are saved when clicking the back button
-    if (currQuestion > 2 && answers[Questions[currQuestion].qId]) {
+    if (answers[Questions[currQuestion].qId]) {
       const previousAnswer = answers[Questions[currQuestion].qId];
       console.log(`CurrentQuestion2: ${currQuestion}`);
       console.log(`useEffect: ${answers[Questions[currQuestion].qId]}`);

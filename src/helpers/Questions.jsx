@@ -4,18 +4,21 @@ const Questions = [
     section_name: 'Basic Info',
     prompt: 'Terms of Service',
     type: null,
+    qId: 'terms',
   },
   {
     section: 1,
     section_name: 'Basic Info',
     prompt: 'Who are you answering this questionaire for?',
     type: null,
+    qId: 'identity',
   },
   {
     section: 1,
     section_name: 'Basic Info',
     prompt: "Let's get some basic info about you first.",
     type: null,
+    qId: 'basic-info',
   },
   {
     section: 1,

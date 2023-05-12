@@ -27,10 +27,12 @@ const Label = styled.div`
   font-weight: 500;
 `;
 
-const text = "this is why we do this";
+const text = 'this is why we do this';
 
 const Q3 = () => {
   const { isValid, setIsValid } = useContext(AssessmentContext);
+  const { selectedOptions, setSelectedOptions } = useContext(AssessmentContext);
+  const { answers, setAnswers } = useContext(AssessmentContext);
   const [showModal, setShowModal] = useState(false);
   const [sex, setSex] = useState('');
   const [height, setHeight] = useState('');
@@ -43,10 +45,23 @@ const Q3 = () => {
 
   useEffect(() => {
     if (sex && height && weight && age) {
+      setSelectedOptions({
+        sex: sex,
+        height: height,
+        weight: weight,
+        age: age,
+      });
       setIsValid(true);
     } else {
       setIsValid(false);
     }
+    // if (answers['basic-info']) {
+    //   const currAnswer = answers['basic-info'];
+    //   setSex(currAnswer['sex']);
+    //   setHeight(currAnswer['height']);
+    //   setWeight(currAnswer['weight']);
+    //   setAge(currAnswer['age']);
+    // }
   }, [sex, height, weight, age, setIsValid]);
 
   function formatHeight(height) {
