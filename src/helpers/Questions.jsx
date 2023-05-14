@@ -110,21 +110,23 @@ const Questions = [
       'NONE OF THE ABOVE',
     ],
     type: 'Multibutton',
+    qId: '06-dull-01', //
   },
 
-  // {
-  //   section: 2,
-  //   section_name: 'Symptoms',
-  //   prompt:
-  //     'How difficult has the dull, aching pain made your day-to-day activites?',
-  //   options: [
-  //     'Not at all difficult',
-  //     'Somewhat difficult',
-  //     'Very difficult',
-  //     'Extremely difficult',
-  //   ],
-  //   type: 'Select',
-  // },
+  {
+    section: 2,
+    section_name: 'Symptoms',
+    prompt:
+      'How difficult has the dull, aching pain made your day-to-day activites?',
+    options: [
+      'Not at all difficult',
+      'Somewhat difficult',
+      'Very difficult',
+      'Extremely difficult',
+    ],
+    type: 'Select',
+    qId: '06-dull-02',
+  },
   // {
   //   section: 2,
   //   section_name: 'Symptoms',

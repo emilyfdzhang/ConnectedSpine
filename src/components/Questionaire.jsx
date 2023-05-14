@@ -88,9 +88,18 @@ const Questionaire = () => {
 
   const handleNextClick = () => {
     if (
-      currQuestion === Questions.length - 1 &&
-      currSubQuestion === Questions[currQuestion].sub_questions.length - 1
+      (currQuestion === Questions.length - 1 &&
+        Questions[currQuestion].sub_questions &&
+        currSubQuestion === Questions[currQuestion].sub_questions.length - 1) ||
+      currQuestion === Questions.length - 1
     ) {
+      if (Questions[currQuestion].sub_questions) {
+        var qid = `${Questions[currQuestion].qId}-subq-${currSubQuestion}`;
+      } else {
+        var qid = Questions[currQuestion].qId;
+      }
+      const currentAnswer = { ...answers, [qid]: selectedOptions };
+      setAnswers(currentAnswer);
       setAssessmentState('result');
     } else if (isValid) {
       setIsValid(false);
@@ -98,18 +107,18 @@ const Questionaire = () => {
         !Questions[currQuestion].sub_questions ||
         currSubQuestion === Questions[currQuestion].sub_questions.length - 1
       ) {
-        var qid = Questions[currQuestion].qId;
-        // var currentAnswer = selectedOptions;
+        if (Questions[currQuestion].sub_questions) {
+          var qid = `${Questions[currQuestion].qId}-subq-${currSubQuestion}`;
+        } else {
+          var qid = Questions[currQuestion].qId;
+        }
         const currentAnswer = { ...answers, [qid]: selectedOptions };
-        console.log('selected options', selectedOptions);
-        console.log('qid', qid);
         setAnswers(currentAnswer);
         setCurrQuestion(currQuestion + 1);
         setCurrSubQuestion(0);
         setSelectedOptions([]);
       } else {
-        var qid = Questions[currQuestion].qId;
-        // var currentAnswer = selectedOptions;
+        var qid = `${Questions[currQuestion].qId}-subq-${currSubQuestion}`;
         const currentAnswer = { ...answers, [qid]: selectedOptions };
         console.log('selected options', selectedOptions);
         console.log('qid', qid);
