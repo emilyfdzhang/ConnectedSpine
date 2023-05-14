@@ -4,21 +4,21 @@ const Questions = [
     section_name: 'Basic Info',
     prompt: 'Terms of Service',
     type: null,
-    qId: 'terms',
+    qId: 'terms', // 0
   },
   {
     section: 1,
     section_name: 'Basic Info',
     prompt: 'Who are you answering this questionaire for?',
     type: null,
-    qId: 'identity',
+    qId: 'identity', // 1
   },
   {
     section: 1,
     section_name: 'Basic Info',
     prompt: "Let's get some basic info about you first.",
     type: null,
-    qId: 'basic-info',
+    qId: 'basic-info', // 2
   },
   {
     section: 1,
@@ -30,7 +30,7 @@ const Questions = [
       'A potential emergency or urgent care visit',
     ],
     type: 'Multiselect',
-    qId: '00',
+    qId: '00', // 3
   },
   {
     section: 1,
@@ -44,7 +44,7 @@ const Questions = [
       'None of the above',
     ],
     type: 'Select',
-    qId: '01',
+    qId: '01', // 4
   },
   {
     section: 1,
@@ -52,7 +52,7 @@ const Questions = [
     prompt: 'Did your symptoms start after the incident?',
     options: ['Yes', 'No', 'Not sure'],
     type: 'Select',
-    qId: '02',
+    qId: '02', // 5
   },
   {
     section: 2,
@@ -60,7 +60,7 @@ const Questions = [
     prompt: 'How long have you been experiencing these symptoms?',
     options: ['A few minutes', 'A few hours', 'A few days', 'Weeks', 'Month +'],
     type: 'Select',
-    qId: '03',
+    qId: '03', // 6
   },
   {
     section: 2,
@@ -68,7 +68,7 @@ const Questions = [
     prompt: 'Choose the area(s) where you are feeling pain and/or discomfort.',
     options: ['Neck', 'Upper Back', 'Middle Back', 'Lower Back'],
     type: 'Multibutton',
-    qId: '04',
+    qId: '04', // 7
   },
   {
     section: 2,
@@ -76,7 +76,7 @@ const Questions = [
     prompt: 'Where are you feeling pain/discomfort in your lower back?',
     options: ['ON THE LEFT', 'IN THE MIDDLE', 'ON THE RIGHT'],
     type: 'Multibutton',
-    qId: '05',
+    qId: '05', // 8
   },
   {
     section: 2,
@@ -90,7 +90,7 @@ const Questions = [
       'TIGHTNESS AND LIMITED MOVEMENT',
     ],
     type: 'Multibutton',
-    qId: '06',
+    qId: '06', // 9
   },
   {
     section: 2,
@@ -110,7 +110,7 @@ const Questions = [
       'NONE OF THE ABOVE',
     ],
     type: 'Multibutton',
-    qId: '06-dull-01', //
+    qId: '06-dull-01', // 10
   },
 
   {
@@ -125,7 +125,7 @@ const Questions = [
       'Extremely difficult',
     ],
     type: 'Select',
-    qId: '06-dull-02',
+    qId: '06-dull-02', // 11
   },
   // {
   //   section: 2,
