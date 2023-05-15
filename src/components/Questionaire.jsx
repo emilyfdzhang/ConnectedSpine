@@ -58,6 +58,8 @@ const Questionaire = () => {
   const [currQuestion, setCurrQuestion] = useState(0);
   const [currSubQuestion, setCurrSubQuestion] = useState(0);
 
+  const [idTrail, setIdTrail] = useState([]);
+
   const {
     AssessmentState,
     setAssessmentState,
@@ -69,41 +71,117 @@ const Questionaire = () => {
     setAnswers,
   } = useContext(AssessmentContext);
 
+  const proceedSensationQuestion = (currentQuestion) => {
+    // if SENSATION question, then navigate to questions based on these answers
+    let index = currentQuestion + 1;
+    console.log('answers new', answers);
+    for (let i = currentQuestion + 1; i < Questions.length; i++) {
+      if (
+        currentQuestion + 1 > 9 &&
+        Questions[currentQuestion + 1].qId.includes('06')
+      ) {
+        let filter;
+        if (currentQuestion == 9) {
+          filter = selectedOptions;
+        } else {
+          filter = answers['06'];
+        }
+        var qid = Questions[i].qId;
+        console.log('qid', qid);
+        qid = qid.split('-');
+        const question = qid[1];
+        for (let j = 0; j < filter.length; j++) {
+          if (filter[j].includes(question)) {
+            index = i;
+            return index;
+          } else {
+            index = 13; // change index based on next question after sensations questions
+          }
+        }
+      }
+    }
+    return index;
+  };
+
+  // const handleBackClick = () => {
+  //   if (currQuestion === 0) {
+  //     setAssessmentState('zipcode');
+  //   } else {
+  //     if (!Questions[currQuestion].sub_questions || currSubQuestion == 0) {
+  //       setCurrQuestion(currQuestion - 1);
+  //       if (Questions[currQuestion].sub_questions) {
+  //         setCurrSubQuestion(Questions[currQuestion].sub_questions.length - 1);
+  //       } else {
+  //         setCurrSubQuestion(0);
+  //       }
+  //     } else {
+  //       setCurrSubQuestion(currSubQuestion - 1);
+  //     }
+  //   }
+  // };
+
   const handleBackClick = () => {
     if (currQuestion === 0) {
       setAssessmentState('zipcode');
     } else {
-      if (!Questions[currQuestion].sub_questions || currSubQuestion == 0) {
-        setCurrQuestion(currQuestion - 1);
-        if (Questions[currQuestion].sub_questions) {
-          setCurrSubQuestion(Questions[currQuestion].sub_questions.length - 1);
-        } else {
-          setCurrSubQuestion(0);
+      let index;
+      let tempIdTrail = [];
+      const currId = Questions[currQuestion].qId;
+      tempIdTrail = idTrail.concat(currId);
+      console.log('tempIdTrail', tempIdTrail);
+      console.log('currId', currId);
+
+      if (Questions[currQuestion].sub_questions) {
+        console.log('subquestions', Questions[currQuestion].sub_questions);
+        console.log('current subquestion', currSubQuestion);
+        if (currSubQuestion != 0) {
+          setCurrSubQuestion(currSubQuestion - 1);
+          return;
         }
-      } else {
-        setCurrSubQuestion(currSubQuestion - 1);
+      }
+
+      for (let i = 0; i < tempIdTrail.length; i++) {
+        if (tempIdTrail[i + 1] === currId) {
+          const newLocationId = tempIdTrail[i];
+          for (let j = 0; j < Questions.length; j++) {
+            if (newLocationId === Questions[j].qId) {
+              index = Questions[j].index;
+              console.log('INDEX', index);
+              setCurrQuestion(index);
+              return;
+            }
+          }
+        }
       }
     }
   };
 
   const handleNextClick = () => {
     if (
+      // if last question
       (currQuestion === Questions.length - 1 &&
         Questions[currQuestion].sub_questions &&
         currSubQuestion === Questions[currQuestion].sub_questions.length - 1) ||
       currQuestion === Questions.length - 1
     ) {
       if (Questions[currQuestion].sub_questions) {
+        // if last question and subquestion
         var qid = `${Questions[currQuestion].qId}-subq-${currSubQuestion}`;
       } else {
+        // if last question and not subquestion
         var qid = Questions[currQuestion].qId;
       }
       const currentAnswer = { ...answers, [qid]: selectedOptions };
       setAnswers(currentAnswer);
+      if (!idTrail.includes(Questions[currQuestion].qId)) {
+        setIdTrail([...idTrail, Questions[currQuestion].qId]);
+      }
       setAssessmentState('result');
     } else if (isValid) {
+      // if not last question
       setIsValid(false);
       if (
+        // move onto next question
         !Questions[currQuestion].sub_questions ||
         currSubQuestion === Questions[currQuestion].sub_questions.length - 1
       ) {
@@ -114,16 +192,35 @@ const Questionaire = () => {
         }
         const currentAnswer = { ...answers, [qid]: selectedOptions };
         setAnswers(currentAnswer);
-        setCurrQuestion(currQuestion + 1);
+        if (!idTrail.includes(Questions[currQuestion].qId)) {
+          setIdTrail([...idTrail, Questions[currQuestion].qId]);
+        }
+
+        const index = proceedSensationQuestion(currQuestion);
+        setCurrQuestion(index);
+
+        // setCurrQuestion(currQuestion + 1);
         setCurrSubQuestion(0);
         setSelectedOptions([]);
       } else {
+        // move onto next subquestion
         var qid = `${Questions[currQuestion].qId}-subq-${currSubQuestion}`;
         const currentAnswer = { ...answers, [qid]: selectedOptions };
         console.log('selected options', selectedOptions);
         console.log('qid', qid);
         setAnswers(currentAnswer);
-        setCurrSubQuestion(currSubQuestion + 1);
+        if (!idTrail.includes(Questions[currQuestion].qId)) {
+          setIdTrail([...idTrail, Questions[currQuestion].qId]);
+        }
+
+        const index = proceedSensationQuestion(currQuestion);
+        if (currQuestion + 1 == index) {
+          setCurrSubQuestion(currSubQuestion + 1);
+        } else {
+          setCurrQuestion(index);
+        }
+
+        // setCurrSubQuestion(currSubQuestion + 1);
         setSelectedOptions([]);
       }
     }
@@ -131,6 +228,7 @@ const Questionaire = () => {
 
   useEffect(() => {
     console.log('answers:', answers);
+    console.log('idTrail', idTrail);
   }, [answers]);
 
   return (
