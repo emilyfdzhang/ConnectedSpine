@@ -162,7 +162,8 @@ const Questionaire = () => {
       (currQuestion === Questions.length - 1 &&
         Questions[currQuestion].sub_questions &&
         currSubQuestion === Questions[currQuestion].sub_questions.length - 1) ||
-      currQuestion === Questions.length - 1
+      (currQuestion === Questions.length - 1 &&
+        !Questions[currQuestion].sub_questions)
     ) {
       if (Questions[currQuestion].sub_questions) {
         // if last question and subquestion
