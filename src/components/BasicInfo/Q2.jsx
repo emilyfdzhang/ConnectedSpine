@@ -4,6 +4,7 @@ import { IconContext } from 'react-icons';
 import { FaUser, FaUsers } from 'react-icons/fa';
 import styled from 'styled-components';
 import { boxBackground, selected, selectedBackground } from '../../styles';
+import Questions from '../../helpers/Questions';
 
 const textBlue = '#1d2556';
 const iconPurple = '#8992CD';
@@ -44,14 +45,25 @@ const Button = styled.button`
 
 const Q2 = () => {
   const { isValid, setIsValid } = useContext(AssessmentContext);
+  const { selectedOptions, setSelectedOptions } = useContext(AssessmentContext);
+  const { answers, setAnswers } = useContext(AssessmentContext);
   const [usage, setUsage] = useState('');
 
   const handleButtonClick = (choice) => {
     setUsage(choice);
+    setSelectedOptions(choice);
   };
 
   useEffect(() => {
-    if (usage) {
+    console.log(`answers['identity']: ${answers['identity']}`);
+    if (answers['identity']) {
+      if (usage && usage != answers['identity']) {
+        setSelectedOptions(usage);
+      } else {
+        setSelectedOptions(answers['identity']);
+      }
+    }
+    if (usage || selectedOptions) {
       setIsValid(true);
     } else {
       setIsValid(false);
@@ -62,7 +74,7 @@ const Q2 = () => {
     <Container>
       <IconContext.Provider value={{ color: `${iconPurple}`, size: '50px' }}>
         <Button
-          selected={usage === 'myself'}
+          selected={selectedOptions === 'myself'}
           onClick={() => handleButtonClick('myself')}
         >
           <div>
@@ -73,7 +85,7 @@ const Q2 = () => {
       </IconContext.Provider>
       <IconContext.Provider value={{ color: `${iconPurple}`, size: '70px' }}>
         <Button
-          selected={usage === 'others'}
+          selected={selectedOptions === 'others'}
           onClick={() => handleButtonClick('others')}
         >
           <div>

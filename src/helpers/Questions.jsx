@@ -4,18 +4,24 @@ const Questions = [
     section_name: 'Basic Info',
     prompt: 'Terms of Service',
     type: null,
+    qId: 'terms', // 0
+    index: 0,
   },
   {
     section: 1,
     section_name: 'Basic Info',
     prompt: 'Who are you answering this questionaire for?',
     type: null,
+    qId: 'identity', // 1
+    index: 1,
   },
   {
     section: 1,
     section_name: 'Basic Info',
     prompt: "Let's get some basic info about you first.",
     type: null,
+    qId: 'basic-info', // 2
+    index: 2,
   },
   {
     section: 1,
@@ -27,6 +33,8 @@ const Questions = [
       'A potential emergency or urgent care visit',
     ],
     type: 'Multiselect',
+    qId: '00', // 3
+    index: 3,
   },
   {
     section: 1,
@@ -40,6 +48,8 @@ const Questions = [
       'None of the above',
     ],
     type: 'Select',
+    qId: '01', // 4
+    index: 4,
   },
   {
     section: 1,
@@ -47,6 +57,8 @@ const Questions = [
     prompt: 'Did your symptoms start after the incident?',
     options: ['Yes', 'No', 'Not sure'],
     type: 'Select',
+    qId: '02', // 5
+    index: 5,
   },
   {
     section: 2,
@@ -54,6 +66,8 @@ const Questions = [
     prompt: 'How long have you been experiencing these symptoms?',
     options: ['A few minutes', 'A few hours', 'A few days', 'Weeks', 'Month +'],
     type: 'Select',
+    qId: '03', // 6
+    index: 6,
   },
   {
     section: 2,
@@ -61,6 +75,8 @@ const Questions = [
     prompt: 'Choose the area(s) where you are feeling pain and/or discomfort.',
     options: ['Neck', 'Upper Back', 'Middle Back', 'Lower Back'],
     type: 'Multibutton',
+    qId: '04', // 7
+    index: 7,
   },
   {
     section: 2,
@@ -68,6 +84,8 @@ const Questions = [
     prompt: 'Where are you feeling pain/discomfort in your lower back?',
     options: ['ON THE LEFT', 'IN THE MIDDLE', 'ON THE RIGHT'],
     type: 'Multibutton',
+    qId: '05', // 8
+    index: 8,
   },
   {
     section: 2,
@@ -81,6 +99,8 @@ const Questions = [
       'TIGHTNESS AND LIMITED MOVEMENT',
     ],
     type: 'Multibutton',
+    qId: '06', // 9
+    index: 9,
   },
   {
     section: 2,
@@ -100,46 +120,54 @@ const Questions = [
       'NONE OF THE ABOVE',
     ],
     type: 'Multibutton',
+    qId: '06-DULL-01', // 10
+    index: 10,
   },
 
-  // {
-  //   section: 2,
-  //   section_name: 'Symptoms',
-  //   prompt:
-  //     'How difficult has the dull, aching pain made your day-to-day activites?',
-  //   options: [
-  //     'Not at all difficult',
-  //     'Somewhat difficult',
-  //     'Very difficult',
-  //     'Extremely difficult',
-  //   ],
-  //   type: 'Select',
-  // },
-  // {
-  //   section: 2,
-  //   section_name: 'Symptoms',
-  //   prompt: 'Regarding the tightness',
-  //   sub_questions: [
-  //     'Does it feel like a pulled muscle?',
-  //     'Does it get better with anti - inflammatory pain medication, such as Tylenol or Advil',
-  //   ],
+  {
+    section: 2,
+    section_name: 'Symptoms',
+    prompt:
+      'How difficult has the dull, aching pain made your day-to-day activites?',
+    options: [
+      'Not at all difficult',
+      'Somewhat difficult',
+      'Very difficult',
+      'Extremely difficult',
+    ],
+    type: 'Select',
+    qId: '06-DULL-02', // 11
+    index: 11,
+  },
+  {
+    section: 2,
+    section_name: 'Symptoms',
+    prompt: 'Regarding the tightness',
+    sub_questions: [
+      'Does it feel like a pulled muscle?',
+      'Does it get better with anti - inflammatory pain medication, such as Tylenol or Advil',
+    ],
 
-  //   options: ['YES', 'NO', 'NOT SURE'],
-  //   type: 'Selectbutton',
-  // },
-  // {
-  //   section: 2,
-  //   section_name: 'Symptoms',
-  //   prompt: 'Have you taken medication for your symptoms?',
-  //   options: [
-  //     'Yes, I have taken over-the-counter relievers or anti-inflammatory medication(Advil, Tylenol, Aspirin,etc.)',
-  //     'Yes, I have taken prescription pain relievers',
-  //     'Yes, I have taken muscle relaxers',
-  //     'No',
-  //     'Not sure',
-  //   ],
-  //   type: 'Select',
-  // },
+    options: ['YES', 'NO', 'NOT SURE'],
+    type: 'Selectbutton',
+    qId: '06-TIGHTNESS-01', // 12
+    index: 12,
+  },
+  {
+    section: 2,
+    section_name: 'Symptoms',
+    prompt: 'Have you taken medication for your symptoms?',
+    options: [
+      'Yes, I have taken over-the-counter relievers or anti-inflammatory medication(Advil, Tylenol, Aspirin,etc.)',
+      'Yes, I have taken prescription pain relievers',
+      'Yes, I have taken muscle relaxers',
+      'No',
+      'Not sure',
+    ],
+    type: 'Select',
+    qId: '07', // 13
+    index: 13,
+  },
   // {
   //   section: 2,
   //   section_name: 'Symptoms',

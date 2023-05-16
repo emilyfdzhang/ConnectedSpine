@@ -12,6 +12,7 @@ const App = () => {
   const [AssessmentState, setAssessmentState] = useState('home');
   const [isValid, setIsValid] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState([]);
+  const [answers, setAnswers] = useState({});
 
   const [data, error] = useDbData('/');
   if (error) return <h1>Error loading data: {error.toString()}</h1>;
@@ -33,6 +34,8 @@ const App = () => {
         setIsValid,
         selectedOptions,
         setSelectedOptions,
+        answers,
+        setAnswers,
       }}
     >
       {AssessmentState === 'home' && <Home />}

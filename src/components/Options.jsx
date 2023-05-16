@@ -1,10 +1,11 @@
-import { useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import AssessmentContext from '../helpers/Contexts';
 import Select from './QuestionTypes/Select';
 import MultiSelect from './QuestionTypes/MultiSelect';
 import SingleButton from './QuestionTypes/SingleButton';
 import MultiButton from './QuestionTypes/MultiButton';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Questions from '../helpers/Questions';
 
 const Options = ({
   currQuestion,
@@ -15,7 +16,7 @@ const Options = ({
 }) => {
   const { isValid, setIsValid } = useContext(AssessmentContext);
   const { selectedOptions, setSelectedOptions } = useContext(AssessmentContext);
-  console.log(`currQuestionType: ${currQuestionType}`);
+  const { answers, setAnswers } = useContext(AssessmentContext);
 
   const HandleOnclick = (event) => {
     // const selected_value = parseInt(event.currentTarget.id);
@@ -38,6 +39,25 @@ const Options = ({
   if (selectedOptions.length === 0 && currQuestion > 2) {
     setIsValid(false);
   }
+
+  useEffect(() => {
+    // Previous answers are saved when clicking the back button
+    if (currQuestion > 2 && answers[Questions[currQuestion].qId]) {
+      let previousAnswer;
+      if (Questions[currQuestion].sub_questions) {
+        var qid = `${Questions[currQuestion].qId}-subq-${currSubQuestion}`;
+        previousAnswer = answers[qid];
+      } else {
+        previousAnswer = answers[Questions[currQuestion].qId];
+      }
+      // const previousAnswer = answers[Questions[currQuestion].qId];
+      console.log(`CurrentQuestion2: ${currQuestion}`);
+      console.log(`useEffect: ${answers[Questions[currQuestion].qId]}`);
+      setSelectedOptions(selectedOptions.concat(previousAnswer));
+      // still able to click next
+      setIsValid(true);
+    }
+  }, [currQuestion, currSubQuestion]);
 
   if (options) {
     switch (currQuestionType) {

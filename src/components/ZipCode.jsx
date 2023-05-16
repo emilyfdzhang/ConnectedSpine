@@ -1,10 +1,11 @@
-import { useState, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import AssessmentContext from '../helpers/Contexts';
 import Header from './Header';
 import Modal from './Modal';
 import styled from 'styled-components';
 import { Background, Content, NextButton, Link, Warning } from '../styles';
 import { useAuthState } from '../utilities/firebase';
+import Questions from '../helpers/Questions';
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -51,13 +52,14 @@ function isValidUSZip(zip) {
 
 const ZipCode = () => {
   const { setAssessmentState } = useContext(AssessmentContext);
+  const { answers, setAnswers } = useContext(AssessmentContext);
   const { isValid, setIsValid } = useContext(AssessmentContext);
   const [zipCode, setZipCode] = useState('');
   const [showModal, setShowModal] = useState(false);
 
   const user = getAuth().currentUser;
-  console.log(`user: ${JSON.stringify(user)}`);
-  console.log(`user email: ${user.email}`);
+  // console.log(`user: ${JSON.stringify(user)}`);
+  // console.log(`user email: ${user.email}`);
 
   const handleZipCodeChange = (event) => {
     const zip = event.target.value;
@@ -67,10 +69,22 @@ const ZipCode = () => {
 
   const handleNextClick = () => {
     if (isValid) {
+      const currentAnswer = { ...answers, zipcode: zipCode };
+      setAnswers(currentAnswer);
       setAssessmentState('questions');
       setIsValid(false);
     }
   };
+
+  useEffect(() => {
+    // Previous answers are saved when clicking the back button
+    if (answers['zipcode']) {
+      const previousAnswer = answers['zipcode'];
+      setZipCode(previousAnswer);
+      // still able to click next
+      setIsValid(true);
+    }
+  }, []);
 
   return (
     <Background image="../../questions.png">

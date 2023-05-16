@@ -27,10 +27,12 @@ const Label = styled.div`
   font-weight: 500;
 `;
 
-const text = "this is why we do this";
+const text = 'this is why we do this';
 
 const Q3 = () => {
   const { isValid, setIsValid } = useContext(AssessmentContext);
+  const { selectedOptions, setSelectedOptions } = useContext(AssessmentContext);
+  const { answers, setAnswers } = useContext(AssessmentContext);
   const [showModal, setShowModal] = useState(false);
   const [sex, setSex] = useState('');
   const [height, setHeight] = useState('');
@@ -41,11 +43,52 @@ const Q3 = () => {
     setSex(choice);
   };
 
+  const handleHeightChange = (event) => {
+    setHeight(event.target.value);
+  };
+
+  const handleWeightChange = (event) => {
+    setWeight(event.target.value);
+  };
+
+  const handleAgeChange = (event) => {
+    setAge(event.target.value);
+  };
+
   useEffect(() => {
     if (sex && height && weight && age) {
+      setSelectedOptions({
+        sex: sex,
+        height: height,
+        weight: weight,
+        age: age,
+      });
       setIsValid(true);
     } else {
       setIsValid(false);
+    }
+    if (answers['basic-info']) {
+      const currAnswer = answers['basic-info'];
+      if (sex && sex != currAnswer['sex']) {
+        setSex(sex);
+      } else {
+        setSex(currAnswer['sex']);
+      }
+      if (height && height != currAnswer['height']) {
+        setHeight(height);
+      } else {
+        setHeight(currAnswer['height']);
+      }
+      if (weight && weight != currAnswer['weight']) {
+        setWeight(weight);
+      } else {
+        setWeight(currAnswer['weight']);
+      }
+      if (age & (age != currAnswer['age'])) {
+        setAge(age);
+      } else {
+        setAge(currAnswer['age']);
+      }
     }
   }, [sex, height, weight, age, setIsValid]);
 
@@ -87,7 +130,7 @@ const Q3 = () => {
             type="text"
             placeholder="ft in"
             value={height}
-            onChange={(event) => setHeight(event.target.value)}
+            onChange={handleHeightChange}
           />
           {isValid ? <></> : <Warning>* Please enter a valid height</Warning>}
         </div>
@@ -97,7 +140,7 @@ const Q3 = () => {
             type="text"
             placeholder="lbs"
             value={weight}
-            onChange={(event) => setWeight(event.target.value)}
+            onChange={handleWeightChange}
           />
           {Number.isInteger(parseInt(weight)) && parseInt(weight) > 0 ? (
             <></>
@@ -113,7 +156,7 @@ const Q3 = () => {
             type="text"
             placeholder="years"
             value={age}
-            onChange={(event) => setAge(event.target.value)}
+            onChange={handleAgeChange}
           />
           {Number.isInteger(parseInt(age)) && parseInt(age) > 0 ? (
             <></>
