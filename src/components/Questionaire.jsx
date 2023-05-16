@@ -67,7 +67,6 @@ const Questionaire = () => {
   } = useContext(AssessmentContext);
 
   const handleBackClick = () => {
-    // test
     if (currQuestion === 0) {
       setAssessmentState('zipcode');
     } else {
