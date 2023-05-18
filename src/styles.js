@@ -7,8 +7,13 @@ export const Bold = styled.span`
 `;
 
 // Question Types
-export const underline = "#ccc6c4";
+export const underline = '#ccc6c4';
 
+// Card
+export const cardBackground = 'rgba(255, 255, 255, 0.61)';
+export const cardBoxShadow =
+  '0px 6px 10px rgba(0, 0, 0, 0.14), 0px 1px 18px rgba(0, 0, 0, 0.12), 0px 3px 5px -1px rgba(0, 0, 0, 0.2);';
+export const iconPurple = '#8992cd';
 
 // All Button
 export const boxShadow = '0px 2px 4px rgba(0, 0, 0, 0.2)';

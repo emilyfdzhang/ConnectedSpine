@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import AssessmentContext from '../helpers/Contexts';
-import Header from './Header';
+import AssessmentContext from '../../helpers/Contexts';
+import Header from '../Header';
 import styled from 'styled-components';
 import {
   boxShadow,
@@ -10,7 +10,7 @@ import {
   Bold,
   Background,
   Content,
-} from '../styles';
+} from '../../styles';
 
 const Title = styled.div`
   max-width: 600px;

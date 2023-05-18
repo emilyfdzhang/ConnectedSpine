@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
-import AssessmentContext from '../helpers/Contexts';
-import Header from './Header';
+import AssessmentContext from '../../helpers/Contexts';
+import Header from '../Header';
 import styled from 'styled-components';
 import {
   boxShadow,
@@ -10,14 +10,14 @@ import {
   Bold,
   Background,
   Content,
-} from '../styles';
+} from '../../styles';
 import {
   createUserWithEmailAndPassword,
   getAuth,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
-import { SelectButton } from '../styles';
-import { auth } from '../utilities/firebase';
+import { SelectButton } from '../../styles';
+import { auth } from '../../utilities/firebase';
 
 const Title = styled.div`
   max-width: 600px;

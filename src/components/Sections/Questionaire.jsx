@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
-import AssessmentContext from '../helpers/Contexts';
-import Header from './Header';
-import TermsAgreement from './BasicInfo/TermsAgreement';
-import Q2 from './BasicInfo/Q2';
-import Q3 from './BasicInfo/Q3';
-import Questions from '../helpers/Questions';
-import Options from './Options';
+import AssessmentContext from '../../helpers/Contexts';
+import Header from '../Header';
+import TermsAgreement from '../BasicInfo/TermsAgreement';
+import Q2 from '../BasicInfo/Q2';
+import Q3 from '../BasicInfo/Q3';
+import Questions from '../../helpers/Questions';
+import Options from '../Options';
 import styled from 'styled-components';
 import {
   BackButton,
@@ -17,7 +17,7 @@ import {
   LeftContent,
   BackNextButtonContainer,
   Bold,
-} from '../styles';
+} from '../../styles';
 
 const Section = styled.h3`
   font-size: 16px;
@@ -102,23 +102,6 @@ const Questionaire = () => {
     }
     return index;
   };
-
-  // const handleBackClick = () => {
-  //   if (currQuestion === 0) {
-  //     setAssessmentState('zipcode');
-  //   } else {
-  //     if (!Questions[currQuestion].sub_questions || currSubQuestion == 0) {
-  //       setCurrQuestion(currQuestion - 1);
-  //       if (Questions[currQuestion].sub_questions) {
-  //         setCurrSubQuestion(Questions[currQuestion].sub_questions.length - 1);
-  //       } else {
-  //         setCurrSubQuestion(0);
-  //       }
-  //     } else {
-  //       setCurrSubQuestion(currSubQuestion - 1);
-  //     }
-  //   }
-  // };
 
   const handleBackClick = () => {
     if (currQuestion === 0) {

@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import AssessmentContext from './helpers/Contexts';
-import LoginSignup from './components/LoginSignup';
-import Home from './components/Home';
-import ZipCode from './components/ZipCode';
-import Questionaire from './components/Questionaire';
-import Result from './components/result';
+import Loading from './helpers/Loading';
+import LoginSignup from './components/Sections/LoginSignup';
+import Home from './components/Sections/Home';
+import ZipCode from './components/Sections/ZipCode';
+import Questionaire from './components/Sections/Questionaire';
+import Result from './components/Sections/Result';
 
 import { useDbData } from './utilities/firebase';
 
@@ -16,7 +17,7 @@ const App = () => {
 
   const [data, error] = useDbData('/');
   if (error) return <h1>Error loading data: {error.toString()}</h1>;
-  if (data === undefined) return <h1>Loading data...</h1>;
+  if (data === undefined) return <Loading/>;
   if (!data) return <h1>No data found</h1>;
 
   console.log(`Data: ${data}`);

@@ -1,8 +1,8 @@
-import Header from './Header';
-import PhysicalTherapist from './result/PhysicalTherapist';
-import { Background, Content } from '../styles';
+import Header from '../Header';
+import Providers from '../Recommend/Providers';
+import { Background, Content } from '../../styles';
 import React, { useState, useEffect, useContext } from 'react';
-import AssessmentContext from '../helpers/Contexts';
+import AssessmentContext from '../../helpers/Contexts';
 
 const Result = () => {
   const {
@@ -23,7 +23,7 @@ const Result = () => {
     <Background image="../../results.jpg">
       <Header />
       <Content>
-        <PhysicalTherapist />
+        <Providers />
       </Content>
     </Background>
   );

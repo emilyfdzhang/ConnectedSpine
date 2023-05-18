@@ -1,11 +1,11 @@
 import { useState, useEffect, useContext } from 'react';
-import AssessmentContext from '../helpers/Contexts';
-import Header from './Header';
-import Modal from './Modal';
+import AssessmentContext from '../../helpers/Contexts';
+import Header from '../Header';
+import Modal from '../Modal';
 import styled from 'styled-components';
-import { Background, Content, NextButton, Link, Warning } from '../styles';
-import { useAuthState } from '../utilities/firebase';
-import Questions from '../helpers/Questions';
+import { Background, Content, NextButton, Link, Warning } from '../../styles';
+import { useAuthState } from '../../utilities/firebase';
+import Questions from '../../helpers/Questions';
 import {
   createUserWithEmailAndPassword,
   getAuth,
