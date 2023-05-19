@@ -20,6 +20,7 @@ const Options = ({
   const HandleOnclick = (event) => {
     // const selected_value = parseInt(event.currentTarget.id);
     const selected_value = event.currentTarget.getAttribute('value');
+    console.log("Selected_Value", selected_value)
 
     if (selectedOptions.includes(selected_value)) {
       setSelectedOptions(
@@ -33,6 +34,7 @@ const Options = ({
       }
       setIsValid(true);
     }
+    console.log("Selected_Options", selectedOptions)
   };
 
   if (selectedOptions.length === 0 && currQuestion > 2) {
