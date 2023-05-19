@@ -6,6 +6,7 @@ import Q2 from '../BasicInfo/Q2';
 import Q3 from '../BasicInfo/Q3';
 import Questions from '../../helpers/Questions';
 import Options from '../QuestionTypes/Options';
+import ProgressDots from '../../helpers/ProgressDots';
 import styled from 'styled-components';
 import {
   BackButton,
@@ -216,7 +217,13 @@ const Questionaire = () => {
   }, [answers]);
 
   return (
-    <Background image="../../pages.jpg">
+    <Background
+      image={
+        currQuestion < 7 || currQuestion > 9
+          ? '../../pages.jpg'
+          : '../../plainbody.jpg'
+      }
+    >
       <Header />
       <Content>
         <ContentContainer>
@@ -253,6 +260,7 @@ const Questionaire = () => {
             </BackNextButtonContainer>
           </RightContent>
         </ContentContainer>
+        <ProgressDots currentStep={Questions[currQuestion].section - 1} />
       </Content>
     </Background>
   );
