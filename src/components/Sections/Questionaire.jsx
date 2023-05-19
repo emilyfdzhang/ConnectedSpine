@@ -95,7 +95,7 @@ const Questionaire = () => {
             index = i;
             return index;
           } else {
-            index = 13; // change index based on next question after sensations questions
+            index = 25; // change index based on next question after sensations questions
           }
         }
       }
@@ -197,12 +197,14 @@ const Questionaire = () => {
           setIdTrail([...idTrail, Questions[currQuestion].qId]);
         }
 
-        const index = proceedSensationQuestion(currQuestion);
-        if (currQuestion + 1 == index) {
-          setCurrSubQuestion(currSubQuestion + 1);
-        } else {
-          setCurrQuestion(index);
-        }
+        // const index = proceedSensationQuestion(currQuestion);
+        // if (currQuestion + 1 == index) {
+        //   setCurrSubQuestion(currSubQuestion + 1);
+        // } else {
+        //   console.log('HERE');
+        //   setCurrQuestion(index);
+        // }
+        setCurrSubQuestion(currSubQuestion + 1);
 
         // setCurrSubQuestion(currSubQuestion + 1);
         setSelectedOptions([]);
