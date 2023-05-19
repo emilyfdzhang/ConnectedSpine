@@ -217,13 +217,7 @@ const Questionaire = () => {
   }, [answers]);
 
   return (
-    <Background
-      image={
-        currQuestion < 7 || currQuestion > 9
-          ? '../../pages.jpg'
-          : '../../plainbody.jpg'
-      }
-    >
+    <Background image="../../pages.jpg">
       <Header />
       <Content>
         <ContentContainer>
