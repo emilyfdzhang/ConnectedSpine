@@ -5,7 +5,7 @@ import TermsAgreement from '../BasicInfo/TermsAgreement';
 import Q2 from '../BasicInfo/Q2';
 import Q3 from '../BasicInfo/Q3';
 import Questions from '../../helpers/Questions';
-import Options from '../Options';
+import Options from '../QuestionTypes/Options';
 import styled from 'styled-components';
 import {
   BackButton,

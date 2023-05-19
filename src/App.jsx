@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import AssessmentContext from './helpers/Contexts';
 import Loading from './helpers/Loading';
-import LoginSignup from './components/Sections/LoginSignup';
+import Login from './components/Sections/Login';
+import SignUp from './components/Sections/SignUp';
 import Home from './components/Sections/Home';
 import ZipCode from './components/Sections/ZipCode';
 import Questionaire from './components/Sections/Questionaire';
@@ -20,12 +21,6 @@ const App = () => {
   if (data === undefined) return <Loading/>;
   if (!data) return <h1>No data found</h1>;
 
-  console.log(`Data: ${data}`);
-
-  Object.entries(data.users).map(([id, question]) =>
-    console.log(`User: ${id} Question: ${question.Question1}`)
-  );
-
   return (
     <AssessmentContext.Provider
       value={{
@@ -40,7 +35,8 @@ const App = () => {
       }}
     >
       {AssessmentState === 'home' && <Home />}
-      {AssessmentState === 'login-signup' && <LoginSignup />}
+      {AssessmentState === 'login' && <Login />}
+      {AssessmentState === 'signup' && <SignUp />}
       {AssessmentState === 'zipcode' && <ZipCode />}
       {AssessmentState === 'questions' && <Questionaire />}
       {AssessmentState === 'result' && <Result />}

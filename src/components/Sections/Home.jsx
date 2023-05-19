@@ -57,7 +57,7 @@ const Text = styled.p`
 `;
 
 const Home = () => {
-  const { AssessmentState, setAssessmentState } = useContext(AssessmentContext);
+  const { setAssessmentState } = useContext(AssessmentContext);
   return (
     <Background image="../../homepage.jpg">
       <Header />
@@ -76,7 +76,7 @@ const Home = () => {
           </p>
           <button
             onClick={() => {
-              setAssessmentState('login-signup');
+              setAssessmentState('login');
             }}
           >
             Start Assessment

@@ -39,7 +39,7 @@ const Modal = ({ showModal, setShowModal, text }) => {
     <Container showModal={showModal}>
       <div>
         <Exit onClick={() => setShowModal(false)}>&times;</Exit>
-        <div>{text}</div>
+        {text}
       </div>
     </Container>
   );

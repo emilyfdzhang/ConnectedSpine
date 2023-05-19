@@ -1,11 +1,11 @@
 import { useState, useEffect, useContext } from 'react';
-import AssessmentContext from '../helpers/Contexts';
-import Select from './QuestionTypes/Select';
-import MultiSelect from './QuestionTypes/MultiSelect';
-import SingleButton from './QuestionTypes/SingleButton';
-import MultiButton from './QuestionTypes/MultiButton';
+import AssessmentContext from '../../helpers/Contexts';
+import Select from './Select';
+import MultiSelect from './MultiSelect';
+import SingleButton from './SingleButton';
+import MultiButton from './MultiButton';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Questions from '../helpers/Questions';
+import Questions from '../../helpers/Questions';
 
 const Options = ({
   currQuestion,

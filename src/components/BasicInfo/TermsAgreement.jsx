@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import AssessmentContext from '../../helpers/Contexts';
 import Modal from '../Modal';
+import { Terms, Privacy } from '../../helpers/Explanations';
 import styled from 'styled-components';
 import { Bold } from '../../styles';
 
@@ -32,10 +33,6 @@ const Link = styled.a`
   cursor: pointer;
   color: black;
 `;
-
-const terms = 'this is the terms of service';
-
-const privacy = 'this is the privacy';
 
 const TermsAgreement = () => {
   const { isValid, setIsValid } = useContext(AssessmentContext);
@@ -95,7 +92,7 @@ const TermsAgreement = () => {
           <Modal
             showModal={showTerms}
             setShowModal={setShowTerms}
-            text={terms}
+            text={Terms}
           />
           {' and '}
           <Link onClick={handlePrivacyClick}>
@@ -104,7 +101,7 @@ const TermsAgreement = () => {
           <Modal
             showModal={showPrivacy}
             setShowModal={setShowPrivacy}
-            text={privacy}
+            text={Privacy}
           />
           .
         </span>
