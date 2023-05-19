@@ -77,7 +77,7 @@ const Questionaire = () => {
     console.log('answers new', answers);
     for (let i = currentQuestion + 1; i < Questions.length; i++) {
       if (
-        currentQuestion + 1 > 9 &&
+        currentQuestion + 1 > 11 &&
         Questions[currentQuestion + 1].qId.includes('06')
       ) {
         let filter;
@@ -95,7 +95,7 @@ const Questionaire = () => {
             index = i;
             return index;
           } else {
-            index = 25; // change index based on next question after sensations questions
+            index = 17; // change index based on next question after sensations questions
           }
         }
       }

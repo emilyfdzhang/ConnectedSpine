@@ -109,10 +109,10 @@ const Questions = [
   {
     section: 2,
     section_name: 'Symptoms',
-    prompt: 'How does the sharp pain change?',
+    prompt: 'How do the symptoms change?',
     sub_questions: [
-      'Choose all that apply. The sensation gets worse when I...',
-      'Choose all that apply. I get some relief from the sensation when I...',
+      'Choose all that apply. The symptoms gets worse when I...',
+      'Choose all that apply. I get some relief from the symptoms when I...',
     ],
     options: [
       'STAND UP',
@@ -124,13 +124,13 @@ const Questions = [
       'NONE OF THE ABOVE',
     ],
     type: 'Multibutton',
-    qId: '06-SHARP-01', // 10
+    qId: '07', // 10
     index: 10,
   },
   {
     section: 2,
     section_name: 'Symptoms',
-    prompt: 'How difficult has the sharp pain made your day-to-day activites?',
+    prompt: 'How difficult have the symptoms made your day-to-day activites?',
     options: [
       'Not at all difficult',
       'Somewhat difficult',
@@ -138,44 +138,8 @@ const Questions = [
       'Extremely difficult',
     ],
     type: 'Select',
-    qId: '06-SHARP-02', // 11
+    qId: '08', // 11
     index: 11,
-  },
-  {
-    section: 2,
-    section_name: 'Symptoms',
-    prompt: 'How does the shooting pain change?',
-    sub_questions: [
-      'Choose all that apply. The sensation gets worse when I...',
-      'Choose all that apply. I get some relief from the sensation when I...',
-    ],
-    options: [
-      'STAND UP',
-      'SIT DOWN',
-      'LEAN FORWARD',
-      'LEAN BACK',
-      'AM MOVING',
-      'AM AT REST',
-      'NONE OF THE ABOVE',
-    ],
-    type: 'Multibutton',
-    qId: '06-SHOOTING-01', // 12
-    index: 12,
-  },
-  {
-    section: 2,
-    section_name: 'Symptoms',
-    prompt:
-      'How difficult has the shooting pain made your day-to-day activites?',
-    options: [
-      'Not at all difficult',
-      'Somewhat difficult',
-      'Very difficult',
-      'Extremely difficult',
-    ],
-    type: 'Select',
-    qId: '06-SHOOTING-02', // 13
-    index: 13,
   },
   {
     section: 2,
@@ -185,8 +149,8 @@ const Questions = [
 
     options: ['RIGHT', 'LEFT', 'BOTH'],
     type: 'Selectbutton',
-    qId: '06-SHOOTING-03', // 14
-    index: 14,
+    qId: '06-SHOOTING-01', // 12
+    index: 12,
   },
   {
     section: 2,
@@ -199,44 +163,8 @@ const Questions = [
 
     options: ['YES', 'NO'],
     type: 'Selectbutton',
-    qId: '06-SHOOTING-04', // 15
-    index: 15,
-  },
-  {
-    section: 2,
-    section_name: 'Symptoms',
-    prompt: 'How does the numbness and/or tingling change?',
-    sub_questions: [
-      'Choose all that apply. The sensation gets worse when I...',
-      'Choose all that apply. I get some relief from the sensation when I...',
-    ],
-    options: [
-      'STAND UP',
-      'SIT DOWN',
-      'LEAN FORWARD',
-      'LEAN BACK',
-      'AM MOVING',
-      'AM AT REST',
-      'NONE OF THE ABOVE',
-    ],
-    type: 'Multibutton',
-    qId: '06-NUMBNESS-01', // 16
-    index: 16,
-  },
-  {
-    section: 2,
-    section_name: 'Symptoms',
-    prompt:
-      'How difficult has the numbness and/or tingling made your day-to-day activites?',
-    options: [
-      'Not at all difficult',
-      'Somewhat difficult',
-      'Very difficult',
-      'Extremely difficult',
-    ],
-    type: 'Select',
-    qId: '06-NUMBNESS-02', // 17
-    index: 17,
+    qId: '06-SHOOTING-02', // 13
+    index: 13,
   },
   {
     section: 2,
@@ -246,8 +174,8 @@ const Questions = [
 
     options: ['RIGHT', 'LEFT', 'BOTH'],
     type: 'Selectbutton',
-    qId: '06-NUMBNESS-03', // 18
-    index: 18,
+    qId: '06-NUMBNESS-01', // 14
+    index: 14,
   },
   {
     section: 2,
@@ -265,80 +193,8 @@ const Questions = [
 
     options: ['YES', 'NO', 'NOT APPLICABLE'],
     type: 'Selectbutton',
-    qId: '06-NUMBNESS-04', // 19
-    index: 19,
-  },
-  {
-    section: 2,
-    section_name: 'Symptoms',
-    prompt: 'How does the dull, aching pain change?',
-    sub_questions: [
-      'Choose all that apply. The sensation gets worse when I...',
-      'Choose all that apply. I get some relief from the sensation when I...',
-    ],
-    options: [
-      'STAND UP',
-      'SIT DOWN',
-      'LEAN FORWARD',
-      'LEAN BACK',
-      'AM MOVING',
-      'AM AT REST',
-      'NONE OF THE ABOVE',
-    ],
-    type: 'Multibutton',
-    qId: '06-DULL-01', // 20
-    index: 20,
-  },
-  {
-    section: 2,
-    section_name: 'Symptoms',
-    prompt:
-      'How difficult has the dull, aching pain made your day-to-day activites?',
-    options: [
-      'Not at all difficult',
-      'Somewhat difficult',
-      'Very difficult',
-      'Extremely difficult',
-    ],
-    type: 'Select',
-    qId: '06-DULL-02', // 21
-    index: 21,
-  },
-  {
-    section: 2,
-    section_name: 'Symptoms',
-    prompt: 'How does the tightness and limited movement change?',
-    sub_questions: [
-      'Choose all that apply. The sensation gets worse when I...',
-      'Choose all that apply. I get some relief from the sensation when I...',
-    ],
-    options: [
-      'STAND UP',
-      'SIT DOWN',
-      'LEAN FORWARD',
-      'LEAN BACK',
-      'AM MOVING',
-      'AM AT REST',
-      'NONE OF THE ABOVE',
-    ],
-    type: 'Multibutton',
-    qId: '06-TIGHTNESS-01', // 22
-    index: 22,
-  },
-  {
-    section: 2,
-    section_name: 'Symptoms',
-    prompt:
-      'How difficult has the tightness and limited movement made your day-to-day activites?',
-    options: [
-      'Not at all difficult',
-      'Somewhat difficult',
-      'Very difficult',
-      'Extremely difficult',
-    ],
-    type: 'Select',
-    qId: '06-TIGHTNESS-02', // 23
-    index: 23,
+    qId: '06-NUMBNESS-02', // 15
+    index: 15,
   },
   {
     section: 2,
@@ -347,14 +203,12 @@ const Questions = [
     sub_questions: [
       'Are the symptoms worse in the morning when you first wake up?',
       'If symptoms are worse in the morning (select Not Applicable if not), do the symptoms get better over the course of the day?',
-      'Does it feel like a pulled muscle?',
-      'Does it get better with anti - inflammatory pain medication, such as Tylenol or Advil',
     ],
 
     options: ['YES', 'NO', 'NOT APPLICABLE'],
     type: 'Selectbutton',
-    qId: '06-TIGHTNESS-03', // 24
-    index: 24,
+    qId: '06-TIGHTNESS-01', // 16
+    index: 16,
   },
   {
     section: 2,
@@ -368,8 +222,8 @@ const Questions = [
       'Not sure',
     ],
     type: 'Select',
-    qId: '07', // 25
-    index: 25,
+    qId: '09', // 17
+    index: 17,
   },
   {
     section: 2,
@@ -377,8 +231,8 @@ const Questions = [
     prompt: 'Have you had similar pain before?',
     options: ['YES', 'NO', 'NOT SURE'],
     type: 'Selectbutton',
-    qId: '08',
-    index: 26,
+    qId: '10',
+    index: 18,
   },
   {
     section: 2,
@@ -391,8 +245,8 @@ const Questions = [
       'Not sure',
     ],
     type: 'Select',
-    qId: '09',
-    index: 27,
+    qId: '11',
+    index: 19,
   },
 
   {
@@ -406,8 +260,8 @@ const Questions = [
       'Abdominal pain',
     ],
     type: 'Multibutton',
-    qId: '10',
-    index: 28,
+    qId: '12',
+    index: 20,
   },
   {
     section: 3,
@@ -420,8 +274,8 @@ const Questions = [
       'Nausea',
     ],
     type: 'Multibutton',
-    qId: '11',
-    index: 29,
+    qId: '13',
+    index: 21,
   },
   {
     section: 3,
@@ -430,8 +284,8 @@ const Questions = [
       'Are you experiencing any pain near your kidneys (deep within one or both sides, just under ribs)?',
     options: ['Yes', 'No', 'Not Sure'],
     type: 'Selectbutton',
-    qId: '12',
-    index: 30,
+    qId: '14',
+    index: 22,
   },
   {
     section: 3,
@@ -444,8 +298,8 @@ const Questions = [
     ],
     options: ['Yes', 'No', 'Not Sure'],
     type: 'Selectbutton',
-    qId: '13',
-    index: 31,
+    qId: '15',
+    index: 23,
   },
   {
     section: 3,
@@ -461,8 +315,8 @@ const Questions = [
     ],
     options: ['Yes', 'No', 'Not Sure'],
     type: 'Selectbutton',
-    qId: '14',
-    index: 32,
+    qId: '16',
+    index: 24,
   },
 ];
 export default Questions;
