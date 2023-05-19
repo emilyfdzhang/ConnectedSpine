@@ -4,33 +4,16 @@ import { auth } from '../../utilities/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import Header from '../Header';
 import Modal from '../Modal';
+import LoginTextField from '../LoginTextField';
 import { Terms, Privacy } from '../../helpers/Explanations';
-import { TextField } from '@mui/material';
 import styled from 'styled-components';
-import {
-  cardBackground,
-  boxBackground,
-  backGreyLight,
-  boxShadow,
-  Background,
-  Content,
-} from '../../styles';
-
-const Box = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: -60px auto;
-  padding: 30px;
-  width: 50%;
-  height: 100%;
-  border-radius: 10px;
-  background-color: ${cardBackground};
-`;
+import { Background, Content, LoginBox } from '../../styles';
+import { LoginButton } from '../../buttonStyles';
 
 const Bold = styled.a`
   cursor: pointer;
   text-decoration: none;
+  font-weight: 300;
   color: black;
 
   :hover {
@@ -46,12 +29,8 @@ const Title = styled.p`
   margin-bottom: 0;
 `;
 
-const StyledInput = styled(TextField)`
-  && {
-    width: 80%;
-    padding-bottom: 20px;
-    padding-top: 10px;
-  }
+const Account = styled.p`
+  padding-bottom: 20px;
 `;
 
 const Check = styled.div`
@@ -70,21 +49,7 @@ const Check = styled.div`
 const Agree = styled.p`
   width: 80%;
   padding-top: 20px;
-`;
-
-const Button = styled.button`
-  width: 90%;
-  height: 45px;
-  border: none;
-  border-radius: 10px;
-  background-color: ${boxBackground};
-  box-shadow: ${boxShadow};
-  font-weight: 300;
-  text-transform: uppercase;
-
-  :hover {
-    background-color: ${backGreyLight};
-  }
+  padding-bottom: 15px;
 `;
 
 const Link = styled.a`
@@ -101,6 +66,7 @@ const SignUp = () => {
   const { setAssessmentState } = useContext(AssessmentContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [showTerms, setShowTerms] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
 
@@ -124,9 +90,9 @@ const SignUp = () => {
     <Background image="../../results.jpg">
       <Header />
       <Content>
-        <Box>
+        <LoginBox login={false}>
           <Title>Sign Up For ConnectedSpine</Title>
-          <p>
+          <Account>
             Create a free account or{' '}
             <Bold
               onClick={() => {
@@ -135,22 +101,15 @@ const SignUp = () => {
             >
               Log In
             </Bold>
-          </p>
-          <StyledInput
-            required
-            id="outlined-basic"
-            label="Email"
-            variant="outlined"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <StyledInput
-            required
-            id="outlined-basic"
-            label="Password"
-            variant="outlined"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+          </Account>
+          <LoginTextField
+            login={false}
+            email={email}
+            changeEmail={(e) => setEmail(e.target.value)}
+            password={password}
+            changePassword={(e) => setPassword(e.target.value)}
+            showPassword={showPassword}
+            changeShowPassword={() => setShowPassword(!showPassword)}
           />
           <Check>
             <input type="checkbox"></input>
@@ -175,8 +134,10 @@ const SignUp = () => {
             setShowModal={setShowPrivacy}
             text={Privacy}
           ></Modal>
-          <Button onClick={handleSignUp}>Sign Up</Button>
-        </Box>
+          <LoginButton login={false} onClick={handleSignUp}>
+            Sign Up
+          </LoginButton>
+        </LoginBox>
       </Content>
     </Background>
   );

@@ -1,4 +1,4 @@
-import { SelectButton } from '../../styles';
+import { SelectButton } from '../../buttonStyles';
 
 const SingleButton = ({ options, selectedOptions, HandleOnclick }) => {
   return (

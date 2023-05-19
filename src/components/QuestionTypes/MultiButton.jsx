@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { SelectButton } from '../../styles';
+import { SelectButton } from '../../buttonStyles';
 
 const Container = styled.div`
   display: flex;

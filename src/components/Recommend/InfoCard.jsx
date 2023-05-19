@@ -1,17 +1,14 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
-import Modal from "../Modal";
+import Modal from '../Modal';
+import { Bold, cardBackground, cardBoxShadow, iconPurple } from '../../styles';
 import {
-  Bold,
-  cardBackground,
-  cardBoxShadow,
   boxShadow,
-  iconPurple,
   backGreyLight,
   borderBlue,
   validBlue,
-} from '../../styles';
+} from '../../buttonStyles';
 
 const Card = styled.div`
   display: flex;
@@ -112,7 +109,7 @@ const InfoCard = ({ icon, provider, bold, text }) => {
         <Modal
           showModal={showModal}
           setShowModal={setShowModal}
-          text={"hey"}
+          text={'hey'}
         ></Modal>
         <Button>Search Providers</Button>
       </Content>

@@ -1,8 +1,8 @@
+import React, { useEffect, useContext } from 'react';
+import AssessmentContext from '../../helpers/Contexts';
 import Header from '../Header';
 import Providers from '../Recommend/Providers';
 import { Background, Content } from '../../styles';
-import React, { useState, useEffect, useContext } from 'react';
-import AssessmentContext from '../../helpers/Contexts';
 
 const Result = () => {
   const {

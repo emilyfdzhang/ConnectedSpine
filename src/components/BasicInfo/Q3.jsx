@@ -1,8 +1,10 @@
 import { useState, useEffect, useContext } from 'react';
 import AssessmentContext from '../../helpers/Contexts';
 import Modal from '../Modal';
+import { RequireSex } from '../../helpers/Explanations';
 import styled from 'styled-components';
-import { SelectButton, TextInput, Link, Warning } from '../../styles';
+import { Link, Warning } from '../../styles';
+import { SelectButton, TextInput } from '../../buttonStyles';
 
 const Container = styled.div`
   width: 70%;
@@ -26,8 +28,6 @@ const Label = styled.div`
   margin-bottom: 10px;
   font-weight: 500;
 `;
-
-const text = 'this is why we do this';
 
 const Q3 = () => {
   const { isValid, setIsValid } = useContext(AssessmentContext);
@@ -121,7 +121,7 @@ const Q3 = () => {
       <Modal
         showModal={showModal}
         setShowModal={setShowModal}
-        text={text}
+        text={RequireSex}
       ></Modal>
       <Body>
         <div>

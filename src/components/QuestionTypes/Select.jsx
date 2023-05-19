@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { underline, validBlue } from '../../styles';
+import { underline } from '../../styles';
+import { validBlue } from '../../buttonStyles';
 
 const Container = styled.div`
   width: 80%;

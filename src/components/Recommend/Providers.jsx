@@ -1,5 +1,7 @@
-import { BackButton } from '../../styles';
+import React from 'react';
+import { faPerson, faStethoscope } from '@fortawesome/free-solid-svg-icons';
 import InfoCard from './InfoCard';
+import { BackButton } from '../../buttonStyles';
 import {
   Container,
   Subtitle,
@@ -9,8 +11,6 @@ import {
   Cards,
   Save,
 } from './styles';
-import { faPerson, faStethoscope } from '@fortawesome/free-solid-svg-icons';
-import React from 'react';
 
 const Providers = () => {
   return (

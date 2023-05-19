@@ -1,3 +1,7 @@
+import { Bold } from '../styles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSuitcaseMedical } from '@fortawesome/free-solid-svg-icons';
+
 const Questions = [
   {
     section: 1,
@@ -28,9 +32,20 @@ const Questions = [
     section_name: 'Basic Info',
     prompt: 'What brings you here today?',
     options: [
-      `A new pain or sensation in the back and/or neck`,
-      'Back and/or neck pain that has been chronic or occuring for some time',
-      'A potential emergency or urgent care visit',
+      <>
+        A <Bold>new pain or sensation</Bold> in the back and/or neck
+      </>,
+      <>
+        Back and/or neck pain that has been{' '}
+        <Bold>chronic or occuring for some time</Bold>
+      </>,
+      <>
+        A potential emergency or urgent care visit{' '}
+        <FontAwesomeIcon
+          icon={faSuitcaseMedical}
+          style={{ color: '#DF405A' }}
+        />
+      </>,
     ],
     type: 'Multiselect',
     qId: '00', // 3

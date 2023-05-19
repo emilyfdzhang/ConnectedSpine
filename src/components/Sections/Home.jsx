@@ -2,15 +2,13 @@ import { useContext } from 'react';
 import AssessmentContext from '../../helpers/Contexts';
 import Header from '../Header';
 import styled from 'styled-components';
+import { Bold, Background, Content } from '../../styles';
 import {
   boxShadow,
   boxBackground,
   boxBorder,
   borderBlue,
-  Bold,
-  Background,
-  Content,
-} from '../../styles';
+} from '../../buttonStyles';
 
 const Title = styled.div`
   max-width: 600px;

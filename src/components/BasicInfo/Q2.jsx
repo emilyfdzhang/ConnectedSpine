@@ -3,8 +3,7 @@ import AssessmentContext from '../../helpers/Contexts';
 import { IconContext } from 'react-icons';
 import { FaUser, FaUsers } from 'react-icons/fa';
 import styled from 'styled-components';
-import { boxBackground, selected, selectedBackground } from '../../styles';
-import Questions from '../../helpers/Questions';
+import { boxBackground, selected, selectedBackground } from '../../buttonStyles';
 
 const textBlue = '#1d2556';
 const iconPurple = '#8992CD';

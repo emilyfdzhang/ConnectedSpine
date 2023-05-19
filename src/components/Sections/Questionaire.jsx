@@ -8,16 +8,15 @@ import Questions from '../../helpers/Questions';
 import Options from '../QuestionTypes/Options';
 import styled from 'styled-components';
 import {
-  BackButton,
   Background,
   Content,
-  NextButton,
   ContentContainer,
   RightContent,
   LeftContent,
   BackNextButtonContainer,
   Bold,
 } from '../../styles';
+import { NextButton, BackButton } from '../../buttonStyles';
 
 const Section = styled.h3`
   font-size: 16px;

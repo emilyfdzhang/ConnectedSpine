@@ -4,7 +4,6 @@ import Select from './Select';
 import MultiSelect from './MultiSelect';
 import SingleButton from './SingleButton';
 import MultiButton from './MultiButton';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Questions from '../../helpers/Questions';
 
 const Options = ({
