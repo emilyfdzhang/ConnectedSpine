@@ -6,10 +6,13 @@ import { Background, Content } from '../../styles';
 
 const Result = () => {
   const { answers } = useContext(AssessmentContext);
+  [resultIndex, setResultIndex] = useState([]) 
   if(answers["06"].includes("SHOOTING PAIN")) {
-      
+      setResultIndex([...resultIndex, 0])
   }
-  resultIndex, (setResultIndex = useState([]));
+  if(answers["07"].includes("LEAN FORWARD") && (!answers["07"].includes("AM AT REST")) || (!answers["07"].includes("LEAN BACK"))) {
+    setResultIndex([...resultIndex, 1])
+  }
   useEffect(() => {
     console.log('answers:', answers);
   }, [answers]);
