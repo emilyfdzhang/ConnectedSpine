@@ -10,7 +10,16 @@
 //   { 9: 'Myocardial Ischemia' },
 // ];
 
-export const ResultDetails = ['Lumbar Radiculopathy', 'Lumbar Stenosis'];
+export const ResultDetails = [
+  'Lumbar Radiculopathy', // 0
+  'Lumbar Stenosis', // 1
+  'Facet Arthropathy', // 2
+  'Myelopathy', // 3
+  'Metastatic disease', // 4
+  'Infection', // 5
+  'Cauda Equina', // 6
+  'Myocardial Ischemia', // 7
+];
 
 export const ProviderDetails = [
   {

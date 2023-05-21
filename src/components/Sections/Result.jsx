@@ -33,8 +33,9 @@ const Result = () => {
 
   // if hand symptoms and/or balance is off, Myelopathy
   if (
-    answers['06-NUMBNESS-02-subq-3'].includes('YES') ||
-    answers['06-NUMBNESS-02-subq-4'].includes('YES')
+    answers['06-NUMBNESS-02-subq-3'] &&
+    (answers['06-NUMBNESS-02-subq-3'].includes('YES') ||
+      answers['06-NUMBNESS-02-subq-4'].includes('YES'))
   ) {
     !resultIndex.includes(3) ? setResultIndex(resultIndex.concat(3)) : null;
   }
@@ -53,6 +54,9 @@ const Result = () => {
   }
   // if can’t control bowel/bladder and duration a few minutes/hours/days/weeks, Cauda Equina
   // I DONT SEE QUESTIONS RELATED TO THIS but includes 6 in theory
+  if (answers['13'].includes('Cannot control when I go to the bathroom')) {
+    !resultIndex.includes(6) ? setResultIndex(resultIndex.concat(6)) : null;
+  }
 
   // if chest pain, short of breath, Myocardial Ischemia
   // idk if this was a both or j one or the other thing
