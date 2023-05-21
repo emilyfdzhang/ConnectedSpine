@@ -22,6 +22,46 @@ const Result = () => {
   ) {
     !resultIndex.includes(1) ? setResultIndex(resultIndex.concat(1)) : null;
   }
+  // if bilateral back pain, but no shooting pain or numbness/tingling, Facet arthropathy
+  // TODO idk if this is right
+  if (
+    answers['05'].includes('ON THE LEFT') &&
+    answers['05'].includes('ON THE RIGHT')
+  ) {
+    !resultIndex.includes(2) ? setResultIndex(resultIndex.concat(2)) : null;
+  }
+
+  // if hand symptoms and/or balance is off, Myelopathy
+  if (
+    answers['06-NUMBNESS-02-subq-3'].includes('YES') ||
+    answers['06-NUMBNESS-02-subq-4'].includes('YES')
+  ) {
+    !resultIndex.includes(3) ? setResultIndex(resultIndex.concat(3)) : null;
+  }
+
+  // if hx of cancer, Metastatic disease
+  if (answers['16-subq-0'].includes('Yes')) {
+    !resultIndex.includes(4) ? setResultIndex(resultIndex.concat(4)) : null;
+  }
+
+  // if fevers/chills, Infection
+  if (
+    answers['12'].includes('Fever (temperatures higher than 101.5)') ||
+    answers['12'].includes('Chills')
+  ) {
+    !resultIndex.includes(5) ? setResultIndex(resultIndex.concat(5)) : null;
+  }
+  // if can’t control bowel/bladder and duration a few minutes/hours/days/weeks, Cauda Equina
+  // I DONT SEE QUESTIONS RELATED TO THIS but includes 6 in theory
+
+  // if chest pain, short of breath, Myocardial Ischemia
+  // idk if this was a both or j one or the other thing
+  if (
+    answers['13'].includes('Chest pain') &&
+    answers['12'].includes('Shortness of breath')
+  ) {
+    !resultIndex.includes(7) ? setResultIndex(resultIndex.concat(7)) : null;
+  }
 
   console.log('resultIndex', resultIndex);
   resultIndex.map((index) => {
