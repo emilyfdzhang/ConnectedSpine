@@ -1,20 +1,15 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import AssessmentContext from '../../helpers/Contexts';
 import Header from '../Header';
 import Providers from '../Recommend/Providers';
 import { Background, Content } from '../../styles';
 
 const Result = () => {
-  const {
-    AssessmentState,
-    setAssessmentState,
-    isValid,
-    setIsValid,
-    selectedOptions,
-    setSelectedOptions,
-    answers,
-    setAnswers,
-  } = useContext(AssessmentContext);
+  const { answers } = useContext(AssessmentContext);
+  if(answers["06"].includes("SHOOTING PAIN")) {
+      
+  }
+  resultIndex, (setResultIndex = useState([]));
   useEffect(() => {
     console.log('answers:', answers);
   }, [answers]);
