@@ -2,6 +2,7 @@ import React from 'react';
 import { faPerson, faStethoscope } from '@fortawesome/free-solid-svg-icons';
 import InfoCard from './InfoCard';
 import { BackButton } from '../../buttonStyles';
+import { ResultDetails } from '../../helpers/RecommendedDetails';
 import {
   Container,
   Subtitle,
@@ -12,12 +13,21 @@ import {
   Save,
 } from './styles';
 
-const Providers = () => {
+const Providers = ({ resultIndex }) => {
+  const diagnosis = [];
+  resultIndex.map((index) => {
+    diagnosis.push(ResultDetails[index]);
+  });
+  console.log('PROVIDER DIAGNOSIS', diagnosis);
+
   return (
     <Container>
       <Subtitle>Results</Subtitle>
       <Title>
-        Your answers suggests that your symptoms are related to a muscle strain.
+        Your answers suggests that your symptoms are related to{' '}
+        {diagnosis.map((condition) => (
+          <p>{condition}, </p>
+        ))}
       </Title>
       <Recomendation>
         <Recomended>Recommended providers</Recomended>
