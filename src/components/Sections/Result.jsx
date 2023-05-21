@@ -25,15 +25,20 @@ const Result = () => {
   useEffect(() => {
     console.log('answers first', answers);
     if (answers['06'].includes('SHOOTING PAIN')) {
-      setResultIndex([...resultIndex, 0]);
+      console.log('LINE 28 we made it');
+      // setResultIndex([...resultIndex, 0]);
+      resultIndex.concat(0);
+      // console.log('result index');
     }
     if (
-      (answers['07-subq-0'].includes('LEAN FORWARD') &&
-        !answers['07-subq-0'].includes('AM AT REST')) ||
-      !answers['07-subq-0'].includes('LEAN BACK')
+      answers['07-subq-0'].includes('LEAN FORWARD') &&
+      (!answers['07-subq-0'].includes('AM AT REST') ||
+        !answers['07-subq-0'].includes('LEAN BACK'))
     ) {
-      setResultIndex([...resultIndex, 1]);
+      // setResultIndex([...resultIndex, 1]);
+      resultIndex.concat(1);
     }
+    console.log('result Index,', resultIndex);
     for (let i = 0; i < resultIndex.length; i++) {
       console.log(`diagnosis ${i}`, ResultDetails[i]);
     }
