@@ -7,6 +7,7 @@ import { RequireZipCode } from '../../helpers/Explanations';
 import styled from 'styled-components';
 import { Background, Content, Link, Warning } from '../../styles';
 import { NextButton } from '../../buttonStyles';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 const borderGrey = '#979797';
 
@@ -52,8 +53,24 @@ const ZipCode = () => {
   const { isValid, setIsValid } = useContext(AssessmentContext);
   const [zipCode, setZipCode] = useState('');
   const [showModal, setShowModal] = useState(false);
+  // const [user, setUser] = useState(null);
+
+  // useEffect(() => {
+  //   const currentUser = getAuth().currentUser;
+  //   setUser(currentUser);
+  // }, []);
+
+  // if (user === null) {
+  //   return <div>Loading...</div>;
+  // }
 
   const user = getAuth().currentUser;
+
+  if (!user) {
+    return <div>Error</div>;
+  }
+  // const user = useUserState();
+  console.log('USER', user);
 
   const handleZipCodeChange = (event) => {
     const zip = event.target.value;
@@ -79,6 +96,10 @@ const ZipCode = () => {
       setIsValid(true);
     }
   }, []);
+
+  // if (!user) {
+  //   return <h1>Error</h1>;
+  // }
 
   return (
     <Background image="../../questions.png">
@@ -110,7 +131,11 @@ const ZipCode = () => {
           </Input>
         </Form>
         <Link onClick={() => setShowModal(true)}>Why do we ask this?</Link>
-        <Modal showModal={showModal} setShowModal={setShowModal} text={RequireZipCode} />
+        <Modal
+          showModal={showModal}
+          setShowModal={setShowModal}
+          text={RequireZipCode}
+        />
       </Content>
     </Background>
   );

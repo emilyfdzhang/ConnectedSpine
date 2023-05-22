@@ -1,6 +1,8 @@
 import { describe, expect, test } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
 import App from './App';
+import Home from './components/Sections/Home';
+import AssessmentContext from './helpers/Contexts';
 import { useDbData } from './utilities/firebase';
 vi.mock('./utilities/firebase');
 
