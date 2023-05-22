@@ -111,12 +111,8 @@ const Questionaire = () => {
       let tempIdTrail = [];
       const currId = Questions[currQuestion].qId;
       tempIdTrail = idTrail.concat(currId);
-      console.log('tempIdTrail', tempIdTrail);
-      console.log('currId', currId);
 
       if (Questions[currQuestion].sub_questions) {
-        console.log('subquestions', Questions[currQuestion].sub_questions);
-        console.log('current subquestion', currSubQuestion);
         if (currSubQuestion != 0) {
           setCurrSubQuestion(currSubQuestion - 1);
           return;
@@ -129,8 +125,10 @@ const Questionaire = () => {
           for (let j = 0; j < Questions.length; j++) {
             if (newLocationId === Questions[j].qId) {
               index = Questions[j].index;
-              console.log('INDEX', index);
               setCurrQuestion(index);
+              if (Questions[index].sub_questions) {
+                setCurrSubQuestion(Questions[index].sub_questions.length - 1);
+              }
               return;
             }
           }

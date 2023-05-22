@@ -45,8 +45,16 @@ const Options = ({
     // Previous answers are saved when clicking the back button
     if (currQuestion > 2 && answers[Questions[currQuestion].qId]) {
       let previousAnswer;
+      console.log(
+        'question subquestion',
+        Questions[currQuestion].sub_questions
+      );
       if (Questions[currQuestion].sub_questions) {
+        console.log('ANSWERS');
+        console.log('Answers', answers);
         var qid = `${Questions[currQuestion].qId}-subq-${currSubQuestion}`;
+        console.log('Answers[qid]', answers[qid]);
+
         previousAnswer = answers[qid];
       } else {
         previousAnswer = answers[Questions[currQuestion].qId];
