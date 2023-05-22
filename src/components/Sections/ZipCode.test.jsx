@@ -32,17 +32,17 @@ describe('ZipCode tests for users', () => {
     isValid = !isValid;
   };
 
-  // UNCOMMENT THIS TO SEE THAT TEST FAILS WHEN USER IS NOT LOGGED IN
+  // UNCOMMENT THIS TO SEE THAT TEST FAILS WHEN USER IS NOT LOGGED IN, AND COMMENT OUT BELOW TEST
   //   test('Cant access Zipcode page when user is not logged in, should not pass', () => {
-  //       vi.mock('firebase/auth', () => {
-  //         return {
-  //           getAuth: () => {
-  //             return {
-  //               currentUser: null,
-  //             };
-  //           },
-  //         };
-  //       });
+  //     vi.mock('firebase/auth', () => {
+  //       return {
+  //         getAuth: () => {
+  //           return {
+  //             currentUser: null,
+  //           };
+  //         },
+  //       };
+  //     });
   //     render(
   //       <AssessmentContext.Provider value={{ answers, isValid, setIsValid }}>
   //         <ZipCode />
@@ -53,6 +53,7 @@ describe('ZipCode tests for users', () => {
   //     ).toBeDefined();
   //   });
 
+  // COMMENT OUT ABOVE TEST WHEN USING THIS TEST
   test('Access Zipcode page when user is logged in, should pass', () => {
     vi.mock('firebase/auth', () => {
       return {
