@@ -6,19 +6,32 @@ import AssessmentContext from './helpers/Contexts';
 import { useDbData } from './utilities/firebase';
 vi.mock('./utilities/firebase');
 
-describe('initial tests', () => {
+describe('initial tests and data tests', () => {
   const mockData = {
-    '00': 'result',
+    questions: {
+      '00': 'result',
+      '01': 'result2',
+    },
   };
 
-  beforeEach(() => {
+  test('Home page shows up when finished loading, using mocked data. Should pass', () => {
     useDbData.mockReturnValue([mockData, false, null]);
-  });
-
-  test('Home page shows up when finished loading', () => {
     render(<App />);
+    // text only shows up if data is present, and App.jsx goes to Home.jsx
     expect(
       screen.getByText('Experiencing pain or discomfort in your back or neck?')
+    ).toBeDefined();
+  });
+
+  test('Home page shows up when finished loading, using real data. Should pass', async () => {
+    useDbData.mockReturnValueOnce([mockData, false, null]); // Mock the initial call with mocked data
+    useDbData.mockReturnValueOnce([null, false, null]); // Mock the second call with real data
+    render(<App />);
+    // text only shows up if data is present, and App.jsx goes to Home.jsx
+    expect(
+      await screen.getByText(
+        'Experiencing pain or discomfort in your back or neck?'
+      )
     ).toBeDefined();
   });
 

@@ -23,7 +23,7 @@ const firebaseConfig = {
 // Initialize Firebase app with configuration
 initializeApp(firebaseConfig);
 
-describe('ZipCode tests', () => {
+describe('ZipCode tests for users', () => {
   const answers = {
     zipcode: '60103',
   };
@@ -32,16 +32,17 @@ describe('ZipCode tests', () => {
     isValid = !isValid;
   };
 
-  //   test('Can't access Zipcode page when user is not logged in, should not pass', () => {
-  //     vi.mock('firebase/auth', () => {
-  //       return {
-  //         getAuth: () => {
-  //           return {
-  //             currentUser: null,
-  //           };
-  //         },
-  //       };
-  //     });
+  // UNCOMMENT THIS TO SEE THAT TEST FAILS WHEN USER IS NOT LOGGED IN
+  //   test('Cant access Zipcode page when user is not logged in, should not pass', () => {
+  //       vi.mock('firebase/auth', () => {
+  //         return {
+  //           getAuth: () => {
+  //             return {
+  //               currentUser: null,
+  //             };
+  //           },
+  //         };
+  //       });
   //     render(
   //       <AssessmentContext.Provider value={{ answers, isValid, setIsValid }}>
   //         <ZipCode />
