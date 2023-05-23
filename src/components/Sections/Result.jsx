@@ -11,8 +11,7 @@ const Result = () => {
   const { answers } = useContext(AssessmentContext);
   const [resultIndex, setResultIndex] = useState([]);
   const user = getAuth().currentUser;
-  const userId = user['email'].split('@')[0];
-  const [update, result] = useDbUpdate(`/users/${userId}`);
+  const [update, result] = useDbUpdate(`/users/${user['uid']}`);
   console.log('USER DATA IN RESULT', user['email']);
 
   // can store in a better way
