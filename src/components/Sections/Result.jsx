@@ -4,10 +4,21 @@ import { ResultDetails } from '../../helpers/RecommendedDetails';
 import Header from '../Header';
 import Providers from '../Recommend/Providers';
 import { Background, Content } from '../../styles';
+import { getAuth } from 'firebase/auth';
+import { useDbUpdate } from '../../utilities/firebase';
 
 const Result = () => {
   const { answers } = useContext(AssessmentContext);
   const [resultIndex, setResultIndex] = useState([]);
+  const user = getAuth().currentUser;
+  const userId = user['email'].split('@')[0];
+  const [update, result] = useDbUpdate(`/users/${userId}`);
+  console.log('USER DATA IN RESULT', user['email']);
+
+  // can store in a better way
+  update({
+    answers,
+  });
 
   // if shooting pain, Lumbar Radiculopathy
   if (answers['06'].includes('SHOOTING PAIN')) {
