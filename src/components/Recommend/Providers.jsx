@@ -1,5 +1,10 @@
 import React from 'react';
-import { faPerson, faHospital, faUserDoctor, faStethoscope} from '@fortawesome/free-solid-svg-icons';
+import {
+  faPerson,
+  faHospital,
+  faUserDoctor,
+  faStethoscope,
+} from '@fortawesome/free-solid-svg-icons';
 import InfoCard from './InfoCard';
 import { BackButton } from '../../buttonStyles';
 import { ResultDetails } from '../../helpers/RecommendedDetails';
@@ -18,7 +23,6 @@ const Providers = ({ resultIndex }) => {
   resultIndex.map((index) => {
     diagnosis.push(ResultDetails[index]);
   });
-  console.log('PROVIDER DIAGNOSIS', diagnosis);
 
   return (
     <Container>

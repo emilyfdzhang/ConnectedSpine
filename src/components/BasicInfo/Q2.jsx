@@ -3,7 +3,11 @@ import AssessmentContext from '../../helpers/Contexts';
 import { IconContext } from 'react-icons';
 import { FaUser, FaUsers } from 'react-icons/fa';
 import styled from 'styled-components';
-import { boxBackground, selected, selectedBackground } from '../../buttonStyles';
+import {
+  boxBackground,
+  selected,
+  selectedBackground,
+} from '../../buttonStyles';
 
 const textBlue = '#1d2556';
 const iconPurple = '#8992CD';
@@ -54,7 +58,6 @@ const Q2 = () => {
   };
 
   useEffect(() => {
-    console.log(`answers['identity']: ${answers['identity']}`);
     if (answers['identity']) {
       if (usage && usage != answers['identity']) {
         setSelectedOptions(usage);

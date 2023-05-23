@@ -74,7 +74,6 @@ const Questionaire = () => {
   const proceedSensationQuestion = (currentQuestion) => {
     // if SENSATION question, then navigate to questions based on these answers
     let index = currentQuestion + 1;
-    console.log('answers new', answers);
     for (let i = currentQuestion + 1; i < Questions.length; i++) {
       if (
         currentQuestion + 1 > 11 &&
@@ -87,7 +86,6 @@ const Questionaire = () => {
           filter = answers['06'];
         }
         var qid = Questions[i].qId;
-        console.log('qid', qid);
         qid = qid.split('-');
         const question = qid[1];
         for (let j = 0; j < filter.length; j++) {
@@ -188,20 +186,12 @@ const Questionaire = () => {
         // move onto next subquestion
         var qid = `${Questions[currQuestion].qId}-subq-${currSubQuestion}`;
         const currentAnswer = { ...answers, [qid]: selectedOptions };
-        console.log('selected options', selectedOptions);
-        console.log('qid', qid);
+
         setAnswers(currentAnswer);
         if (!idTrail.includes(Questions[currQuestion].qId)) {
           setIdTrail([...idTrail, Questions[currQuestion].qId]);
         }
 
-        // const index = proceedSensationQuestion(currQuestion);
-        // if (currQuestion + 1 == index) {
-        //   setCurrSubQuestion(currSubQuestion + 1);
-        // } else {
-        //   console.log('HERE');
-        //   setCurrQuestion(index);
-        // }
         setCurrSubQuestion(currSubQuestion + 1);
 
         // setCurrSubQuestion(currSubQuestion + 1);
@@ -226,10 +216,7 @@ const Questionaire = () => {
     true
   );
 
-  useEffect(() => {
-    console.log('answers:', answers);
-    console.log('idTrail', idTrail);
-  }, [answers]);
+  useEffect(() => {}, [answers]);
 
   return (
     <Background image="../../pages.jpg">

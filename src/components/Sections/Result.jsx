@@ -11,16 +11,10 @@ const Result = () => {
   const { answers } = useContext(AssessmentContext);
   const [resultIndex, setResultIndex] = useState([]);
   const user = getAuth().currentUser;
-  const todayDate = Date.now();
-  const [update, result] = useDbUpdate(`/users/${user['uid']}`);
-  console.log('USER DATA IN RESULT', user['email']);
+  let dateToday = Date.now();
 
-  // can store in a better way
-  update({
-    date: todayDate,
-    email: user['email'],
-    answers,
-  });
+  const [userUpdate, userResult] = useDbUpdate(`/users/${user['uid']}`);
+  const [answerUpdate, answerResult] = useDbUpdate(`/answers/${dateToday}`);
 
   // if shooting pain, Lumbar Radiculopathy
   if (answers['06'].includes('SHOOTING PAIN')) {
@@ -80,14 +74,18 @@ const Result = () => {
     !resultIndex.includes(7) ? setResultIndex(resultIndex.concat(7)) : null;
   }
 
-  console.log('resultIndex', resultIndex);
-  resultIndex.map((index) => {
-    console.log('diagnosis', ResultDetails[index]);
-  });
+  resultIndex.map((index) => {});
   useEffect(() => {
-    console.log('answers first', answers);
+    console.log('answer rendering');
+    answerUpdate({
+      date: dateToday,
+      answers,
+    });
+
+    userUpdate({
+      dateToday,
+    });
   }, [answers]);
-  console.log('answers:', answers);
   return (
     <Background image="../../results.jpg">
       <Header />

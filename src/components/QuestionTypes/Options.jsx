@@ -20,7 +20,6 @@ const Options = ({
   const HandleOnclick = (event) => {
     // const selected_value = parseInt(event.currentTarget.id);
     const selected_value = event.currentTarget.getAttribute('value');
-    console.log('Selected_Value', selected_value);
 
     if (selectedOptions.includes(selected_value)) {
       setSelectedOptions(
@@ -34,7 +33,6 @@ const Options = ({
       }
       setIsValid(true);
     }
-    console.log('Selected_Options', selectedOptions);
   };
 
   if (selectedOptions.length === 0 && currQuestion > 2) {
@@ -45,27 +43,18 @@ const Options = ({
     // Previous answers are saved when clicking the back button
     if (Questions[currQuestion].sub_questions) {
       var qid = `${Questions[currQuestion].qId}-subq-${currSubQuestion}`;
-
     }
-    if (currQuestion > 2 && (answers[Questions[currQuestion].qId] || answers[qid])) {
+    if (
+      currQuestion > 2 &&
+      (answers[Questions[currQuestion].qId] || answers[qid])
+    ) {
       let previousAnswer;
-      console.log(
-        'question subquestion',
-        Questions[currQuestion].sub_questions
-      );
-      if (Questions[currQuestion].sub_questions) {
-        console.log('ANSWERS');
-        console.log('Answers', answers);
-        console.log('Answers[qid]', answers[qid]);
 
+      if (Questions[currQuestion].sub_questions) {
         previousAnswer = answers[qid];
       } else {
         previousAnswer = answers[Questions[currQuestion].qId];
-        console.log("I HAME HERE")
       }
-      // const previousAnswer = answers[Questions[currQuestion].qId];
-      console.log(`CurrentQuestion2: ${currQuestion}`);
-      //console.log(`useEffect: ${answers[Questions[currQuestion].qId]}`);
       setSelectedOptions(selectedOptions.concat(previousAnswer));
       // still able to click next
       setIsValid(true);

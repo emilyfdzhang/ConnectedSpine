@@ -70,7 +70,6 @@ const ZipCode = () => {
     return <div>Error</div>;
   }
   // const user = useUserState();
-  console.log('USER', user);
 
   const handleZipCodeChange = (event) => {
     const zip = event.target.value;
