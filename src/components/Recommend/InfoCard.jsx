@@ -35,7 +35,7 @@ const Content = styled.div`
   width: 80%;
   padding-top: 10%;
   background-color: ${backGreyLight};
-  height: 100%;
+  max-height: 100%;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 `;

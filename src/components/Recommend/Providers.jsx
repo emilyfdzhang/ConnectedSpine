@@ -1,5 +1,5 @@
 import React from 'react';
-import { faPerson, faStethoscope } from '@fortawesome/free-solid-svg-icons';
+import { faPerson, faHospital, faUserDoctor, faStethoscope} from '@fortawesome/free-solid-svg-icons';
 import InfoCard from './InfoCard';
 import { BackButton } from '../../buttonStyles';
 import { ResultDetails } from '../../helpers/RecommendedDetails';
@@ -26,7 +26,7 @@ const Providers = ({ resultIndex }) => {
       <Title>
         Your answers suggests that your symptoms are related to{' '}
         {diagnosis.map((condition) => (
-          <p>{condition}, </p>
+          <span>{condition}, </span>
         ))}
       </Title>
       <Recomendation>
@@ -37,7 +37,7 @@ const Providers = ({ resultIndex }) => {
           diagnosis.includes('Cauda Equina') ||
           diagnosis.includes('Myocardial Ischemia') ? (
             <InfoCard
-              icon={faPerson}
+              icon={faHospital}
               provider={'ER/Urgent Care'}
               bold={'90% of people'}
               text={' with your answers seek care from the ER or urgent care'}
@@ -56,7 +56,7 @@ const Providers = ({ resultIndex }) => {
           {diagnosis.includes('Myelopathy') ||
           diagnosis.includes('Lumbar Stenosis') ? (
             <InfoCard
-              icon={faPerson}
+              icon={faUserDoctor}
               provider={'Neurosurgeon'}
               bold={'90% of people'}
               text={' with your answers seek care from a neurosurgeon'}
@@ -64,7 +64,7 @@ const Providers = ({ resultIndex }) => {
           ) : null}
           {diagnosis.includes('Myelopathy') ? (
             <InfoCard
-              icon={faPerson}
+              icon={faStethoscope}
               provider={'Neurologist'}
               bold={'90% of people'}
               text={' with your answers seek care from a neurologist'}
@@ -81,18 +81,6 @@ const Providers = ({ resultIndex }) => {
               }
             />
           ) : null}
-          {/* <InfoCard
-            icon={faPerson}
-            provider={'Physical Therapist'}
-            bold={'90% of people'}
-            text={' with your answers seek care from a physical therapist'}
-          />
-          <InfoCard
-            icon={faStethoscope}
-            provider={'Physiatrist (MD)'}
-            bold={'35% of people'}
-            text={' with your answers seek care from a Physiatrist'}
-          /> */}
         </Cards>
       </Recomendation>
       <Save>
