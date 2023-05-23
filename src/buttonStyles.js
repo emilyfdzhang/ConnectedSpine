@@ -111,8 +111,8 @@ export const TextInput = styled.input`
   font-size: 20px;
   font-weight: 300;
   color: black;
-  width: 200px;
-  height: 60px;
+  width: 140px;
+  height: 50px;
   padding: 10px 30px;
   margin-right: 10px;
   border: ${boxBorder};
