@@ -14,10 +14,6 @@ const Container = styled.div`
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
 
-  .show {
-    display: block;
-  }
-
   div {
     background-color: ${background};
     margin: 15% auto;

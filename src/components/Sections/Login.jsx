@@ -4,6 +4,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import AssessmentContext from '../../helpers/Contexts';
 import Header from '../Header';
 import Modal from '../Modal';
+import Alert from '../Alert';
 import LoginTextField from '../LoginTextField';
 import { RequireSignIn } from '../../helpers/Explanations';
 import styled from 'styled-components';
@@ -12,7 +13,7 @@ import {
   Content,
   Link,
   BackNextButtonContainer,
-  LoginBox
+  LoginBox,
 } from '../../styles';
 import { BackButton, LoginButton } from '../../buttonStyles';
 
@@ -49,6 +50,9 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [alert, setAlert] = useState('');
+  const [title, setTitle] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -59,22 +63,29 @@ const Login = () => {
         email,
         password
       );
-      const user = userCredential.user;
+      setAssessmentState('zipcode');
     } catch (error) {
-      alert('Username or password is incorrect');
+      setShowAlert(true);
+      setAlert('Please enter a correct email and password.');
+      setTitle('Error');
       return;
     }
-    setAssessmentState('zipcode');
   };
 
   return (
     <Background image="../../results.jpg">
       <Header />
       <Content>
-        <LoginBox login={true}>
+        <LoginBox login={1}>
+          <Alert
+            showAlert={showAlert}
+            setShowAlert={setShowAlert}
+            title={title}
+            alert={alert}
+          ></Alert>
           <Title>Login</Title>
           <LoginTextField
-            login={true}
+            login={1}
             email={email}
             changeEmail={(e) => setEmail(e.target.value)}
             password={password}
@@ -82,7 +93,7 @@ const Login = () => {
             showPassword={showPassword}
             changeShowPassword={() => setShowPassword(!showPassword)}
           />
-          <LoginButton login={true} onClick={handleLogin}>
+          <LoginButton login={1} onClick={handleLogin}>
             Login
           </LoginButton>
           <Link onClick={() => setShowModal(true)}>

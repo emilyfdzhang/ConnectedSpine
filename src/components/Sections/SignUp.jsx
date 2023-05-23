@@ -4,6 +4,7 @@ import { auth } from '../../utilities/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import Header from '../Header';
 import Modal from '../Modal';
+import Alert from '../Alert';
 import LoginTextField from '../LoginTextField';
 import { Terms, Privacy } from '../../helpers/Explanations';
 import styled from 'styled-components';
@@ -69,6 +70,9 @@ const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showTerms, setShowTerms] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
+  const [alert, setAlert] = useState('');
+  const [title, setTitle] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -78,19 +82,47 @@ const SignUp = () => {
         email,
         password
       );
-      const user = userCredential.user;
-      console.log('New user created:', user);
+      setAssessmentState('zipcode');
     } catch (error) {
-      console.error(error);
+      switch (error.code) {
+        case 'auth/email-already-in-use':
+          setShowAlert(true);
+          setAlert(
+            'Email is registered to another user. If this is your email, please log in.'
+          );
+          setTitle('Invalid Email');
+          break;
+        case 'auth/invalid-email':
+          setShowAlert(true);
+          setAlert('Email is invalid. Please sign up with a valid email.');
+          setTitle('Invalid Email');
+          break;
+        case 'auth/operation-not-allowed':
+          setShowAlert(true);
+          setAlert('Please try again.');
+          setTitle('Error');
+          break;
+        case 'auth/weak-password':
+          setShowAlert(true);
+          setAlert(
+            'Password is not strong enough. Add additional characters.'
+          );
+          setTitle('Invalid Password');
+          break;
+        default:
+         setShowAlert(true);
+         setAlert('Please enter a valid email and password.');
+         setTitle('Error');
+          break;
+      }
     }
-    setAssessmentState('zipcode');
   };
 
   return (
     <Background image="../../results.jpg">
       <Header />
       <Content>
-        <LoginBox login={false}>
+        <LoginBox login={0}>
           <Title>Sign Up For ConnectedSpine</Title>
           <Account>
             Create a free account or{' '}
@@ -103,7 +135,7 @@ const SignUp = () => {
             </Bold>
           </Account>
           <LoginTextField
-            login={false}
+            login={0}
             email={email}
             changeEmail={(e) => setEmail(e.target.value)}
             password={password}
@@ -134,9 +166,15 @@ const SignUp = () => {
             setShowModal={setShowPrivacy}
             text={Privacy}
           ></Modal>
-          <LoginButton login={false} onClick={handleSignUp}>
+          <LoginButton login={0} onClick={handleSignUp}>
             Sign Up
           </LoginButton>
+          <Alert
+            showAlert={showAlert}
+            setShowAlert={setShowAlert}
+            title={title}
+            alert={alert}
+          ></Alert>
         </LoginBox>
       </Content>
     </Background>
