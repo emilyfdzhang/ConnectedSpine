@@ -44,7 +44,7 @@ const Prompt = styled.h1`
 
 const SubQuestion = styled.p`
   margin-top: -40px;
-  margin-bottom: 40px; 
+  margin-bottom: 40px;
   max-width: 80%;
 `;
 
@@ -209,6 +209,22 @@ const Questionaire = () => {
       }
     }
   };
+
+  window.addEventListener(
+    'keydown',
+    (event) => {
+      switch (event.key) {
+        case 'Enter':
+          handleNextClick();
+          break;
+        default:
+          return;
+      }
+
+      event.preventDefault();
+    },
+    true
+  );
 
   useEffect(() => {
     console.log('answers:', answers);

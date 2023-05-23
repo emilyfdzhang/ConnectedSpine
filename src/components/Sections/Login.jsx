@@ -46,6 +46,7 @@ const SignUp = styled.div`
 
 const Login = () => {
   const { setAssessmentState } = useContext(AssessmentContext);
+  const { setIsLogedIn } = useContext(AssessmentContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -63,6 +64,7 @@ const Login = () => {
         email,
         password
       );
+      setIsLogedIn(true);
       setAssessmentState('zipcode');
     } catch (error) {
       setShowAlert(true);
