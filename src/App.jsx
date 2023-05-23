@@ -4,6 +4,7 @@ import Loading from './helpers/Loading';
 import Login from './components/Sections/Login';
 import SignUp from './components/Sections/SignUp';
 import Home from './components/Sections/Home';
+import Profile from './components/Sections/Profile';
 import ZipCode from './components/Sections/ZipCode';
 import Questionaire from './components/Sections/Questionaire';
 import Result from './components/Sections/Result';
@@ -15,10 +16,11 @@ const App = () => {
   const [isValid, setIsValid] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [answers, setAnswers] = useState({});
+  const [isLogedIn, setIsLogedIn] = useState(false);
 
   const [data, error] = useDbData('/');
   if (error) return <h1>Error loading data: {error.toString()}</h1>;
-  if (data === undefined) return <Loading/>;
+  if (data === undefined) return <Loading />;
   if (!data) return <h1>No data found</h1>;
 
   return (
@@ -32,9 +34,12 @@ const App = () => {
         setSelectedOptions,
         answers,
         setAnswers,
+        isLogedIn,
+        setIsLogedIn,
       }}
     >
       {AssessmentState === 'home' && <Home />}
+      {AssessmentState === 'profile' && <Profile />}
       {AssessmentState === 'login' && <Login />}
       {AssessmentState === 'signup' && <SignUp />}
       {AssessmentState === 'zipcode' && <ZipCode />}

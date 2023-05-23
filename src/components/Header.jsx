@@ -69,6 +69,7 @@ const Bar = styled.div`
 
 const Header = () => {
   const { setAssessmentState } = useContext(AssessmentContext);
+  const { isLogedIn } = useContext(AssessmentContext);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -81,6 +82,18 @@ const Header = () => {
       toggleSidebar();
     }
     setAssessmentState(page);
+  }
+
+  function handleProfileClicks(page) {
+    if (isOpen) {
+      toggleSidebar();
+    }
+
+    if (isLogedIn) {
+      setAssessmentState(page);
+    } else {
+      setAssessmentState('login');
+    }
   }
 
   return (
@@ -102,7 +115,7 @@ const Header = () => {
         <button onClick={toggleSidebar}>
           <FontAwesomeIcon icon={faX} />
         </button>
-        <a onClick={handleButtonClicks.bind(null, 'home')}>Profile</a>
+        <a onClick={handleProfileClicks.bind(null, 'profile')}>Profile</a>
         <a onClick={handleButtonClicks.bind(null, 'home')}>Assessment</a>
       </Bar>
     </Heading>

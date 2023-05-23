@@ -56,6 +56,7 @@ const Text = styled.p`
 
 const Home = () => {
   const { setAssessmentState } = useContext(AssessmentContext);
+  const { isLogedIn } = useContext(AssessmentContext);
   return (
     <Background image="../../homepage.jpg">
       <Header />
@@ -74,7 +75,9 @@ const Home = () => {
           </p>
           <button
             onClick={() => {
-              setAssessmentState('login');
+              isLogedIn
+                ? setAssessmentState('zipcode')
+                : setAssessmentState('login');
             }}
           >
             Start Assessment
