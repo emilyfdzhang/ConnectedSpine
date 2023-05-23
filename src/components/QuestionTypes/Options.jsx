@@ -43,7 +43,11 @@ const Options = ({
 
   useEffect(() => {
     // Previous answers are saved when clicking the back button
-    if (currQuestion > 2 && answers[Questions[currQuestion].qId]) {
+    if (Questions[currQuestion].sub_questions) {
+      var qid = `${Questions[currQuestion].qId}-subq-${currSubQuestion}`;
+
+    }
+    if (currQuestion > 2 && (answers[Questions[currQuestion].qId] || answers[qid])) {
       let previousAnswer;
       console.log(
         'question subquestion',
@@ -52,16 +56,16 @@ const Options = ({
       if (Questions[currQuestion].sub_questions) {
         console.log('ANSWERS');
         console.log('Answers', answers);
-        var qid = `${Questions[currQuestion].qId}-subq-${currSubQuestion}`;
         console.log('Answers[qid]', answers[qid]);
 
         previousAnswer = answers[qid];
       } else {
         previousAnswer = answers[Questions[currQuestion].qId];
+        console.log("I HAME HERE")
       }
       // const previousAnswer = answers[Questions[currQuestion].qId];
       console.log(`CurrentQuestion2: ${currQuestion}`);
-      console.log(`useEffect: ${answers[Questions[currQuestion].qId]}`);
+      //console.log(`useEffect: ${answers[Questions[currQuestion].qId]}`);
       setSelectedOptions(selectedOptions.concat(previousAnswer));
       // still able to click next
       setIsValid(true);
