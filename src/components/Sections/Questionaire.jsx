@@ -43,8 +43,8 @@ const Prompt = styled.h1`
 `;
 
 const SubQuestion = styled.p`
-  /* margin-top: -40px;
-  margin-bottom: 40px; */
+  margin-top: -40px;
+  margin-bottom: 40px; 
   max-width: 80%;
 `;
 

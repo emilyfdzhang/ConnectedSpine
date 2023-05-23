@@ -183,15 +183,15 @@ const Questions = [
     prompt: 'Regarding the numbness and/or tingling',
     sub_questions: [
       'Does it involve your feet?',
-      'If the numbness and/or tingling involves your feet (select Not Applicable if it does not), does it travel up from your feet?',
-      'If the numbness and/or tingling involves your feet (select Not Applicable if it does not), does it radiate down from your back?',
+      'If the numbness and/or tingling involves your feet, does it travel up from your feet?',
+      'If the numbness and/or tingling involves your feet, does it radiate down from your back?',
       'Do you have similar symptoms in your hands?',
       'Do you feel you have problems with your balance?',
       'Have you ever been diagnosed with Diabetes?',
       'Have you ever been diagnosed with a Vitamin B12 deficiency?',
     ],
 
-    options: ['YES', 'NO', 'NOT APPLICABLE'],
+    options: ['YES', 'NO'],
     type: 'Selectbutton',
     qId: '06-NUMBNESS-02', // 15
     index: 15,
@@ -202,10 +202,10 @@ const Questions = [
     prompt: 'Regarding the tightness',
     sub_questions: [
       'Are the symptoms worse in the morning when you first wake up?',
-      'If symptoms are worse in the morning (select Not Applicable if not), do the symptoms get better over the course of the day?',
+      'If symptoms are worse in the morning, do the symptoms get better over the course of the day?',
     ],
 
-    options: ['YES', 'NO', 'NOT APPLICABLE'],
+    options: ['YES', 'NO'],
     type: 'Selectbutton',
     qId: '06-TIGHTNESS-01', // 16
     index: 16,
