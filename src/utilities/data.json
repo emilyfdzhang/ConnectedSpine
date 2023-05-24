@@ -1,10 +1,10 @@
 {
     "users": {
-        "user_id1": {
-            "Question1": "1"
-        },
-        "user_id2": {
-            "Question1": "2"
-        }
+        "email": 3,
+        "results": 4
+    },
+    "answers": {
+        "date": 2,
+        "answer": 1
     }
 }

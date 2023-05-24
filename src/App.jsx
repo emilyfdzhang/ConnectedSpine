@@ -18,7 +18,7 @@ const App = () => {
   const [answers, setAnswers] = useState({});
   const [isLogedIn, setIsLogedIn] = useState(false);
 
-  const [data, error] = useDbData('/');
+  const [data, error] = useDbData('/users');
   if (error) return <h1>Error loading data: {error.toString()}</h1>;
   if (data === undefined) return <Loading />;
   if (!data) return <h1>No data found</h1>;
@@ -43,7 +43,7 @@ const App = () => {
       {AssessmentState === 'login' && <Login />}
       {AssessmentState === 'signup' && <SignUp />}
       {AssessmentState === 'zipcode' && <ZipCode />}
-      {AssessmentState === 'questions' && <Questionaire />}
+      {AssessmentState === 'questions' && <Questionaire data={data} />}
       {AssessmentState === 'result' && <Result />}
     </AssessmentContext.Provider>
   );

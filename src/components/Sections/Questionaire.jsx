@@ -18,6 +18,8 @@ import {
   Bold,
 } from '../../styles';
 import { NextButton, BackButton } from '../../buttonStyles';
+import { getAuth } from 'firebase/auth';
+import { useDbUpdate } from '../../utilities/firebase';
 
 const Section = styled.h3`
   font-size: 16px;
@@ -54,11 +56,24 @@ const OptionsContainer = styled.div`
   align-items: center;
 `;
 
-const Questionaire = () => {
+const Questionaire = ({ data }) => {
   const [currQuestion, setCurrQuestion] = useState(0);
   const [currSubQuestion, setCurrSubQuestion] = useState(0);
 
   const [idTrail, setIdTrail] = useState([]);
+
+  const dateToday = Date.now();
+  // const randomId = Math.random().toString(36).substr(2, 8);
+  const user = getAuth().currentUser;
+  const [userUpdate, userResult] = useDbUpdate(`/users/${user['uid']}`);
+  const [answerUpdate, answerResult] = useDbUpdate(`/answers/${dateToday}`);
+
+  let lastQuestion =
+    (currQuestion === Questions.length - 1 &&
+      Questions[currQuestion].sub_questions &&
+      currSubQuestion === Questions[currQuestion].sub_questions.length - 1) ||
+    (currQuestion === Questions.length - 1 &&
+      !Questions[currQuestion].sub_questions);
 
   const {
     AssessmentState,
@@ -156,6 +171,7 @@ const Questionaire = () => {
       if (!idTrail.includes(Questions[currQuestion].qId)) {
         setIdTrail([...idTrail, Questions[currQuestion].qId]);
       }
+      submitResults();
       setAssessmentState('result');
     } else if (isValid) {
       // if not last question
@@ -216,7 +232,26 @@ const Questionaire = () => {
     true
   );
 
-  useEffect(() => {}, [answers]);
+  const submitResults = () => {
+    console.log('data', data[user['uid']]);
+    let dbResults;
+    if (data[user['uid']]) {
+      dbResults = [data[user['uid']]['results']];
+      dbResults.push(dateToday);
+    } else {
+      dbResults = dateToday;
+    }
+
+    answerUpdate({
+      date: dateToday,
+      answers,
+    });
+
+    userUpdate({
+      email: user['email'],
+      results: dbResults,
+    });
+  };
 
   return (
     <Background image="../../pages.jpg">
@@ -250,9 +285,15 @@ const Questionaire = () => {
             </OptionsContainer>
             <BackNextButtonContainer>
               <BackButton onClick={handleBackClick}>Back</BackButton>
-              <NextButton isValid={isValid} onClick={handleNextClick}>
-                Next
-              </NextButton>
+              {!lastQuestion ? (
+                <NextButton isValid={isValid} onClick={handleNextClick}>
+                  Next
+                </NextButton>
+              ) : (
+                <NextButton isValid={isValid} onClick={handleNextClick}>
+                  Submit
+                </NextButton>
+              )}
             </BackNextButtonContainer>
           </RightContent>
         </ContentContainer>

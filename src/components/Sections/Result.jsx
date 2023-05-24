@@ -10,11 +10,6 @@ import { useDbUpdate } from '../../utilities/firebase';
 const Result = () => {
   const { answers } = useContext(AssessmentContext);
   const [resultIndex, setResultIndex] = useState([]);
-  const user = getAuth().currentUser;
-  let dateToday = Date.now();
-
-  const [userUpdate, userResult] = useDbUpdate(`/users/${user['uid']}`);
-  const [answerUpdate, answerResult] = useDbUpdate(`/answers/${dateToday}`);
 
   // if shooting pain, Lumbar Radiculopathy
   if (answers['06'].includes('SHOOTING PAIN')) {
@@ -75,17 +70,7 @@ const Result = () => {
   }
 
   resultIndex.map((index) => {});
-  useEffect(() => {
-    console.log('answer rendering');
-    answerUpdate({
-      date: dateToday,
-      answers,
-    });
 
-    userUpdate({
-      dateToday,
-    });
-  }, [answers]);
   return (
     <Background image="../../results.jpg">
       <Header />
