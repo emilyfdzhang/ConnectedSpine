@@ -62,7 +62,7 @@ const Questionaire = ({ data }) => {
 
   const [idTrail, setIdTrail] = useState([]);
 
-  const dateToday = Date.now();
+  const [dateToday] = useState(Date.now());
   // const randomId = Math.random().toString(36).substr(2, 8);
   const user = getAuth().currentUser;
   const [userUpdate, userResult] = useDbUpdate(`/users/${user['uid']}`);
@@ -234,9 +234,9 @@ const Questionaire = ({ data }) => {
 
   const submitResults = () => {
     console.log('data', data[user['uid']]);
-    let dbResults;
-    if (data[user['uid']]) {
-      dbResults = [data[user['uid']]['results']];
+    let dbResults = [];
+    if (data[user['uid']] && data[user['uid']]['results']) {
+      dbResults.push(data[user['uid']]['results']);
       dbResults.push(dateToday);
     } else {
       dbResults = dateToday;
