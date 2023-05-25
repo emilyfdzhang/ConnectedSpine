@@ -236,7 +236,15 @@ const Questionaire = ({ data }) => {
     console.log('data', data[user['uid']]);
     let dbResults = [];
     if (data[user['uid']] && data[user['uid']]['results']) {
-      dbResults.push(data[user['uid']]['results']);
+      if (!Array.isArray(data[user['uid']]['results'])) {
+        console.log('dataResults', data[user['uid']]['results']);
+        dbResults.push(data[user['uid']]['results']);
+      } else {
+        for (let element of data[user['uid']]['results']) {
+          dbResults.push(element);
+        }
+      }
+
       dbResults.push(dateToday);
     } else {
       dbResults = dateToday;
