@@ -4,9 +4,9 @@ const FeedbackForm = () => {
   const [feedback, setFeedback] = useState({
     question1: '',
     question2: '',
-    question3: '',
+    question3: 0,
     question4: '',
-    question5: '',
+    question5: 0,
   });
   const [submitted, setSubmitted] = useState(false);
 
@@ -22,18 +22,19 @@ const FeedbackForm = () => {
     setFeedback({
       question1: '',
       question2: '',
-      question3: '',
+      question3: 0,
       question4: '',
-      question5: '',
+      question5: 0,
     });
     setSubmitted(false);
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type } = e.target;
+    const updatedValue = type === 'number' ? parseInt(value) : value;
     setFeedback((prevFeedback) => ({
       ...prevFeedback,
-      [name]: value,
+      [name]: updatedValue,
     }));
   };
 
