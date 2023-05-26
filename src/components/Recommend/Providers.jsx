@@ -81,14 +81,86 @@ const Providers = ({ resultIndex, data }) => {
       <Recomendation>
         <Recomended>Recommended providers</Recomended>
         <Cards>
-          {providers.map((provider) => (
+          {providers.map((provider) => {
+            let icon;
+            switch (provider) {
+              case 'ER/Urgent Care':
+                icon = faHospital;
+                break;
+              case 'Primary Care Physician':
+                icon = faPerson;
+                break;
+              case 'Neurosurgeon':
+                icon = faUserDoctor;
+                break;
+              case 'Neurologist':
+                icon = faStethoscope;
+                break;
+              case 'Interventional Pain Physician':
+                icon = faPerson;
+                break;
+              default:
+                // Set a default icon if needed
+                icon = faStethoscope;
+            }
+            return (
+              <InfoCard
+                icon={icon}
+                provider={provider}
+                bold={'90% of people'}
+                text={` with your answers seek care from ${provider} `}
+              />
+            );
+          })}
+          {/* {diagnosis.includes('Metastatic disease') ||
+          diagnosis.includes('Infection') ||
+          diagnosis.includes('Cauda Equina') ||
+          diagnosis.includes('Myocardial Ischemia') ? (
             <InfoCard
               icon={faHospital}
-              provider={provider}
+              provider={'ER/Urgent Care'}
               bold={'90% of people'}
-              text={` with your answers seek care from ${provider} `}
+              text={' with your answers seek care from the ER or urgent care'}
             />
-          ))}
+          ) : null}
+          {diagnosis.includes('Facet Arthropathy') ? (
+            <InfoCard
+              icon={faPerson}
+              provider={'Primary Care Physician'}
+              bold={'90% of people'}
+              text={
+                ' with your answers seek care from a primary care physician'
+              }
+            />
+          ) : null}
+          {diagnosis.includes('Myelopathy') ||
+          diagnosis.includes('Lumbar Stenosis') ? (
+            <InfoCard
+              icon={faUserDoctor}
+              provider={'Neurosurgeon'}
+              bold={'90% of people'}
+              text={' with your answers seek care from a neurosurgeon'}
+            />
+          ) : null}
+          {diagnosis.includes('Myelopathy') ? (
+            <InfoCard
+              icon={faStethoscope}
+              provider={'Neurologist'}
+              bold={'90% of people'}
+              text={' with your answers seek care from a neurologist'}
+            />
+          ) : null}
+          {diagnosis.includes('Lumbar Radiculopathy') ||
+          diagnosis.includes('Facet Arthropathy') ? (
+            <InfoCard
+              icon={faPerson}
+              provider={'Interventional Pain Physician'}
+              bold={'90% of people'}
+              text={
+                ' with your answers seek care from an interventional pain physician'
+              }
+            />
+          ) : null} */}
         </Cards>
       </Recomendation>
       <Save>
