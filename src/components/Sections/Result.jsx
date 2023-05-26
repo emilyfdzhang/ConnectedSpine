@@ -7,7 +7,7 @@ import { Background, Content } from '../../styles';
 import { getAuth } from 'firebase/auth';
 import { useDbUpdate } from '../../utilities/firebase';
 
-const Result = () => {
+const Result = ({ data }) => {
   const { answers } = useContext(AssessmentContext);
   const [resultIndex, setResultIndex] = useState([]);
 
@@ -69,13 +69,13 @@ const Result = () => {
     !resultIndex.includes(7) ? setResultIndex(resultIndex.concat(7)) : null;
   }
 
-  resultIndex.map((index) => {});
-
+  resultIndex.map((index) => { });
+  console.log("DateTodayResults", dateToday)
   return (
     <Background image="../../results.jpg">
       <Header />
       <Content>
-        <Providers resultIndex={resultIndex} />
+        <Providers resultIndex={resultIndex} data={data} />
       </Content>
     </Background>
   );

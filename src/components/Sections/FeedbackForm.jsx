@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { useDbUpdate } from '../../utilities/firebase';
 
-const FeedbackForm = () => {
+const FeedbackForm = ({ user }) => {
   const [feedback, setFeedback] = useState({
     question1: '',
     question2: '',
@@ -9,9 +10,14 @@ const FeedbackForm = () => {
     question5: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [userUpdate, userResult] = useDbUpdate(`/users/${user['uid']}`);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    userUpdate({
+      feedback: feedback
+    });
+
     // Perform any validation or data processing here
     // For simplicity, we'll just log the feedback to the console
     console.log(feedback);

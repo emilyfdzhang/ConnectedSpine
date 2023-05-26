@@ -25,7 +25,7 @@ const Profile = () => {
         <ContentContainer>
           <LeftContent>{user['email']} : Past Assessments</LeftContent>
           <RightContent>
-            <FeedbackForm />
+            <FeedbackForm user={user} />
           </RightContent>
         </ContentContainer>
       </Content>

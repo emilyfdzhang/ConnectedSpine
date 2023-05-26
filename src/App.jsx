@@ -44,7 +44,7 @@ const App = () => {
       {AssessmentState === 'signup' && <SignUp />}
       {AssessmentState === 'zipcode' && <ZipCode />}
       {AssessmentState === 'questions' && <Questionaire data={data['users']} />}
-      {AssessmentState === 'result' && <Result />}
+      {AssessmentState === 'result' && <Result data={data['users']} />}
     </AssessmentContext.Provider>
   );
 };
