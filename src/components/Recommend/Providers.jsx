@@ -32,8 +32,41 @@ const Providers = ({ resultIndex, data }) => {
     diagnosis.push(ResultDetails[index]);
   });
 
+  const providers = [];
+  if (
+    diagnosis.includes('Metastatic disease') ||
+    diagnosis.includes('Infection') ||
+    diagnosis.includes('Cauda Equina') ||
+    diagnosis.includes('Myocardial Ischemia')
+  ) {
+    providers.push('ER/Urgent Care');
+  }
+
+  if (diagnosis.includes('Facet Arthropathy')) {
+    providers.push('Primary Care Physician');
+  }
+
+  if (
+    diagnosis.includes('Myelopathy') ||
+    diagnosis.includes('Lumbar Stenosis')
+  ) {
+    providers.push('Neurosurgeon');
+  }
+
+  if (diagnosis.includes('Myelopathy')) {
+    providers.push('Neurologist');
+  }
+
+  if (
+    diagnosis.includes('Lumbar Radiculopathy') ||
+    diagnosis.includes('Facet Arthropathy')
+  ) {
+    providers.push('Interventional Pain Physician');
+  }
+
   userUpdate({
     diagnosis: diagnosis,
+    providers: providers,
   });
 
   return (
