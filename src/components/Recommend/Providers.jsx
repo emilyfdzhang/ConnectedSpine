@@ -81,55 +81,14 @@ const Providers = ({ resultIndex, data }) => {
       <Recomendation>
         <Recomended>Recommended providers</Recomended>
         <Cards>
-          {diagnosis.includes('Metastatic disease') ||
-          diagnosis.includes('Infection') ||
-          diagnosis.includes('Cauda Equina') ||
-          diagnosis.includes('Myocardial Ischemia') ? (
+          {providers.map((provider) => (
             <InfoCard
               icon={faHospital}
-              provider={'ER/Urgent Care'}
+              provider={provider}
               bold={'90% of people'}
-              text={' with your answers seek care from the ER or urgent care'}
+              text={` with your answers seek care from ${provider} `}
             />
-          ) : null}
-          {diagnosis.includes('Facet Arthropathy') ? (
-            <InfoCard
-              icon={faPerson}
-              provider={'Primary Care Physician'}
-              bold={'90% of people'}
-              text={
-                ' with your answers seek care from a primary care physician'
-              }
-            />
-          ) : null}
-          {diagnosis.includes('Myelopathy') ||
-          diagnosis.includes('Lumbar Stenosis') ? (
-            <InfoCard
-              icon={faUserDoctor}
-              provider={'Neurosurgeon'}
-              bold={'90% of people'}
-              text={' with your answers seek care from a neurosurgeon'}
-            />
-          ) : null}
-          {diagnosis.includes('Myelopathy') ? (
-            <InfoCard
-              icon={faStethoscope}
-              provider={'Neurologist'}
-              bold={'90% of people'}
-              text={' with your answers seek care from a neurologist'}
-            />
-          ) : null}
-          {diagnosis.includes('Lumbar Radiculopathy') ||
-          diagnosis.includes('Facet Arthropathy') ? (
-            <InfoCard
-              icon={faPerson}
-              provider={'Interventional Pain Physician'}
-              bold={'90% of people'}
-              text={
-                ' with your answers seek care from an interventional pain physician'
-              }
-            />
-          ) : null}
+          ))}
         </Cards>
       </Recomendation>
       <Save>
