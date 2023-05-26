@@ -70,7 +70,7 @@ const Bar = styled.div`
 const Header = () => {
   const { setAssessmentState } = useContext(AssessmentContext);
   const { isLogedIn } = useContext(AssessmentContext);
-
+  const { prevPage, setPrevPage } = useContext(AssessmentContext);
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleSidebar() {
@@ -93,6 +93,7 @@ const Header = () => {
       setAssessmentState(page);
     } else {
       setAssessmentState('login');
+      setPrevPage('profile');
     }
   }
 

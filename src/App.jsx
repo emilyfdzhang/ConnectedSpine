@@ -17,6 +17,7 @@ const App = () => {
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [answers, setAnswers] = useState({});
   const [isLogedIn, setIsLogedIn] = useState(false);
+  const [prevPage, setPrevPage] = useState('');
 
   const [data, error] = useDbData('/');
   if (error) return <h1>Error loading data: {error.toString()}</h1>;
@@ -36,6 +37,8 @@ const App = () => {
         setAnswers,
         isLogedIn,
         setIsLogedIn,
+        prevPage,
+        setPrevPage
       }}
     >
       {AssessmentState === 'home' && <Home />}

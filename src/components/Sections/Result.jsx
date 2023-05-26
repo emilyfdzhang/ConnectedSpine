@@ -8,6 +8,8 @@ import { getAuth } from 'firebase/auth';
 import { useDbUpdate } from '../../utilities/firebase';
 
 const Result = ({ data }) => {
+  const user = getAuth().currentUser;
+  const [userUpdate, userResult] = useDbUpdate(`/users/${user['uid']}`);
   const { answers } = useContext(AssessmentContext);
   const [resultIndex, setResultIndex] = useState([]);
 

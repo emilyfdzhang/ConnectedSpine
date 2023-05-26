@@ -47,6 +47,7 @@ const SignUp = styled.div`
 const Login = () => {
   const { setAssessmentState } = useContext(AssessmentContext);
   const { setIsLogedIn } = useContext(AssessmentContext);
+  const { prevPage, setPrevPage } = useContext(AssessmentContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -65,7 +66,12 @@ const Login = () => {
         password
       );
       setIsLogedIn(true);
-      setAssessmentState('zipcode');
+      if (prevPage === 'profile') {
+        setAssessmentState('profile');
+        setPrevPage('');
+      } else{
+        setAssessmentState('zipcode');
+      }
     } catch (error) {
       setShowAlert(true);
       setAlert('Please enter a correct email and password.');
