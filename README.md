@@ -131,7 +131,7 @@ Select Use an existing project.
 
 Select your Firebase Project (e.g. ConnectedSpine).
 
-Specify build when firebase init asks what the public directory is.
+Specify dist when firebase init asks what the public directory is.
 
 Say no when Firebase asks about adding Github Actions.
 
@@ -145,6 +145,12 @@ To deploy, run
 npm run build
 firebase deploy
 ```
+
+## Notes
+
+When including relative links to images in the public folder, you do not need to specifiy 'public/' before the image names.
+
+Additionally, image names are case sensative, so make sure they are _all lowercase_ in your local repo.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
