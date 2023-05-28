@@ -76,6 +76,8 @@ You can fill out the questionnaire detailing your age, symptoms, history with ba
 
 Using React Vite
 
+[Full Vite documentation](https://github.com/criesbeck/react-vitest)
+
 ## Installation
 
 ```
