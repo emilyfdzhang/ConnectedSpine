@@ -50,7 +50,8 @@
       <ul>
         <li><a href="#installation">Installation</a></li>
         <li><a href="#test">Test</a></li>
-        <li><a href="#scripts">Installation</a></li>
+        <li><a href="#scripts">Scripts</a></li>
+        <li><a href="#firebase">Firebase</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -125,6 +126,31 @@ Two tests should run and pass.
 | npm run build | Builds the app for production to the `dist` folder. |
 | npm run serve | Serves the production build from the `dist` folder. |
 | npm test      | Starts a Jest-like test loop                        |
+
+## Firebase
+
+To set up the Firebase, run
+
+```
+npm install firebase-tools -g
+firebase login
+firebase init
+```
+
+Select Hosting: Configure and deploy Firebase Hosting sites.
+Select Use an existing project.
+Select your Firebase Project (e.g. ConnectedSpine).
+Specify build when firebase init asks what the public directory is.
+Say no when Firebase asks about adding Github Actions.
+Say yes when Firebase asks about configuring as a single-page app.
+Say no if Firebase asks you to overwrite build/index.html.
+
+To deploy, run
+
+```
+npm run build
+firebase deploy
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -201,7 +227,7 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 
 [contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
 [contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
-[product-screenshot]: images/home_screenshot
+[product-screenshot]: images/home_screenshot.png
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
