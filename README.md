@@ -41,6 +41,7 @@
         <li><a href="#test">Test</a></li>
         <li><a href="#scripts">Scripts</a></li>
         <li><a href="#firebase">Firebase</a></li>
+        <li><a href="#notes">Notes</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
