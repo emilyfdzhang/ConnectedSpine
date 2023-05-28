@@ -9,7 +9,7 @@ import {
   LeftContent,
   RightContent,
 } from '../../styles';
-import FeedbackForm from './FeedbackForm';
+import FeedbackForm from '../FeedbackForm';
 import { getAuth } from 'firebase/auth';
 import { useDbUpdate } from '../../utilities/firebase';
 

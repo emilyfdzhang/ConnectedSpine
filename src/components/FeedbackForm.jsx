@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDbUpdate } from '../../utilities/firebase';
+import { useDbUpdate } from '../utilities/firebase';
 
 const FeedbackForm = ({ user }) => {
   const [feedback, setFeedback] = useState({
