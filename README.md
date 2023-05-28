@@ -72,10 +72,9 @@ You can fill out the questionnaire detailing your age, symptoms, history with ba
 
 ## Getting Started
 
-# React Vitest
+## React Vitest
 
-A starter template for building React apps with Vite. Includes Vitest for unit testing and
-a hefty .gitignore file.
+Using React Vite
 
 ## Installation
 
