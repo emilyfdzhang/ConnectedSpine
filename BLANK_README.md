@@ -68,6 +68,7 @@
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://connectedspine-6185c.web.app/)
+[![Product Question Screen Shot][question-screenshot]](https://connectedspine-6185c.web.app/)
 
 A web application that serves as a remote and immediate back pain advisor.
 You can fill out the questionnaire detailing your age, symptoms, history with back pain, and other information to receive a recommendation on what your course of treatment should be.
@@ -164,9 +165,7 @@ firebase deploy
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+_For examples of how to use the website and code, please refer to the [Documentation](https://docs.google.com/document/d/1m3FPN4m_aVhri7hZ02f7f3lu09_bb2iO647or_fIkv0/edit?usp=sharing)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -174,12 +173,13 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-  - [ ] Nested Feature
+- [x] Display results and recommended providers based on questionnaire answers
+  - [ ] Query nearby providers based on the user's zipcode
+- [x] Store a user's most recent questionnaire answers
+  - [ ] Store all of the user's previous questionnaire answers
+- [ ] Feedback form where a user can leave feedback on the questionnaire results
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+<!-- See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues). -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -234,6 +234,7 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
 [contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
 [product-screenshot]: images/home_screenshot.png
+[question-screenshot]: images/question_screenshot.png
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
