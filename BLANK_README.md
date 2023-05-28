@@ -138,11 +138,17 @@ firebase init
 ```
 
 Select Hosting: Configure and deploy Firebase Hosting sites.
+
 Select Use an existing project.
+
 Select your Firebase Project (e.g. ConnectedSpine).
+
 Specify build when firebase init asks what the public directory is.
+
 Say no when Firebase asks about adding Github Actions.
+
 Say yes when Firebase asks about configuring as a single-page app.
+
 Say no if Firebase asks you to overwrite build/index.html.
 
 To deploy, run
