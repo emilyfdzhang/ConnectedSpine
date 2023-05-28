@@ -20,10 +20,7 @@
   <p align="center">
     Web app where users can answer questions about their back pain to get recommended treatment options for possible diagnoses.
     <br />
-    <a href="https://github.com/cs394-s23/ConnectedSpine"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/cs394-s23/ConnectedSpine">View Demo</a>
+    <a href="https://github.com/cs394-s23/ConnectedSpine"><strong>Explore the Repo »</strong></a>
   </p>
 </div>
 
