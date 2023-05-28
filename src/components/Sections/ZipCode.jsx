@@ -53,23 +53,12 @@ const ZipCode = () => {
   const { isValid, setIsValid } = useContext(AssessmentContext);
   const [zipCode, setZipCode] = useState('');
   const [showModal, setShowModal] = useState(false);
-  // const [user, setUser] = useState(null);
-
-  // useEffect(() => {
-  //   const currentUser = getAuth().currentUser;
-  //   setUser(currentUser);
-  // }, []);
-
-  // if (user === null) {
-  //   return <div>Loading...</div>;
-  // }
 
   const user = getAuth().currentUser;
 
   if (!user) {
     return <div>Error</div>;
   }
-  // const user = useUserState();
 
   const handleZipCodeChange = (event) => {
     const zip = event.target.value;
@@ -95,10 +84,6 @@ const ZipCode = () => {
       setIsValid(true);
     }
   }, []);
-
-  // if (!user) {
-  //   return <h1>Error</h1>;
-  // }
 
   return (
     <Background image="../../questions.png">

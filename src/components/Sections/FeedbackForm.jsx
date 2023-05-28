@@ -20,7 +20,6 @@ const FeedbackForm = ({ user }) => {
 
     // Perform any validation or data processing here
     // For simplicity, we'll just log the feedback to the console
-    console.log(feedback);
     setSubmitted(true);
   };
 

@@ -24,7 +24,6 @@ const Providers = ({ resultIndex, data }) => {
   const user = getAuth().currentUser;
   const dateTodayLength = data[user['uid']]['results'].length;
   const dateToday = data[user['uid']]['results'][dateTodayLength - 1];
-  console.log('DateToday', dateToday);
   const [userUpdate, userResult] = useDbUpdate(`/users/${user['uid']}`);
 
   const diagnosis = [];

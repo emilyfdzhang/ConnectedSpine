@@ -18,7 +18,6 @@ const Options = ({
   const { answers, setAnswers } = useContext(AssessmentContext);
 
   const HandleOnclick = (event) => {
-    // const selected_value = parseInt(event.currentTarget.id);
     const selected_value = event.currentTarget.getAttribute('value');
 
     if (selectedOptions.includes(selected_value)) {

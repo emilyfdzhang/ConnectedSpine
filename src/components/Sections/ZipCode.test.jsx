@@ -6,9 +6,6 @@ import ZipCode from './ZipCode';
 import AssessmentContext from '../../helpers/Contexts';
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-// import { jest } from 'jest';
-// import { useDbData } from './utilities/firebase';
-// vi.mock('../../helpers/Contexts');
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDPOkyUz5CWBVtnnEbCiXHigIbsRggAVxQ',

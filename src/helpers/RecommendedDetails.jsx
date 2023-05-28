@@ -1,14 +1,3 @@
-// export const ResultDetails = [
-//   { 1: 'muscle strain' },
-//   { 2: 'Lumbar Radiculopathy' },
-//   { 3: 'Lumbar Stenosis' },
-//   { 4: 'Facet Arthropathy' },
-//   { 5: 'Myelopathy' },
-//   { 6: 'Metastatic disease' },
-//   { 7: 'infection' },
-//   { 8: 'Cauda Equina' },
-//   { 9: 'Myocardial Ischemia' },
-// ];
 
 export const ResultDetails = [
   'Lumbar Radiculopathy', // 0

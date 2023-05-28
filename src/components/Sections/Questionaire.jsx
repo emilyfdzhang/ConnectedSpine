@@ -63,7 +63,6 @@ const Questionaire = ({ data }) => {
   const [idTrail, setIdTrail] = useState([]);
 
   const [dateToday] = useState(Date.now());
-  // const randomId = Math.random().toString(36).substr(2, 8);
   const user = getAuth().currentUser;
   const [userUpdate, userResult] = useDbUpdate(`/users/${user['uid']}`);
   const [answerUpdate, answerResult] = useDbUpdate(`/answers/${dateToday}`);
@@ -108,7 +107,8 @@ const Questionaire = ({ data }) => {
             index = i;
             return index;
           } else {
-            index = 17; // change index based on next question after sensations questions
+            index = 17; 
+            // change index based on next question after sensations questions
           }
         }
       }
@@ -194,8 +194,6 @@ const Questionaire = ({ data }) => {
 
         const index = proceedSensationQuestion(currQuestion);
         setCurrQuestion(index);
-
-        // setCurrQuestion(currQuestion + 1);
         setCurrSubQuestion(0);
         setSelectedOptions([]);
       } else {
@@ -209,8 +207,6 @@ const Questionaire = ({ data }) => {
         }
 
         setCurrSubQuestion(currSubQuestion + 1);
-
-        // setCurrSubQuestion(currSubQuestion + 1);
         setSelectedOptions([]);
       }
     }
@@ -233,11 +229,9 @@ const Questionaire = ({ data }) => {
   );
 
   const submitResults = () => {
-    console.log('data', data[user['uid']]);
     let dbResults = [];
     if (data[user['uid']] && data[user['uid']]['results']) {
       if (!Array.isArray(data[user['uid']]['results'])) {
-        console.log('dataResults', data[user['uid']]['results']);
         dbResults.push(data[user['uid']]['results']);
       } else {
         for (let element of data[user['uid']]['results']) {

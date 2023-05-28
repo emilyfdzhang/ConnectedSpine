@@ -27,7 +27,6 @@ const Result = ({ data }) => {
     !resultIndex.includes(1) ? setResultIndex(resultIndex.concat(1)) : null;
   }
   // if bilateral back pain, but no shooting pain or numbness/tingling, Facet arthropathy
-  // TODO idk if this is right
   if (
     answers['05'].includes('ON THE LEFT') &&
     answers['05'].includes('ON THE RIGHT')
@@ -57,13 +56,11 @@ const Result = ({ data }) => {
     !resultIndex.includes(5) ? setResultIndex(resultIndex.concat(5)) : null;
   }
   // if can’t control bowel/bladder and duration a few minutes/hours/days/weeks, Cauda Equina
-  // I DONT SEE QUESTIONS RELATED TO THIS but includes 6 in theory
   if (answers['13'].includes('Cannot control when I go to the bathroom')) {
     !resultIndex.includes(6) ? setResultIndex(resultIndex.concat(6)) : null;
   }
 
   // if chest pain, short of breath, Myocardial Ischemia
-  // idk if this was a both or j one or the other thing
   if (
     answers['13'].includes('Chest pain') &&
     answers['12'].includes('Shortness of breath')
