@@ -72,9 +72,12 @@ const Providers = ({ resultIndex, data }) => {
     <Container>
       <Subtitle>Results</Subtitle>
       <Title>
-        Your answers suggests that your symptoms are related to{' '}
-        {diagnosis.map((condition) => (
-          <span>{condition}, </span>
+        Your answers suggest that your symptoms are related to{' '}
+        {diagnosis.map((condition, index) => (
+          <React.Fragment key={condition}>
+            <span>{condition}</span>
+            {index !== diagnosis.length - 1 && <span>, </span>}
+          </React.Fragment>
         ))}
       </Title>
       <Recomendation>

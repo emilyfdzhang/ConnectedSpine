@@ -15,7 +15,7 @@ const FeedbackForm = ({ user }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     userUpdate({
-      feedback: feedback
+      feedback: feedback,
     });
 
     // Perform any validation or data processing here
@@ -57,8 +57,15 @@ const FeedbackForm = ({ user }) => {
           </button>
         </div>
       ) : (
-        <form onSubmit={handleSubmit}>
-          <h2>Feedback Form</h2>
+        <form
+          onSubmit={handleSubmit}
+          style={{
+            backgroundColor: '#f7f7f7',
+            padding: '20px',
+            borderRadius: '5px',
+          }}
+        >
+          <h2 style={{ textAlign: 'center' }}>Feedback Form</h2>
           <label style={{ display: 'block', marginBottom: '10px' }}>
             Did you use the advice of the app? Please answer yes or no.
             <select
@@ -66,6 +73,7 @@ const FeedbackForm = ({ user }) => {
               value={feedback.question1}
               onChange={handleChange}
               required
+              style={{ width: '100%', padding: '5px', marginTop: '5px' }}
             >
               <option value="">Select an option</option>
               <option value="Yes">Yes</option>
@@ -79,6 +87,7 @@ const FeedbackForm = ({ user }) => {
               value={feedback.question2}
               onChange={handleChange}
               required
+              style={{ width: '100%', padding: '5px', marginTop: '5px' }}
             >
               <option value="">Select an option</option>
               <option value="Primary care physician">
@@ -104,6 +113,7 @@ const FeedbackForm = ({ user }) => {
                 value={feedback.question3}
                 onChange={handleChange}
                 required
+                style={{ flex: '1', marginTop: '5px' }}
               />
               <span style={{ marginLeft: '10px' }}>10</span>
             </div>
@@ -116,6 +126,7 @@ const FeedbackForm = ({ user }) => {
               value={feedback.question4}
               onChange={handleChange}
               required
+              style={{ width: '100%', padding: '5px', marginTop: '5px' }}
             >
               <option value="">Select an option</option>
               <option value="Yes">Yes</option>
@@ -134,11 +145,24 @@ const FeedbackForm = ({ user }) => {
                 value={feedback.question5}
                 onChange={handleChange}
                 required
+                style={{ flex: '1', marginTop: '5px' }}
               />
               <span style={{ marginLeft: '10px' }}>100%</span>
             </div>
           </label>
-          <button style={{ display: 'block', margin: '0 auto' }} type="submit">
+          <button
+            style={{
+              display: 'block',
+              margin: '0 auto',
+              padding: '10px 20px',
+              backgroundColor: '#4caf50',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              cursor: 'pointer',
+            }}
+            type="submit"
+          >
             Submit Feedback
           </button>
         </form>
