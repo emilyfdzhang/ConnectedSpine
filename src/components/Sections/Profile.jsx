@@ -50,8 +50,8 @@ const Profile = () => {
             <Name>{user['email']}</Name>
             <Prompt>Provide feedback on ConnectedSpine's process</Prompt>
             <br />
-            Past responses, diagnosis, and providers can be implemented here
-            later
+            {/* Past responses, diagnosis, and providers can be implemented here
+            later */}
           </LeftContent>
           <RightContent>
             <FeedbackForm user={user} />
