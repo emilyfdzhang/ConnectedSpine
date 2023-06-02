@@ -74,6 +74,9 @@ const Result = ({ data }) => {
       <Header />
       <Content>
         <Providers resultIndex={resultIndex} data={data} />
+        <div data-testid="result-component" style={{ display: 'none' }}>
+          {resultIndex}
+        </div>
       </Content>
     </Background>
   );

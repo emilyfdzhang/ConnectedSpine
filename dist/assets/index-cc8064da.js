@@ -4361,7 +4361,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   font-weight: 300;
   line-height: 40px;
   letter-spacing: 0px;
-`,V9=()=>{w.useContext(Fe);const e=Fs().currentUser;return z(yi,{image:"../../results.jpg",children:[b(po,{}),b(lo,{children:z($C,{children:[z(zC,{children:[b(j9,{children:"Profile Page"}),b(W9,{children:e.email}),b(H9,{children:"Provide feedback on ConnectedSpine's process"}),b("br",{}),"Past responses, diagnosis, and providers can be implemented here later"]}),b(FC,{children:b(B9,{user:e})})]})})]})},q9="#979797",G9=j.h1`
+`,V9=()=>{w.useContext(Fe);const e=Fs().currentUser;return z(yi,{image:"../../results.jpg",children:[b(po,{}),b(lo,{children:z($C,{children:[z(zC,{children:[b(j9,{children:"Profile Page"}),b(W9,{children:e.email}),b(H9,{children:"Provide feedback on ConnectedSpine's process"}),b("br",{})]}),b(FC,{children:b(B9,{user:e})})]})})]})},q9="#979797",G9=j.h1`
   font-size: 32px;
   font-weight: 300;
   line-height: 40px;
