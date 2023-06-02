@@ -50,7 +50,7 @@ describe('Results component', () => {
     const mockData = {
       '2mGyJ26Lddb8XLknxp0K8q2pVqa2': {
         email: 'test@gmail.com',
-        results: ['result1', 'result2'], // Mocked value for data
+        results: ['result1', 'result2'],
       },
     };
 
