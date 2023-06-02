@@ -118,6 +118,15 @@ Two tests should run and pass.
 
 ## Firebase
 
+Create your own Firebase account and create a project called ConnectedSpine.
+
+When applicable, replace the firebaseConfig in utilities/firebase.js with the config from
+your created project.
+
+When using Firebase's Realtime Database for the application, first
+import the JSON from utilities/data.json because this is the format that data is stored in
+in this application.
+
 To set up the Firebase, run
 
 ```
@@ -168,10 +177,11 @@ _For examples of how to use the website and code, please refer to the [Documenta
 ## Roadmap
 
 - [x] Display results and recommended providers based on questionnaire answers
-  - [ ] Query nearby providers based on the user's zipcode
+  - [ ] Query nearby providers based on the user's zipcode (Story points: 3)
 - [x] Store a user's most recent questionnaire answers
-  - [ ] Store all of the user's previous questionnaire answers
-- [ ] Feedback form where a user can leave feedback on the questionnaire results
+  - [ ] Store all of the user's previous questionnaire answers with diagnosis/providers and display them on the Profile page (Story points: 4)
+- [x] Feedback form where a user can leave feedback on the questionnaire results
+- [ ] Display statistics and satisfaction from other users to feel confident with the app's reliability (Story points: 5)
 
 <!-- See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues). -->
 

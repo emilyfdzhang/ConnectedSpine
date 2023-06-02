@@ -1,10 +1,105 @@
 {
-    "users": {
-        "email": 3,
-        "results": 4
-    },
     "answers": {
-        "date": 2,
-        "answer": 1
+      "1684888456764": {
+        "answers": {
+          "10": [
+            "NO"
+          ],
+          "11": [
+            "Yes, I am experiencing weakness on both sides of my body"
+          ],
+          "12": [
+            "Chills"
+          ],
+          "13": [
+            "Cannot control when I go to the bathroom"
+          ],
+          "14": [
+            "No"
+          ],
+          "00": [
+            "A potential emergency or urgent care visit"
+          ],
+          "01": [
+            "I was injured or hurt myself (in a sports-related activity or otherwise)"
+          ],
+          "02": [
+            "Not sure"
+          ],
+          "03": [
+            "A few days"
+          ],
+          "04": [
+            "Middle Back"
+          ],
+          "05": [
+            "ON THE RIGHT"
+          ],
+          "06": [
+            "SHOOTING PAIN"
+          ],
+          "08": [
+            "Very difficult"
+          ],
+          "09": [
+            "Yes, I have taken muscle relaxers"
+          ],
+          "06-SHOOTING-01-subq-0": [
+            "LEFT"
+          ],
+          "06-SHOOTING-02-subq-0": [
+            "NO"
+          ],
+          "06-SHOOTING-02-subq-1": [
+            "NO"
+          ],
+          "07-subq-0": [
+            "LEAN BACK"
+          ],
+          "07-subq-1": [
+            "LEAN BACK"
+          ],
+          "15-subq-0": [
+            "No"
+          ],
+          "15-subq-1": [
+            "No"
+          ],
+          "15-subq-2": [
+            "No"
+          ],
+          "16-subq-0": [
+            "No"
+          ],
+          "16-subq-1": [
+            "No"
+          ],
+          "16-subq-2": [
+            "No"
+          ],
+          "16-subq-3": [
+            "No"
+          ],
+          "16-subq-4": [
+            "No"
+          ],
+          "basic-info": {
+            "age": "4",
+            "height": "3",
+            "sex": "male",
+            "weight": "3"
+          },
+          "identity": "myself",
+          "zipcode": "12345"
+        },
+        "date": 1684888456764
+      }
+    },
+    "users": {
+      "2mGyJ26Lddb8XLknxp0K8q2pVqa2": {
+        "email": "testemail@gmail.com",
+        "results": 1684888456764
+      }
     }
-}
+  }
+  
