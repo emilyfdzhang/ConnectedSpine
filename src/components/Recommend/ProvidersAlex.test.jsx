@@ -24,6 +24,8 @@ initializeApp(firebaseConfig);
 
 describe('Providers component', () => {
   test('Providers component renders and displays proper text, should pass', () => {
+    // Commenting out lines of code from Providers.jsx causes the test to fail
+    // so, the test fails with broken code
     vi.mock('firebase/auth', () => {
       return {
         getAuth: () => {

@@ -24,6 +24,8 @@ initializeApp(firebaseConfig);
 
 describe('Results component', () => {
   test('Infection is an option when fever is selected by user, should pass', () => {
+    // Commenting out lines of code from Result.jsx causes the test to fail
+    // so, the test fails with broken code
     vi.mock('firebase/auth', () => {
       return {
         getAuth: () => {
