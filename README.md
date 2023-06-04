@@ -182,6 +182,7 @@ _For examples of how to use the website and code, please refer to the [Documenta
   - [ ] Store all of the user's previous questionnaire answers with diagnosis/providers and display them on the Profile page (Story points: 4)
 - [x] Feedback form where a user can leave feedback on the questionnaire results
 - [ ] Display statistics and satisfaction from other users to feel confident with the app's reliability (Story points: 5)
+- [ ] Allowing a user to save their answers by downloading them, getting an email, and getting a text (Story points: 3)
 
 <!-- See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues). -->
 
