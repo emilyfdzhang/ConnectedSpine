@@ -72,11 +72,4 @@ describe('ZipCode tests for users', () => {
       screen.getByText('Hi there! Before we begin, please enter your zipcode.')
     ).toBeDefined();
   });
-
-  // test('Counter should increment by one when clicked', async () => {
-  //   render(<App />);
-  //   const counter = screen.getByRole('button');
-  //   fireEvent.click(counter);
-  //   expect(await screen.getByText('count is: 1')).toBeDefined();
-  // });
 });
