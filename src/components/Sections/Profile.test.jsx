@@ -1,11 +1,11 @@
-import { useContext } from 'react';
 import { vi } from 'vitest';
 import { describe, expect, test } from 'vitest';
-import { fireEvent, render, screen } from '@testing-library/react';
-import ZipCode from './ZipCode';
+import { render, screen } from '@testing-library/react';
+import Profile from './Profile';
+import Login from './Login';
 import AssessmentContext from '../../helpers/Contexts';
 import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+import { faSliders } from '@fortawesome/free-solid-svg-icons';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDPOkyUz5CWBVtnnEbCiXHigIbsRggAVxQ',
@@ -20,17 +20,11 @@ const firebaseConfig = {
 // Initialize Firebase app with configuration
 initializeApp(firebaseConfig);
 
-describe('ZipCode tests for users', () => {
-  const answers = {
-    zipcode: '60103',
-  };
-  let isValid = true;
-  const setIsValid = () => {
-    isValid = !isValid;
-  };
+describe('Profile tests for users', () => {
+  let isLogedIn = true;
 
   // UNCOMMENT THIS TO SEE THAT TEST FAILS WHEN USER IS NOT LOGGED IN, AND COMMENT OUT BELOW TEST
-  //   test('Cant access Zipcode page when user is not logged in, should not pass', () => {
+  //   test('Cant access Profile page when user is not logged in, should not pass', () => {
   //     vi.mock('firebase/auth', () => {
   //       return {
   //         getAuth: () => {
@@ -41,17 +35,15 @@ describe('ZipCode tests for users', () => {
   //       };
   //     });
   //     render(
-  //       <AssessmentContext.Provider value={{ answers, isValid, setIsValid }}>
-  //         <ZipCode />
+  //       <AssessmentContext.Provider value={{ isLogedIn }}>
+  //         <Profile />
   //       </AssessmentContext.Provider>
   //     );
-  //     expect(
-  //       screen.getByText('Hi there! Before we begin, please enter your zipcode.')
-  //     ).toBeDefined();
+  //     expect(screen.getByText('Profile Page')).toBeDefined();
   //   });
 
   // COMMENT OUT ABOVE TEST WHEN USING THIS TEST
-  test('Access Zipcode page when user is logged in, should pass', () => {
+  test('Access Profile page when user is logged in, should pass', () => {
     vi.mock('firebase/auth', () => {
       return {
         getAuth: () => {
@@ -64,12 +56,10 @@ describe('ZipCode tests for users', () => {
       };
     });
     render(
-      <AssessmentContext.Provider value={{ answers, isValid, setIsValid }}>
-        <ZipCode />
+      <AssessmentContext.Provider value={{ isLogedIn }}>
+        <Profile />
       </AssessmentContext.Provider>
     );
-    expect(
-      screen.getByText('Hi there! Before we begin, please enter your zipcode.')
-    ).toBeDefined();
+    expect(screen.getByText('Profile Page')).toBeDefined();
   });
 });
