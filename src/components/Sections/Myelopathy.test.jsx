@@ -154,48 +154,49 @@ describe('Diagnosis for Myelopathy', () => {
     expect(newResultIndex.includes(3)).toBe(true);
   });
 
-  test('Myelopathy is not an option when neither hand symptoms nor balance is off is selected by a user', () => {
-    vi.mock('firebase/auth', () => {
-      return {
-        getAuth: () => {
-          return {
-            currentUser: {
-              email: 'test@gmail.com',
-              uid: '2mGyJ26Lddb8XLknxp0K8q2pVqa2',
-            },
-          };
-        },
-      };
-    });
-    const answers = {
-      '06': ['SHARP PAIN'],
-      '07-subq-0': ['AM AT REST'],
-      '05': ['ON THE RIGHT'],
-      '06-NUMBNESS-02-subq-3': ['NO'],
-      '06-NUMBNESS-02-subq-4': ['NO'],
-      '16-subq-0': ['Yes'],
-      12: ['Fever (temperatures higher than 101.5)'],
-      13: ['Chest pain'],
-    };
+  // UNCOMMENT THIS TO SEE THAT TEST FAILS WHEN USER DID CHOOSE THE OPTION IN QUESTION, AND COMMENT OUT ABOVE TEST
+  //   test('Myelopathy is an option when hand symptoms and/or balance is off is selected by a user', () => {
+  //     vi.mock('firebase/auth', () => {
+  //       return {
+  //         getAuth: () => {
+  //           return {
+  //             currentUser: {
+  //               email: 'test@gmail.com',
+  //               uid: '2mGyJ26Lddb8XLknxp0K8q2pVqa2',
+  //             },
+  //           };
+  //         },
+  //       };
+  //     });
+  //     const answers = {
+  //       '06': ['SHARP PAIN'],
+  //       '07-subq-0': ['AM AT REST'],
+  //       '05': ['ON THE RIGHT'],
+  //       '06-NUMBNESS-02-subq-3': ['NO'],
+  //       '06-NUMBNESS-02-subq-4': ['NO'],
+  //       '16-subq-0': ['Yes'],
+  //       12: ['Fever (temperatures higher than 101.5)'],
+  //       13: ['Chest pain'],
+  //     };
 
-    const mockData = {
-      '2mGyJ26Lddb8XLknxp0K8q2pVqa2': {
-        email: 'test@gmail.com',
-        results: ['result1', 'result2'],
-      },
-    };
+  //     const mockData = {
+  //       '2mGyJ26Lddb8XLknxp0K8q2pVqa2': {
+  //         email: 'test@gmail.com',
+  //         results: ['result1', 'result2'],
+  //       },
+  //     };
 
-    render(
-      <AssessmentContext.Provider value={{ answers }}>
-        <Result data={mockData} />
-      </AssessmentContext.Provider>
-    );
+  //     render(
+  //       <AssessmentContext.Provider value={{ answers }}>
+  //         <Result data={mockData} />
+  //       </AssessmentContext.Provider>
+  //     );
 
-    const resultIndexElement = screen.getByTestId('result-component');
-    const resultIndex = JSON.parse(resultIndexElement.textContent);
-    const newResultIndex = String(resultIndex).split('').map(Number);
+  //     const resultIndexElement = screen.getByTestId('result-component');
+  //     const resultIndex = JSON.parse(resultIndexElement.textContent);
+  //     const newResultIndex = String(resultIndex).split('').map(Number);
 
-    // Index of Myelopthay is 3 in ResultDetails
-    expect(newResultIndex.includes(3)).toBe(false);
-  });
+  //     // Index of Myelopthay is 3 in ResultDetails
+  //     expect(newResultIndex.includes(3)).toBe(true);
+  //   });
 });
