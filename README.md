@@ -202,7 +202,7 @@ Laura Park - [https://github.com/laurappark](https://github.com/laurappark)
 
 Derek Yu - [https://github.com/dyu222](https://github.com/dyu222)
 
-Emily Zhang - [https://github.com/emilyfdzhang](https://github.com/emilyfdzhang)
+Emily Wei - [https://github.com/emkwei](https://github.com/emkwei)
 
 Project Link: [https://github.com/cs394-s23/ConnectedSpine](https://github.com/cs394-s23/ConnectedSpine)
 
